@@ -1,0 +1,258 @@
+\chapter{Reengenharia de Software}\label{cpReengenhariaSoftware}
+
+Nesse capítulo é descrita a situação atual do sistema, sua modelagem e arquitetura.
+
+\section{Diagrama de Classe de Domínio}
+
+O diagrama de classe de domínio é a representação visual de classes conceituais, ou objetos do mundo real. Também é chamado de modelo conceitual, que significa uma representação de classes conceitos do mundo real, não de objetos de \textit{software} \cite{Larman2007}.
+
+Durante a tradução do código fonte dos modelos de classes do \textit{Django}, foi constatada nenhuma padronização em nomes de váriaveis e classes. Abaixo algumas considerações:
+
+\begin{itemize}
+	\item Os campos não possuem nomes padronizados utilizando \textit{CamelCase}
+	\item Nomes de campos escritos em inglês e em português
+	\item Nomes de classes escritos em inglês e em português
+	\item Nomes de classes não são intuitivos quanto ao seu objetivo
+\end{itemize}
+
+\textit{CamelCase} é a denominação em inglês para a prática de escrever palavras compostas, onde cada palavra é iniciada com minúscula ou maiúscula e unidas sem espaço. Exemplo: 
+
+\begin{itemize}
+	\item lowerCamelCase
+	\item UpperCamelCase
+\end{itemize}
+
+\newpage
+
+A figura \ref{imgDominio} representa as classes do portal que é utilizado atualmente. 
+
+\FloatBarrier
+\begin{figure}[!htb]
+	\centering
+	\caption{Diagrama de Domínio do Portal de Algoritmos Atual}
+	\includegraphics[width=15cm]{UML/portal-atual.png}
+	\label{imgDominio}
+	Fonte: (AUTOR, 2015)
+\end{figure}
+\FloatBarrier
+
+Abaixo é descrito o que cada classe representa no \textit{software} atual, visa-se manter todas as funcionalidades atuais após a evolução do mesmo, e adicionar algumas novas.
+
+\subsection{User}
+
+\textit{User} representa os usuários. O usuário tem algumas funções importantes no sistema, somente com ele é possível ter acesso a áreas restritas, bem como resolver os exercícios do portal.
+
+\subsection{Groups}
+
+\textit{Group} representa os grupos do \ac{ORM} do \textit{framework django}. Essa classe tem por objetivo agrupar usuários com determinadas permissões, mas para o sistema atual ela não é utilizada.
+
+\subsection{Permission}
+
+\textit{Permission} corresponde às permissões utilizadas no sistema. Tem por objetivo definir permissões de acesso ao sistema, como por exemplo se um usuário que possui acesso ao gerenciamento do portal pode cadastrar um aluno ou um novo problema.
+
+\subsection{ContentType}
+
+\textit{ContentType} corresponde aos tipos de conteúdo. É uma classe padrão do \textit{Framework Django}, que representa informações dos modelos utilizados no projeto. Sempre que é criado um modelo novo é criado um tipo de conteúdo automaticamente.
+
+\subsection{Aluno}
+
+Aluno corresponde aos alunos cadastrados no sistema. No portal essa classe é um complemento aos dados do usuário, representando um aluno com suas respectivas informações.
+
+\subsection{Professor}
+
+Professor corresponde aos professores que podem cadastrar problemas no sistema. No portal é um complemento aos dados do usuário, representando um professor com suas respectivas informações.
+
+\subsection{Turma}
+
+Turma corresponde a turmas cadastradas no sistema. Turmas são usadas para agrupar alunos. Essa classe não é utilizada no sistema atual.
+
+\subsection{Problema}
+
+Problema corresponde aos problemas. Essa classe representa todas as informações correspondentes ao problema. Somente administradores do portal tem permissão para gravar infomações. Essas permissões não são controladas pela classe de domínio \textit{Permission}. Esse controle funciona através do campo \textit{is\_superuser} da classe de domínio \textit{User}.
+
+\subsection{Pchave}
+
+Pchave corresponde às palavras-chave. Representa uma palavra-chave que é utilizada no modelo a seguir. Palavras-chave é um facilitador para a pesquisa de problemas.
+
+\subsection{PchaveProb}
+
+PchaveProb corresponde à relação entre a palavra-chave e um problema. Essa classe é utilizada para poder referenciar mais de uma palavra-chave para o mesmo problema.
+
+\subsection{EProblema}
+
+EProblema corresponde às entradas e saídas esperadas de um determinado problema. Nela é posssível informar alguma característica que ajude o usuário a resolver um determinado exercício.
+
+\subsection{SProblema}
+
+SProblema corresponde às soluções submetidas pelos usuários em algum exercício resolvido. Possui relação direta com o usuário e um problema.
+
+Nesta seção foram descritas as classes de domínios do portal de algoritmos, a seguir é exibida as interfaces gráficas.
+
+\section{Interfaces Gráficas}
+
+Nessa seção são descritas as interfaces gráficas atuais do software, bem como os problemas encontrados nelas.
+
+\subsection{Cadastro de Aluno}
+
+A figura \ref{imgCadastroAluno} é a interface de Cadastro de  Aluno, que é realizado pelo próprio aluno. As informações do aluno serão mantidas nas intefaces novas, mantendo assim consistência nas informações dos mesmos.
+
+\FloatBarrier
+\begin{figure}[!htb]
+	\centering
+	\caption{Cadastro de Aluno}
+	\includegraphics[width=15cm]{imagens/portal-antigo/cadastro-aluno.png}
+	\label{imgCadastroAluno}
+	Fonte: (AUTOR, 2015)
+\end{figure}
+\FloatBarrier
+
+Problemas encontrados:
+
+\begin{itemize}
+	\item \textit{Java Applet} que funciona somente no Internet Explorer após algumas configurações nas exceções do \textit{Java}.
+	\item Pouca Usabilidade.
+		\subitem O cadastro do aluno está na mesma interface da programação de algoritmos.
+\end{itemize}
+
+\subsection{Criação de Solução de Problemas}
+
+A figura \ref{imgProblemaSelecionado} exibe um aluno já autenticado no portal e um problema e sua solução já selecionados. Nessa interface gráfica encontramos as seguintes funcionalidades:
+
+\begin{itemize}
+	\item Criar nova solução.
+	\item Salvar solução.
+	\item Executar solução.
+	\item Validar solução.
+\end{itemize}
+
+\FloatBarrier
+\begin{figure}[!htb]
+	\centering
+	\caption{Criação de Solução de Problemas}
+	\includegraphics[width=15cm]{imagens/portal-antigo/problema-selecionado.png}
+	\label{imgProblemaSelecionado}
+	Fonte: (AUTOR, 2015)
+\end{figure}
+
+Problemas encontrados:
+
+\begin{itemize}
+	\item \textit{Java Applet} que funciona somente no Internet Explorer após algumas configurações nas exceções do \textit{Java}.
+	\item Pouca Usabilidade.
+		\subitem Para selecionar outro problema são necessárias diversas confirmações antes de executar a ação.
+\end{itemize}
+\FloatBarrier
+
+\newpage
+
+\subsection{Gerenciamento de Alunos}
+
+A figura \ref{imgAdministracaodeAlunos} é a interface de gerenciamento de alunos. Nessa interface encontramos as seguintes funcionalidades:
+
+\begin{itemize}
+	\item Pesquisa de problemas: É possível realizar uma pesquisa livre, entendendo-se por livre qualquer palavra digitada no campos de pesquisa.
+	\item Pesquisa de alunos: É possível realizar uma pesquisa livre, entendendo-se por livre qualquer palavra digitada no campos de pesquisa.
+	\item Selecionando um problema, automaticamente o sistema faz uma pesquisa dos alunos que já solucionaram o problema, e selecionando o aluno é realizada uma pesquisa para encontrar as soluções desse aluno.
+	\item Selecionando um aluno, automaticamente o sistema faz uma pesquisa dos problemas que esse aluno já resolveu, e selecionando o problema é realizada uma pesquisa para encontrar as soluções desse aluno.
+\end{itemize}
+
+\FloatBarrier
+\begin{figure}[!htb]
+	\centering
+	\caption{Gerência de Alunos}
+	\includegraphics[width=15cm]{imagens/portal-antigo/gerencia-de-alunos.png}
+	\label{imgAdministracaodeAlunos}
+	Fonte: (AUTOR, 2015)
+\end{figure}
+\FloatBarrier
+
+Problemas encontrados:
+
+\begin{itemize}
+	\item Pouca Usabilidade.
+		\subitem Campos dispostos na interface de maneira pouco intuitiva ao usuário.
+\end{itemize}
+
+\subsection{Gerenciamento de Problemas}
+
+A figura \ref{imgAdministracaodeProblemas} é a interface de gerenciamento de problemas. Nessa interface encontramos as seguintes funcionalidades:
+
+\begin{itemize}
+	\item Cadastrar novo problema
+	\item Editar um problema
+	\subitem Alterar descrição e dicas
+	\subitem Alterar palavras-chave
+	\subitem Alterar entradas e saídas
+\end{itemize}
+
+\FloatBarrier
+\begin{figure}[!htb]
+	\centering
+	\caption{Gerência de Problemas}
+	\includegraphics[width=15cm]{imagens/portal-antigo/gerencia-de-problemas.png}
+	\label{imgAdministracaodeProblemas}
+	Fonte: (AUTOR, 2015)
+\end{figure}
+\FloatBarrier
+
+Problemas encontrados:
+
+\begin{itemize}
+	\item Pouca Usabilidade.
+		\subitem Campos dispostos na interface de maneira pouco intuitiva ao usuário.
+		\subitem Não possui campo de pesquisa.
+		\subitem Ações descentralizadas que confundem o usuário.
+\end{itemize}
+
+\newpage
+
+\subsection{Edição de Palavra-Chave}
+
+A figura \ref{imgAdministracaodeProblemasPalavraChave} mostra a mensagem de sucesso após a edição de alguma informação do problema.
+
+\FloatBarrier
+\begin{figure}[!htb]
+	\centering
+	\caption{Edição de palavras-chave}
+	\includegraphics[width=15cm]{imagens/portal-antigo/gerencia-de-problemas-editando-palavras-chaves.png}
+	\label{imgAdministracaodeProblemasPalavraChave}
+	Fonte: (AUTOR, 2015)
+\end{figure}
+\FloatBarrier
+
+Problemas encontrados:
+
+\begin{itemize}
+	\item Pouca Usabilidade
+		\subitem A mensagem não possui uma informação clara do que foi editado, ou o que foi realizado.
+\end{itemize}
+
+\newpage
+
+\subsection{Solução de Problemas}
+
+A figura \ref{imgAdministracaodeProblemasSolucao} exibe a solução de um problema em uma nova janela. 
+
+\FloatBarrier
+\begin{figure}[!htb]
+	\centering
+	\caption{Visualizando solução de um aluno}
+	\includegraphics[width=15cm]{imagens/portal-antigo/administracao-de-problemas-visualizando-solucao-partindo-do-problema.png}
+	\label{imgAdministracaodeProblemasSolucao}
+	Fonte: (AUTOR, 2015)
+\end{figure}
+\FloatBarrier
+
+Problemas encontrados:
+
+\begin{itemize}
+	\item Pouca Usabilidade.
+		\subitem A nova janela que é aberta é muito pequena e sem a possibilidade de aumentar.
+		\subitem Não é possível editar.
+\end{itemize}
+
+
+Os problemas encontrados no \textit{software} atual prejudicam a usabilidade do mesmo. Atualmente ele está limitado a apenas um navegador de internet, no caso o \textit{Internet Explorer}. 
+
+Para solucionar e deixá-lo mais usável, fazendo com que mais alunos sejam beneficiados pelo portal, bem como facilitando o uso por parte dos professores,  no próximo capítulo será descrita toda a modelagem, novas interfaces e novas funcionalidades, utilizando-se de tecnologias mais atuais.
+

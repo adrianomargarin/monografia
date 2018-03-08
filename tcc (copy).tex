@@ -1,0 +1,202 @@
+\documentclass{iiufrgs}
+\usepackage[latin1]{inputenc}
+\usepackage{graphicx}
+\usepackage[section]{placeins}
+\usepackage{setspace}
+\usepackage{fontenc}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{url}
+\usepackage[printonlyused]{acronym}
+\usepackage{rotating}
+\usepackage{bytefield}
+\usepackage[table]{xcolor}
+\usepackage{multirow}
+\usepackage{subfigure}
+\usepackage{lscape}
+\usepackage{enumitem}
+\onehalfspacing
+
+\hyphenation{cmdStart}
+\hyphenation{cmdPublishService}
+\hyphenation{cmdSearchIdentifiers}
+\hyphenation{cmdSearchService}
+\hyphenation{cmdConnect}
+\hyphenation{cmdSend}
+\hyphenation{cmdReceive}
+\hyphenation{CALVERT}
+\hyphenation{BETTSTETTER}
+\hyphenation{ARCINIEGAS}
+\hyphenation{DEITEL}
+\hyphenation{MICROSOFT}
+
+\setdescription{topsep=1em,parsep=0pt,partopsep=0pt,itemsep=0pt}
+\setitemize{topsep=1em,parsep=0pt,partopsep=0pt,itemsep=0pt}
+\setenumerate{topsep=1em,parsep=0pt,partopsep=0pt,itemsep=0pt}
+
+\course{\cgcc}
+\title{Portal de Algoritmos da Universidade de Caxias do Sul \\\large Evolução da ferramenta de gerenciamento do portal de algoritmos, visando substituir tecnologias defasadas}
+\author{Margarin}{Adriano}
+\advisor[]{Nascimento}{Alexandre Erasmo Krohn}
+\coadvisor[]{Dornele}{Ricardo de Vargas}
+\location{Caxias do Sul}{}
+\bibpunct{(}{)}{;}{a}{,}{,}
+
+\def\lstlistlistingname{Lista de Trechos de Código}
+\def\lstlistingname{Trecho de Código}
+\definecolor{lightgray}{rgb}{0.95,0.95,0.95}
+\definecolor{darkgray}{rgb}{0.3,0.3,0.3}
+\lstset{
+	language=Java,
+	escapeinside={(*@}{@*)},
+	basicstyle=\scriptsize\color{black}\ttfamily,
+	numbers=left,
+	numberstyle=\scriptsize\ttfamily,
+	stepnumber=1,
+	numbersep=5pt,
+	tabsize=4,
+	extendedchars=true,
+	breaklines=true,
+	frame=single,
+	keywordstyle=\color{black}\textbf,
+	keywordstyle=[1]\color{black}\textbf,
+	keywordstyle=[2]\color{black}\textbf,
+	keywordstyle=[3]\color{black}\textbf,
+	keywordstyle=[4]\color{black}\textbf,
+	stringstyle=\color{black}\ttfamily,
+	showspaces=false,
+	showtabs=false,
+	xleftmargin=17pt,
+	framextopmargin=4pt,
+	framexleftmargin=17pt,
+	framexrightmargin=5pt,
+	framexbottommargin=4pt,
+	backgroundcolor=\color{lightgray},
+	showstringspaces=false
+}
+
+\newcommand{\bitformattingDefault}[1]{%
+	\tiny
+	\ifnum#1=6$\cdots$\else#1\fi
+}
+\newcommand{\colorbitbox}[3]{%
+	\rlap{\bitbox{#2}{\color{#1}\rule{\width}{\height}}}%
+\bitbox{#2}{#3}}
+\definecolor{colorPacote1}{rgb}{0.80,0.80,0.80}
+\definecolor{colorPacote2}{rgb}{0.89,0.89,0.89}
+\definecolor{colorPacote3}{rgb}{0.98,0.98,0.98}
+
+\begin{document}
+
+\maketitle
+
+\begin{titlepage}
+%\setcounter{page}{2} - Inclui o número da página
+%\thispagestyle{headings}
+\vfill
+
+\begin{center}
+{\setlength{\unitlength}{1cm}\makebox(12,6.5){\parbox[c]{18cm}{\setlength{\parskip}{0.8cm}\center\vskip -1.2cm\LARGE{\bf Portal de Algoritmos da Universidade de Caxias do Sul \\\large Evolução da ferramenta de gerenciamento do portal de algoritmos, visando substituir tecnologias defasadas}\par \normalsize por\par \large Adriano Margarin\par}}}
+\end{center}
+
+{\large Trabalho de Conclusão de Curso submetido ao curso de Bacharelado em Sistemas de Informação do Centro de Ciências Exatas e Tecnologia da Universidade de Caxias do Sul, como requisito obrigatório para graduação.}
+
+\vfill
+
+\begin{center}
+{\Large\bf Trabalho de Conclusão de Curso}
+\end{center}
+
+\vfill
+
+\begin{singlespace}
+Orientador: {Alexandre Erasmo Krohn Nascimento\par}
+Coorientador: {Ricardo Vargas Dorneles\par}
+
+Banca examinadora:\par
+\hspace{1cm} {\setlength{\unitlength}{1cm}
+\makebox(9,1){\parbox[c]{9cm}{\center Ricardo Vargas Dorneles\\ CCET/UCS}}}\par
+\hspace{1cm} {\setlength{\unitlength}{1cm}
+\makebox(9,1){\parbox[c]{9cm}{\center André Luis Martinotto\\ CCET/UCS}}}\par
+
+\vfill
+
+\hfill{\setlength{\unitlength}{1cm}\makebox(9,2.5){\parbox[c]{9cm}{\setlength{\parskip}{0.8cm}\center\vskip -1.2cm TRabalho de Conclusão de Curso apresentado em\\ X de Dezembro de 2015\par Daniel Luís Notari\\ Coordenador}}}
+
+\end{singlespace}
+
+\end{titlepage}
+
+\begin{dedicatoria}
+\sffamily\itshape
+
+COLOCAR FRASE
+
+\textsc{AUTOR DA FRASE}
+\end{dedicatoria}
+
+\begin{agradecimentos}
+
+COLOCAR AGRADECIMENTOS
+
+\vspace{20px}
+
+A todos vocês, minha sincera gratidão.
+
+\vspace{90px}
+
+\hfill Adriano Margarin
+\end{agradecimentos}
+
+\tableofcontents
+
+\chapter*{Lista de acrônimos}
+
+\vspace{20px}
+
+\begin{acronym}[XXXXXXXXXX]
+\acro{API}[\textit{API}]{\textit{Application Programming Interface}}
+\acrodefplural{API}[\textit{APIs}]{\textit{Application Programming Interfaces}}
+\acro{HTTP}[\textit{HTTP}]{\textit{Hypertext Transfer Protocol}}
+\acro{JAR}[\textit{JAR}]{\textit{Java Archive}}
+\acro{JDK}[\textit{JDK}]{\textit{Java Development Kit}}
+\acro{AVA}[\textit{AVA}]{\textit{Ambiente Virtual de Aprendizagem}}
+\acro{UCS}[\textit{UCS}]{\textit{Universidade de Caxias do Sul}}
+\acro{UML}[\textit{UML}]{\textit{Unified Modeling Language}}
+\end{acronym}
+
+\listoffigures
+
+\listoftables
+
+\lstlistoflistings
+
+
+\begin{abstract}
+
+COLOCAR RESUMO
+
+\end{abstract}
+
+\begin{englishabstract}{COLOCAR EM INGLÊS O TÍTULO DO TCC}
+
+COLOCAR RESUMO EM INGLÊS
+
+\end{englishabstract}
+
+\acresetall
+
+\include{conteudo/capitulo1}
+\include{conteudo/capitulo2}
+\include{conteudo/capitulo3}
+\include{conteudo/capitulo4}
+\include{conteudo/capitulo5}
+\include{conteudo/capitulo6}
+\include{conteudo/capitulo7}
+\include{conteudo/capitulo8}
+\include{conteudo/capitulo9}
+
+\bibliography{tcc}
+\bibliographystyle{abnt}
+
+\end{document}

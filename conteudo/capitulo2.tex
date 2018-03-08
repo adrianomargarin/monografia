@@ -1,0 +1,341 @@
+\chapter{Evolução de Software}\label{cpReferencial}
+
+Para manter um \textit{software} útil ele deve mudar continuamente. Essa mudança pode ser a partir de uma pressão constante de mudanças que os usuários impõem, para facilitar ou automatizar algumas tarefas do dia-a-dia, entre outros fatores.
+
+Todos os \textit{softwares} passarão pelo processo de envelhecimento, isso é inevitável. Algumas causas de problemas podem ser previstas, minimizando os impactos dos danos que são causados por esse fator. A continuidade de uso do \textit{software} implica que ocorram mudanças, que podem ocorrer em regras de negócio ou nas expectativas dos usuários \cite{Sommerville2011}.
+
+\citet{Rezende2005}, define que um \textit{software} tem um ciclo de vida de no máximo 10 anos, quando ele não sofre novas implementações. O ciclo de vida natural de um \textit{software} abrange as seguintes fases: concepção, construção, implementações, implantação, maturidade e utilização plena, declínio, manutenção e morte.
+
+Devido a esse ciclo de vida, uma evolução de \textit{software} pode ser desencadeada por necessidades de novos componentes, por defeitos relatados ou devido a mudanças de outros sistemas \cite{Sommerville2011}.
+
+A evolução de \textit{software} compreende as mudanças que irão ocorrer a fim de deixá-lo completo e, se possível, livre de erros \cite{Sommerville2011}. Mas para essa evolução acontecer é necessário considerar diversos fatores que servirão de base para que um novo software seja construído, com base nos requisitos do atual.
+
+O processo de evolução varia conforme o tipo de \textit{software} que esteja sendo mantido, dos processos de desenvolvimento e as habilidades das pessoas envolvidas. Em alguns casos a evolução pode ser um processo informal, em que na maioria das vezes as mudanças resultam de conversas com usuários. Já em outros casos é um processo formal, envolvendo documentação estruturada que é produzida em cada estágio do processo \cite{Sommerville2011}.
+
+O processo de evolução de \textit{software} envolve a compreensão do \textit{software} que tem que ser alterado. Para tornar-se possível a evolução é preciso aplicar reengenharia no \textit{software} atual, visando melhorar sua estrutura e inteligibilidade \cite{Sommerville2011}.
+
+Para tornar possível a evolução de \textit{software} é preciso seguir alguns processos. Nas próximas seções serão apresentadas as metodologias e tecnologias que serão utilizadas neste trabalho.
+
+\begin{itemize}
+	\item Reengenharia de \textit{Software}
+	\item Engenharia Reversa
+	\item Engenharia de \textit{Software}
+	\item Processo de \textit{Software}
+	\item Engenharia de Requisitos
+	\item Casos de Uso
+	\item Modelagem de Domínio
+	\item Metodologia ICONIX
+	\item Projeto de Arquitetura
+	\item Usabilidade
+	\item Tecnologias
+		\begin{itemize}
+			\item Python e Django
+			\item Java EE
+			\item Wildfly
+			\item DAO
+			\item \ac{REST}
+			\item AngularJS
+		\end{itemize}
+\end{itemize}
+
+\section{Reengenharia de Software}
+
+A reengenharia de \textit{software} pode envolver a redocumentação do sistema, a refatoração da arquitetura, a mudança de linguagem de programação para uma liguagem mais moderna e modificações e atualização de estrutura e dos dados de sistema. A funcionalidade não é alterada, e geralmente deve evitar grandes mudanças na arquitetura \cite{Sommerville2011}.
+
+Alguns benefícios importantes na reengenharia é o risco reduzido quando trata-se de um \textit{software} crítico de negócio, onde podem haver erros nas especificações e atrasos no início do novo, e o custo reduzido, onde o custo da reengenharia se torna significamente menor do que o desenvolvimento de um novo.
+
+A Figura \ref{imgReengenhariaSoftware} demonstra o processo geral da reengenharia, onde a entrada é um sistema legado e a saída é uma versão melhorada do mesmo.
+
+\FloatBarrier
+\begin{figure}[!htb]
+	\centering
+	\caption{Processo de Reengenharia}
+	\includegraphics[width=15cm]{imagens/processo-reengenharia.png}
+	\label{imgReengenhariaSoftware}
+	Fonte: \cite{Sommerville2011}
+\end{figure}
+\FloatBarrier
+
+\begin{enumerate}
+	\item Tradução de código-fonte: através de alguma ferramenta de tradução, o programa é convertido para uma versão mais atual da linguagem ou para outra diferente.
+	\item Engenharia reversa: o programa é analisado e as informações são extraídas a partir dele.
+	\item Melhoria na estrutura de programa: a estrutura de controle é analisada e modificada para que se torne mais fácil de ler e entender. 
+	\item Modularização de programa: partes relacionadas do programa são agrupadas, e onde houver redundância, se apropriado, esta é removida. Em alguns casos, esse estágio pode envolver refatoração de arquitetura. 
+	\item Reengenharia dos dados: os dados processados pelo programa são alterados para refletir as mudanças de programa.
+\end{enumerate}
+
+Nem sempre é necessário seguir todas as etapas da Figura \ref{imgReengenhariaSoftware}. Pode haver casos em que se utiliza o mesmo ambiente de desenvolvimento da linguagem de programação. Nesse caso não é necessário a tradução do código \cite{Sommerville2011}.
+
+Na reengenharia um dos processos é a engenharia reversa. Na próxima seção é descrito como ela é utilizada no processo de evolução.
+
+\section{Engenharia Reversa}
+
+A engenharia reversa, segundo \citet{Sommerville2011}, consiste em uma técnica de análise de software com o objetivo de recuperar o projeto e suas especificações técnicas.
+
+É possível fazer a engenharia reversa através de diversas formas, na maioria das vezes utiliza os de códigos fontes, conhecimentos técnicos e experiências dos próprios desenvolvedores.
+
+Na seção seguinte é descrita a Engenharia de \textit{software} e suas respectivas camadas.
+
+\section{Engenharia de Software}
+
+Engenharia de \textit{software} é uma disciplina cujo foco está em todos os aspectos da produção de software, partindo dos estágios iniciais da especificação do \textit{software} até sua manutenção, quando o \textit{software} já está em funcionamento \cite{Sommerville2011}. De acordo com \citet{Rezende2005}, ``é a metodologia de desenvolvimento e manutenção de sistemas modulares, com as as seguintes características: processo dinâmico, integrado e inteligente de soluções tecnológicas; adequação aos requisitos funcionais do negócio do cliente e seus respectivos procedimentos pertinentes; efetivação de padrões de qualidade, produtividade e efetividade em suas atividades e produtos; fundamentação da Tecnologia da Informação disponível, viável, oportuna e personalizada; planejamento e gestão de atividades, recursos, custos e datas".
+
+Conforme podemos ver na Figura \ref{imgCamadasEngenhariaSoftware}, a engenharia de \textit{software} é uma tecnologia em camadas. A base para a engenharia de \textit{software} é a camada de processos. O processo de engenharia de \textit{software} é a conexão entre as camadas de tecnologia coesa e possibilita o desenvolvimento do \textit{software} \cite{Pressman2011}.
+
+\FloatBarrier
+\begin{figure}[!htb]
+	\centering
+	\caption{Camadas da Engenharia de Software}
+	\includegraphics[width=15cm]{imagens/camadas-engenharia-de-software.png}
+	\label{imgCamadasEngenhariaSoftware}
+	Fonte: \cite{Pressman2011}
+\end{figure}
+\FloatBarrier
+
+A engenharia de \textit{software} é realizada através de processos de \textit{software}, que serão descritos a seguir.
+
+\section{Processo de Software}
+
+Um processo de \textit{software} é um conjunto de atividades, ações e tarefas relacionadas que levam à produção de um produto de \textit{software} \cite{Sommerville2011, Pressman2011}. No contexto da engenharia de \textit{software}, um processo não é uma prescrição rígida de como desenvolver, ele é adaptável, que possibilita às pessoas realizar o trabalho de selecionar e escolher o conjunto apropriado de ações e tarefas \cite{Pressman2011}.
+
+Dentre muitos processos de \textit{software} existentes todos devem incluir quatro atividades fundamentais \cite{Sommerville2011}.
+
+\begin{itemize}
+	\item Especificação de \textit{software}
+	\item Projeto e implementação de \textit{software}
+	\item Validação de \textit{software}
+	\item Evolução de \textit{software}
+\end{itemize}
+
+De acordo com \citet{Sommerville2011}, essas atividades fazem parte do processo de \textit{software}. Na prática eles são complexos, possuem subatividades, entre elas levantamento de requisitos, projeto de arquitetura, testes etc.
+
+Para melhor entendimento desses processos, nas próximas seções serão descritas com mais detalhes algumas dessas atividades.
+
+\section{Engenharia de requisitos}
+
+Engenharia de requisitos de sistemas basicamente é o conjunto das descrições do que o sistema deve fazer, o que ele oferece de serviço e restrições a seu funcionamento \citet{Sommerville2011}. A engenharia de requisitos abrange sete tarefas distintas: concepção, levantamento, elaboração, negociação, especificação, validação e gestão, onde geralmente algumas ocorrem em paralelo e todas podem ser adaptadas à necessidade de cada projeto \cite{Pressman2011}
+
+Somente descrever os requisitos não é suficiente, é preciso entender o que está descrito, e essa é uma das tarefas mais difíceis enfrentadas por um engenheiro de \textit{software}. 
+
+Os requisitos de \textit{software} frequentemente são classificados em funcionais e não-funcionais.
+
+Requisitos funcionais são declarações de serviço que o sistema deve fornecer, de como fornecer, de como o sistema deve reagir a entradas específicas e de como o sistema deve se comportar em determinadas sistuações. Em alguns casos, os requisitos funcionais também podem explicitar o que o sistema não deve fazer \cite{Sommerville2011}.
+
+Requisitos não-funcionais são restrições aos serviços ou funções oferecidas pelo sistema. Incluem restrições de \textit{timing}, restrições no processo de desenvolvimento e restrições impostas pelas normas. Ao contrário das características individuais ou serviços do sistema, os requisitos não funcionais muitas vezes aplicam-se ao sistema como um todo \cite{Sommerville2011}.
+
+\section{Casos de Uso}
+
+Casos de uso tem por objetivo descrever os requisitos funcionais, delimitação do contexto do sistema documentado e entendimento dos requisitos, onde cada caso de uso deve descrever somente uma funcionalidade ou objetivo do sistema \cite{Sommerville2011} e \cite{Pressman2011}.
+
+Um conjunto de casos de uso representa todas as possíveis interações que são descritas nos requisitos de sistema. Os atores podem ser pessoas ou outros sistemas e são representados como figuras ``palitos" \ e cadas classe de interação é representada por uma elipse \cite{Sommerville2011}.
+
+Casos de uso possuem atores e cenários, onde os atores podem ser pessoas ou outros sistemas que interagem entre si, e os cenários são sequências específicas de ações. Em outros termos casos de uso é uma coleção de cenários relacionados ao sucesso ou fracasso \cite{Larman2007}.
+
+A Figura \ref{imgCasoUso} apresenta um exemplo de caso de uso de um consultório médico, onde podemos observar todos os atores envolvidos e suas respectivas ações.
+
+\FloatBarrier
+\begin{figure}[!htb]
+	\centering
+	\caption{Casos de uso}
+	\includegraphics[width=15cm]{imagens/caso-de-uso.png}
+	\label{imgCasoUso}
+	Fonte: \cite{Sommerville2011}
+\end{figure}
+\FloatBarrier
+
+A modelagem de caso de uso é um apoiador para a elicitação de requisitos, geralmente descreve o que o usuário espera do sistema. Cada caso de uso representa uma tarefa que envolve a interação externa com o sistema \cite{Sommerville2011}.
+
+\section{Metodologia ICONIX}
+
+Para desenvolver um projeto, é necessário uma metodologia. Nesse trabalho, será utilizada a metodologia ICONIX.
+
+A metodologia ICONIX foi elaborada por Doug Rosenberg e Kendal Scott, a partir de um processo simples e unificado dos pesquisadores Booch, Rumbaugh e Jacobson \cite{Rosenberg2005}.
+
+As vantagens de se utilizar a metodologia ICONIX são: metodologia prática, simples, especifica de forma objetiva e possui rastreabilidade dos requisitos \cite{Rosenberg2005}. 
+
+A metodologia ICONIX utiliza-se de um subconjunto da \ac{UML} no qual apenas 4 diagramas são utilizados: diagramas de classe, diagrama de sequência, diagrama de robustez e caso de usos \cite{Rosenberg2005}.
+
+\subsection{Diagramas de Classe}
+
+Os diagramas de classes são usados no desenvolvimento de um modelo de sistema orientado a objetos para mostrar as classes de um sistema e as associações entre essas classes \cite{Sommerville2011}.
+
+A Figura \ref{imgExDiagramaClasse} indica as relações entre os objetos da classe Paciente e objetos de outras classes \cite{Sommerville2011}.
+
+\FloatBarrier
+\begin{figure}[!htb]
+	\centering
+	\caption{Diagramas de Classe}
+	\includegraphics[width=13cm]{imagens/exemplo-diagrama-de-classe.png}
+	\label{imgExDiagramaClasse}
+	\newline
+	Fonte: \cite{Sommerville2011}
+\end{figure}
+\FloatBarrier
+
+\subsection{Diagrama de Sequência}
+
+Os diagramas de sequência geralmente são utilizados para modelar as interações entre os atores e os objetos em um sistema \cite{Sommerville2011}.
+
+\FloatBarrier
+\begin{figure}[!htb]
+	\centering
+	\caption{Diagrama de Sequência}
+	\includegraphics[width=15cm]{imagens/exemplo-diagrama-sequencia.png}
+	\label{imgExSequencia}
+	Fonte: \cite{Sommerville2011}
+\end{figure}
+\FloatBarrier
+
+A Figura \ref{imgExSequencia} pode ser lida da seguinte maneira:
+
+\begin{enumerate}
+	\item A recepcionista do médico aciona o método VerInfo em uma instância P da classe de objeto InfoPaciente, fornecendo o identificador do paciente (PID, do inglês \textit{patient's identifier}). A instância P é um objeto de interface  do usuário, exibido como um formulário  que mostra os dados do paciente.
+	\item A instância P chama o banco de dados para retornar as informações necessárias, fornecendo o identificador da recepcionista, que permite a verificação de proteção (nessa fase, não importa de onde vem o esse UID - do inglês,\textit{user's identifier}).
+	\item O banco de dados verifica, com o sistema de autorização, que o usuário está autorizado a essa ação.
+	\item Se autorizado, as informações de pacientes são retornadas, e um formulário é preenchido na tela do usuário. Se falhar a autorização, aparece uma mensagem de erro.
+\end{enumerate}
+
+\subsection{Diagrama de Robustez}
+
+A Figura \ref{imgExRobustez} representa a interação entre o usuário e as interface de um sistema, bem como todas as interações entre as interfaces.
+
+Como podemos observar na Figura \ref{imgExRobustez} o ator usuário clica no ``ícone de contatos" na tela principal, após o clique é exibido a tela de contatos, na sequência o ator clica em ``adicionar novo" no qual resulta na exibição da tela de novo contato, continuando a ação o ator preenche os campos selecionados e faz a ação de salvar contato na memória retornando assim para para tela de exibição de contatos.
+
+\FloatBarrier
+\begin{figure}[!htb]
+	\centering
+	\caption{Diagrama e Robustez}
+	\includegraphics[width=10cm]{imagens/exemplo-diagrama-robustez.png}
+	\label{imgExRobustez}
+	\newline
+	Fonte: \cite{Galeote2015}
+\end{figure}
+\FloatBarrier
+
+\subsection{Casos de Usos}
+
+A Figura \ref{imgExCasoUso} representa o caso de uso de transferência de dados que envolve os atores Recepcionista do médico e Sistema de registro de pacientes \cite{Sommerville2011}.
+
+## COLOCAR EXPLICAÇÃO
+
+\FloatBarrier
+\begin{figure}[!htb]
+	\centering
+	\caption{Casos de uso de transferência de dados}
+	\includegraphics[width=13cm]{imagens/exemplo-caso-de-uso.png}
+	\label{imgExCasoUso}
+	\newline
+	Fonte: \cite{Sommerville2011}
+\end{figure}
+\FloatBarrier
+
+\section{Modelos de Domínio}
+
+Um modelo de domínio exibe como está organizado o sistema em termos de seus componentes e seus relacionamentos. Podem ser estáticos ou dinâmicos, onde os modelos estáticos mostram a estrutura do sistema e os dinâmicos, onde é exibido quando ele está em execução \cite{Sommerville2011}.
+
+De acordo com \citet{Sommerville2011}, ``os diagramas de classe são utilizados no desenvolvimento de um modelo de sistema orientado a objetos para mostrar as classes de um sistema e as associações entre essas classes".
+
+Um modelo de domínio é uma representação visual de classes conceituais, ou objetos do mundo real, em um domínio \cite{Larman2007}. Também são conhecidos como modelos conceituais. 
+
+\section{Projeto de Arquitetura}
+
+O projeto de arquitetura é a representação da estrutura de dados e seus componentes. Ele compreende como o sistema deve ser organizado a fim de atender as necessidades levantadas na engenharia de requisitos \cite{Sommerville2011, Pressman2011}.
+
+Na arquitetura em camadas o \textit{software} é dividido em camadas, onde cada camada possui um próposito bem definido e cada camada conhece apenas a camada imediatamente inferior \cite{Sommerville2011}.
+
+Na arquitetura em camadas encontram-se todas as camadas do \textit{software}, e define-se a responsabilidade de cada uma. Esse padrão de arquitetura é uma das maneiras de se conseguir independência entre elas, como por exemplo o padrão \ac{MVC}, em que são separadas as camadas de apresentação da interação dos dados do sistema \cite{Sommerville2011, Pressman2011}.
+
+\section{Usabilidade}
+
+Sistemas devem ser fáceis de usar e de aprender, flexíveis e devem despertar nas pessoas uma boa atitude. A usabilidade é a principal busca da \ac{IHC}. 
+
+De acordo com \citet{Benyon2011}, um sistema com usabilidade terá as seguintes características:
+
+\begin{itemize}
+	\item Será eficiente no sentido de que as pessoas poderão fazer as coisas mediante uma quantidade adequada de esforço.
+	\item Será eficaz no sentido de que conterá as funções e o conteúdo de informações adequadas e organizadas de forma apropriada.
+	\item Será fácil aprender como fazer as coisas e será fácil de lembrar como fazê-las após algum tempo.
+	\item Será seguro de operar na variedade de contextos em que será usado.
+	\item Terá um alto grau de utilidade no sentido de que fará as coisas que as pessoas querem que sejam feitas.
+\end{itemize}
+
+O portal de algoritmos atual apresenta algumas telas confusas, que podem ser observadas no capítulo \ref{cpProposta} na seção \ref{scPrototipos}. Esse trabalho pretende melhorá-las.
+
+Até aqui foram apresentadas as metodologias que serão utilizadas na evolução do aplicativo. Na seção seguinte serão apresentadas as tecnologias escolhidas para a evolução do gerenciamento do portal de algoritmos.
+
+\section{Tecnologias}
+
+Nesta seção serão descritas as tecnologias que vão ser utilizadas na evolução do portal de algoritmos, tais como a linguagem de programação \textit{Java}, \ac{REST} e \textit{AngularJS}.
+
+São tecnologias bem consolidades no mercado, com \textit{upgrade} garantido por tempo indeterminado, mantidas por empresas sérias e de grande porte.
+
+\subsection{Python e Django}
+
+O \textit{Python} é uma linguagem interpretada de alto nível, criada por Guido Van Rossum em 1989 e lançada em 1991 e atualmente possui o modelo de desenvolvimento comunitário \cite{Python2015}. Com o auxilio do \textit{framework Django}, criado originalmente para gerenciar conteúdos de um jornal da cidade de Lawrence, no Kansas, é possível definir a modelagem de dados através de classes \textit{Python} e gerar tabelas do banco de dados para manipulação sem a necessidade de \ac{SQL} \cite{Django2015}.
+
+\subsection{Java EE}
+
+A linguagem java é uma linguagem de programação orientada a objetos, com portabilidade, independência de plataforma, extensas bibliotecas de rotinas que facilitam recursos de rede e segurança, podendo executar programas via rede com restrições de execuções \cite{Java2015}. 
+
+Além disso, ela se destaca com a similaridade de sintaxe da linguagem C/C++, facilidade de internacionalização, simplicidade nas especificações, entre outras \cite{Java2015}.
+
+O \ac{JAVA EE} é uma série de especificações que descrevem como deve ser implementado um \textit{software} que faz uso de serviços de infraestrutura. Também é considerado uma maneira de desenvolver aplicativos com suporte a escabilidade, flexibilidade e segurança \cite{Java2015}.
+
+\subsection{WildFly}
+
+O servidor de aplicação \textit{WildFly} implementa a mais recente versão do \ac{JAVA EE}, sendo mantido pela \textit{Red Hat} \cite{Wildfly2015}. 
+
+Os \textit{frameworks} que compõem o \ac{JAVA EE} são fortemente testado em diversas combinações. De acordo com padrões com os quais o servidor foi desenvolvido o desenvolvedor pode focar nas regras de negócio e utilizar-se dos recursos de infraestrutura fornecidas pelo \textit{framework} \cite{Wildfly2015}. 
+
+\subsection{DAO}
+
+\ac{DAO} é um mecanismo de acesso para trabalhar com fonte de dados, essa fonte de dados pode ser um banco de dados relacional, banco de dados orientado a objetos entre outros \cite{Deepak2004}. 
+
+Com \ac{DAO} é possível adaptar a diferentes esquemas de armazenamento sem afetar outros componentes de negócio, basicamente o \ac{DAO} atua como um adaptador entre o componente e a fonte de dados \cite{Deepak2004}.
+
+\subsection{REST}
+
+O \ac{REST} não é um protocolo, é um formato de arquivo ou uma estrutura de desenvolvimento. \ac{REST} é uma solução simples baseada em \ac{HTTP} utilizando-se dos verbos desse protocolo. As princípios fundamentais do \ac{REST} são: dê a todas as coisas um identificador, vincule as coisas, utilize métodos padronizados, recursos com múltiplas representações e comunique sem estado \cite{Rest2000}.
+
+O \ac{REST} possui um conjunto de operações bem definidas, os mais importantes são \textit{GET}, \textit{POST}, \textit{PUT} e \textit{DELETE} \cite{Restful2013}. Conforme \cite{Rest2000}, \ac{REST} é um modelo de arquitetura bem definido para servir aplicações \textit{WEB}.  
+
+\subsection{AngularJS}
+
+AngularJS foi criado por Misko Hevery e Adam Abrons em 2009, sendo seu código fonte aberto (\textit{Open Source}). Ele é um \textit{framework JavaScript} que é executado no navegador de internet do usuário, através do qual é possível aumentar sua produtividade no desenvolvimento \textit{WEB} \cite{Angular2014}.
+
+\textit{AngularJs} foi construído com a crença de que a programação declarativa é a melhor escolha para a construção de intefaces de usuários. Para isso, o \textit{AngularJs} aumenta o vocabulário do \ac{HTML} padrão, tornando a vida dos desenvolvedores mais fácil \cite{Angular2014}.
+
+O resultado é o desenvolvimento reutilizável e aplicação sustentável de componentes, deixando para trás códigos desnecessários e mantendo a equipe focada no que é importante \cite{Angular2014}.
+
+O padrão \ac{MVC} ganhou muita popularidade nas fábricas de \textit{software}, tornando-se um dos projetos de arquitetura empresarial mais utilizados. Basicamente o modelo (\textit{Model}) consiste nos dados da aplicação, regras de negócios, lógicas e funções. A visão (\textit{View}) é a saída de representação dos dados e o controle (\textit{Controller}) faz a intermediação da entrada ou saída para o modelo ou visão.
+
+Uma aplicação em \textit{AngularJS} trabalha com \ac{HTML} e \ac{MVC}, mas também possui serviços, diretivas e filtros \cite{Angular2014}.
+
+A \textit{View} é escrita em \ac{HTML} que faz com que \textit{web designers} e programadores trabalhem lado a lado, com a ajuda das diretivas, que são um tipo de extensão do vocabulário \ac{HTML}, que traz a capacidade de executar tarefas de linguagem de programação \cite{Angular2014}.
+
+Atrás da \textit{View} existe um \textit{Controller}, que contém toda a lógica do negócio usado pela \textit{View}. 
+
+A conexão entre a visão e o controlador é feita por um objeto compartilhado
+chamado \textit{scope}. Ele está localizado entre eles e é usado para trocar informações relacionados com o \textit{Model}.
+
+A figura \ref{imgAngularJS} representa a interação entre os componentes do \textit{AngularJS}
+
+\FloatBarrier
+\begin{figure}[!htb]
+	\centering
+	\caption{Interação entre AngularJS e Arquitetura}
+	\includegraphics[width=15cm]{imagens/diagrama-angularjs.png}
+	\label{imgAngularJS}
+	Fonte: \cite{Angular2014}
+\end{figure}
+\FloatBarrier
+
+\section{Ambiente Virtual de Aprendizagem}
+
+\ac{AVA} é um local virtual que possui um conjunto de elementos tecnológicos, onde são disponibilizadas ferramentas que permitem o acesso a um ou mais cursos ou disciplinas de uma instituição de ensino. De modo geral, um AVA refere-se ao uso de recurso digitais de comunicação, principalmente, através de softwares educacionais via internet que reúnem diversas ferramentas de interação \cite{Oliveira2004, Valentini2005}.
+
+O objetivo de um ambiente virtual de aprendizagem é de facilitar o acesso de alunos ao ensino, práticas de exercícios e livros online para consulta. Na Universidade de Caxias do Sul o \ac{AVA} já é utilizado desde meados de 2005, onde é possível acessar os materiais disponibilizados pelos professores em suas respectivas disciplinas, podendo também acompanhar o cronograma, entre outras funcionalidades \cite{Oliveira2004, Valentini2005}.
+
+O portal de algoritmos é um ambiente virtual de aprendizagem utilizado pelos alunos da \ac{UCS} nas disciplinas do \ac{CCET}, o portal tem por objetivo auxiliar no ensino da lógica de programação através da linguagem do português estruturado \cite{Dorneles2004}.
+
+Vimos até aqui todos os conceitos necessários para o desenvolvimento do trabalho, no capítulo a seguir veremos a reengenharia do portal de algoritmos atual, onde é descrita a modelagem e seus problemas de usabilidade e de tecnologia.
