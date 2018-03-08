@@ -19,24 +19,24 @@ Na evolução do \textit{software} serão mantidas as funcionalidades atuais e adic
 	\item Manter Permissões.
 	\item Manter Países, Estados e Cidades.
 	\item Manter Tipos de Problemas.
+	\begin{itemize}
 		\subitem Manter Problemas.
 		\subitem Manter Entradas e Saídas
 		\subitem Manter Palavras-chave
 		\subitem Manter Listas de Problemas
 		\subitem Manter Soluções de Problemas
+	\end{itemize}
 	\item Chat para comunicação entre usuários
 	\item Relatórios.
-		\subitem Relatórios de acesso.
-			\subsubitem Esse relatório demonstra todas as vezes que um usuário acessou o portal, podendo ser filtrado por data. 
-		\subitem Relatório de problemas solucionados.
-			\subsubitem Esse relatório demonstra todas as soluções submetidas pelos usuários, podendo ser filtrado por data.
+	\begin{itemize}
+		\subitem Relatórios de acesso: esse relatório demonstra todas as vezes que um usuário acessou o portal, podendo ser filtrado por data.
+		\subitem Relatório de problemas solucionados: esse relatório demonstra todas as soluções submetidas pelos usuários, podendo ser filtrado por data.
+	\end{itemize}
 \end{itemize}
 
 \section{Diagrama de Classe de Domínio}
 
-A figura \ref{imgDiagramaNovo} representa o diagrama de classe de domínio proposto para a evolução do portal de algoritmos novo.
-
-Nesse novo diagrama foram melhoradas as descrições dos campos, descrevendo-os em inglês e utilizando \textit{CamelCase}.
+A Figura \ref{imgDiagramaNovo} representa o diagrama de classe de domínio proposto para a evolução do portal de algoritmos novo. Nesse novo diagrama foram melhoradas as descrições dos campos, descrevendo-os em inglês e utilizando \textit{CamelCase}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -130,7 +130,7 @@ Antes do desenvolvimento do \textit{software} é preciso realizar o levantamento 
 
 \subsection{Requisitos Funcionais}
 
-A tabela \ref{tbRequisitoFuncionais} mostra os requisitos funcionais do portal de algoritmos.
+A Tabela \ref{tbRequisitoFuncionais} mostra os requisitos funcionais do portal de algoritmos. Nesta Tabela entende-se quando se refere em ``manter", listar, cadastrar, editar e deletar um objeto.
 
 \FloatBarrier
 \begin{table}[!htb]
@@ -142,13 +142,11 @@ A tabela \ref{tbRequisitoFuncionais} mostra os requisitos funcionais do portal d
 \end{table}
 \FloatBarrier
 
-Entende-se quando se refere em ``manter", listar, cadastrar, editar e deletar um objeto.
-
 \newpage
 
 \subsection{Requisitos Não-Funcionais}
 
-A tabela \ref{tbRequisitosNaoFuncionais} são os requisitos não-funcionais do portal de algoritmos.
+A Tabela \ref{tbRequisitosNaoFuncionais} são os requisitos não-funcionais do portal de algoritmos.
 
 \FloatBarrier
 \begin{table}[!htb]
@@ -166,9 +164,9 @@ Cada requisito funcional elicitado pode se tornar um caso de uso. Esses casos de
 
 Após o levantamento e descrição dos requisitos do \textit{software}, pode ser criado o diagrama macro de interação entre o usuário e os casos de uso do sistema, ressaltando que um \textit{software} dessa natureza deve ter um ambiente de execução com acesso a \textit{internet}.
 
-\newpage 
+\newpage
 
-Na figura \ref{imgCasoUsoAdministrador} estão representados os casos de uso em que o ator ``Administrador" \ está envolvido para o gerenciamento do portal.
+Na Figura \ref{imgCasoUsoAdministrador} estão representados os casos de uso em que o ator ``Administrador" \ está envolvido para o gerenciamento do portal.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -180,7 +178,7 @@ Na figura \ref{imgCasoUsoAdministrador} estão representados os casos de uso em q
 \end{figure}
 \FloatBarrier
 
-Na figura \ref{imgCasoUsoProfessor} estão representados os casos de uso em que o ator ``Professor" \ está envolvido para o gerenciamento do portal.
+Na Figura \ref{imgCasoUsoProfessor} estão representados os casos de uso em que o ator ``Professor" \ está envolvido para o gerenciamento do portal.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -193,7 +191,7 @@ Na figura \ref{imgCasoUsoProfessor} estão representados os casos de uso em que o
 \end{figure}
 \FloatBarrier
 
-Na figura \ref{imgCasoUsoAluno} estão representados os casos de uso em que o ator ``Aluno" \ está envolvido para o gerenciamento do portal.
+Na Figura \ref{imgCasoUsoAluno} estão representados os casos de uso em que o ator ``Aluno" \ está envolvido para o gerenciamento do portal.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -216,7 +214,7 @@ Nesta seção são descritos os casos de uso levantados a partir dos requisitos fun
 
 \subsubsection{Manter Usuários}
 
-A tabela \ref{imgManterUsuarios} descreve o caso de uso de manter o cadastro, edição e remoção das informações dos usuários, possui um único ator, o ``Administrador", a pré-condição é ser um administrador do sistema.
+A Tabela \ref{imgManterUsuarios} descreve o caso de uso de manter o cadastro, edição e remoção das informações dos usuários. Esse caso de uso possui um único ator, o ``Administrador" e a pré-condição é ser um administrador do sistema.
 
 \FloatBarrier
 \begin{table}[!htb]
@@ -232,7 +230,7 @@ A tabela \ref{imgManterUsuarios} descreve o caso de uso de manter o cadastro, ed
 
 \subsubsection{Manter Alunos}
 
-A tabela \ref{imgManterAlunos} descreve o caso de uso de manter o cadastro, edição e remoção das informações dos alunos, possui um único ator, o ``Administrador", possui duas pré-condições, ser administrador do sistema e o aluno precisa estar associado a um usuário.
+A Tabela \ref{imgManterAlunos} descreve o caso de uso de manter o cadastro, edição e remoção das informações dos alunos. Esse caso de uso possui um único ator, o ``Administrador" e possui duas pré-condições, ser administrador do sistema e o aluno precisa estar associado a um usuário.
 
 \FloatBarrier
 \begin{table}[!htb]
@@ -248,7 +246,7 @@ A tabela \ref{imgManterAlunos} descreve o caso de uso de manter o cadastro, ediç
 
 \subsubsection{Manter Professores}
 
-A tabela \ref{imgManterAlunos} descreve o caso de uso de manter o cadastro, edição e remoção das informações dos professores, possui um único ator, o ``Administrador", possui duas pré-condições, ser administrador do sistema e o professor precisa estar associado a um usuário.
+A Tabela \ref{imgManterAlunos} descreve o caso de uso de manter o cadastro, edição e remoção das informações dos professores. Esse caso de uso possui um único ator, o ``Administrador" e possui duas pré-condições, ser administrador do sistema e o professor precisa estar associado a um usuário.
 
 \FloatBarrier
 \begin{table}[!htb]
@@ -264,7 +262,7 @@ A tabela \ref{imgManterAlunos} descreve o caso de uso de manter o cadastro, ediç
 
 \subsubsection{Manter Administradores}
 
-A tabela \ref{imgManterAdministradores} descreve o caso de uso de manter o cadastro, edição e remoção das informações dos administradores do sistema, possui um único ator, o ``Administrador", possui duas pré-condições, ser um administrador do sistema e possuir um usuário para adicionar como administrador do sistema.
+A Tabela \ref{imgManterAdministradores} descreve o caso de uso de manter o cadastro, edição e remoção das informações dos administradores do sistema. Esse caso de uso possui um único ator, o ``Administrador", possui duas pré-condições, ser um administrador do sistema e possuir um usuário para adicionar como administrador do sistema.
 
 \FloatBarrier
 \begin{table}[!htb]
@@ -280,7 +278,7 @@ A tabela \ref{imgManterAdministradores} descreve o caso de uso de manter o cadas
 
 \subsubsection{Manter Tipo de Problema}
 
-A tabela \ref{imgManterTipoProblemas} descreve o caso de uso de manter o cadastro, edição e remoção das informações de um tipo de problema, um tipo de problema serve para agrupar problemas que possuem relação.
+A Tabela \ref{imgManterTipoProblemas} descreve o caso de uso de manter o cadastro, edição e remoção das informações de um tipo de problema. Um tipo de problema serve para agrupar problemas que possuem relação.
 
 \FloatBarrier
 \begin{table}[!htb]
@@ -296,7 +294,7 @@ A tabela \ref{imgManterTipoProblemas} descreve o caso de uso de manter o cadastr
 
 \subsubsection{Manter Problemas}
 
-A tabela \ref{imgManterProblemas} descreve o caso de uso de manter o cadastro, edição e remoção das informações de problemas.
+A Tabela \ref{imgManterProblemas} descreve o caso de uso de manter o cadastro, edição e remoção das informações de problemas.
 
 \FloatBarrier
 \begin{table}[!htb]
@@ -312,7 +310,7 @@ A tabela \ref{imgManterProblemas} descreve o caso de uso de manter o cadastro, e
 
 \subsubsection{Manter Palavras-chave}
 
-A tabela \ref{imgManterEntradasSaidas} descreve o caso de uso de manter o cadastro, edição e remoção das informações das palavras-chave de um ou mais problemas.
+A Tabela \ref{imgManterEntradasSaidas} descreve o caso de uso de manter o cadastro, edição e remoção das informações das palavras-chave de um ou mais problemas.
 
 \FloatBarrier
 \begin{table}[!htb]
@@ -328,7 +326,7 @@ A tabela \ref{imgManterEntradasSaidas} descreve o caso de uso de manter o cadast
 
 \subsubsection{Manter Entradas e Saídas}
 
-A tabela \ref{imgManterEntradasSaidas} descreve o caso de uso de manter o cadastro, edição e remoção das informações das entradas e saídas de um determinado problema.
+A Tabela \ref{imgManterEntradasSaidas} descreve o caso de uso de manter o cadastro, edição e remoção das informações das entradas e saídas de um determinado problema.
 
 \FloatBarrier
 \begin{table}[!htb]
@@ -344,7 +342,7 @@ A tabela \ref{imgManterEntradasSaidas} descreve o caso de uso de manter o cadast
 
 \subsubsection{Manter Soluções de Problemas}
 
-A tabela \ref{imgManterSolucoesProblemas} descreve o caso de uso de manter o cadastro, edição e remoção das soluções de um determinado problema. As soluções podem ser cadastradas por administradores, professores e/ou alunos.
+A Tabela \ref{imgManterSolucoesProblemas} descreve o caso de uso de manter o cadastro, edição e remoção das soluções de um determinado problema. As soluções podem ser cadastradas por administradores, professores e/ou alunos.
 
 \FloatBarrier
 \begin{table}[!htb]
@@ -360,7 +358,7 @@ A tabela \ref{imgManterSolucoesProblemas} descreve o caso de uso de manter o cad
 
 \subsubsection{Manter Listas de Problemas}
 
-A tabela \ref{imgManterListaProblemas} descreve o caso de uso de manter o cadastro, edição e remoção das listas de problemas, elas agrupam problemas para serem aplicados a um grupo e/ou aluno.
+A Tabela \ref{imgManterListaProblemas} descreve o caso de uso de manter o cadastro, edição e remoção das listas de problemas. Essas listas agrupam problemas para serem aplicados a um grupo e/ou aluno.
 
 \FloatBarrier
 \begin{table}[!htb]
@@ -376,7 +374,7 @@ A tabela \ref{imgManterListaProblemas} descreve o caso de uso de manter o cadast
 
 \subsubsection{Manter Instituições}
 
-A tabela \ref{imgManterInstituicoes} descreve o caso de uso de manter o cadastro, edição e remoção das instituições que podem ser utilizadas no cadastro do professor.
+A Tabela \ref{imgManterInstituicoes} descreve o caso de uso de manter o cadastro, edição e remoção das instituições que podem ser utilizadas no cadastro do professor.
 
 \FloatBarrier
 \begin{table}[!htb]
@@ -392,7 +390,7 @@ A tabela \ref{imgManterInstituicoes} descreve o caso de uso de manter o cadastro
 
 \subsubsection{Manter Grupos}
 
-A tabela \ref{imgManterGrupos} descreve o caso de uso de manter o cadastro, edição e remoção de grupos, eles servem para agrupar alunos e professores, onde o professores e administradores podem criar listas de problemas específicos para os grupos ou alunos.
+A Tabela \ref{imgManterGrupos} descreve o caso de uso de manter o cadastro, edição e remoção de grupos. Os grupos servem para agrupar alunos e professores, onde o professores e administradores podem criar listas de problemas específicos para os grupos ou alunos.
 
 \FloatBarrier
 \begin{table}[!htb]
@@ -408,7 +406,7 @@ A tabela \ref{imgManterGrupos} descreve o caso de uso de manter o cadastro, ediç
 
 \subsubsection{Manter Permissões}
 
-A tabela \ref{imgManterPermissoes} descreve o caso de uso de manter o cadastro, edição e remoção das permissões do portal de algoritmos, essas permissões servem para permitir acesso a determinados cadastros do sistema.
+A Tabela \ref{imgManterPermissoes} descreve o caso de uso de manter o cadastro, edição e remoção das permissões do portal de algoritmos. Essas permissões servem para permitir acesso a determinados cadastros do sistema.
 
 \FloatBarrier
 \begin{table}[!htb]
@@ -424,7 +422,7 @@ A tabela \ref{imgManterPermissoes} descreve o caso de uso de manter o cadastro, 
 
 \subsubsection{Manter Grupos de Administradores}
 
-A tabela \ref{imgManterGruposAdministradores} descreve o caso de uso de manter o cadastro, edição e remoção de grupos de administradores. É um agrupador de usuários que tem a permissão de acessar o gerenciamento do portal de algoritmos.
+A Tabela \ref{imgManterGruposAdministradores} descreve o caso de uso de manter o cadastro, edição e remoção de grupos de administradores. É um agrupador de usuários que tem a permissão de acessar o gerenciamento do portal de algoritmos.
 
 \FloatBarrier
 \begin{table}[!htb]
@@ -440,7 +438,7 @@ A tabela \ref{imgManterGruposAdministradores} descreve o caso de uso de manter o
 
 \subsubsection{Manter Países}
 
-A tabela \ref{imgManterPaises} descreve o caso de uso de manter  o cadastro, edição e remoção de países.
+A Tabela \ref{imgManterPaises} descreve o caso de uso de manter  o cadastro, edição e remoção de países.
 
 \FloatBarrier
 \begin{table}[!htb]
@@ -456,7 +454,7 @@ A tabela \ref{imgManterPaises} descreve o caso de uso de manter  o cadastro, edi
 
 \subsubsection{Manter Estados}
 
-A tabela \ref{imgManterEstados} descreve o caso de uso de manter  o cadastro, edição e remoção de estados.
+A Tabela \ref{imgManterEstados} descreve o caso de uso de manter  o cadastro, edição e remoção de estados.
 
 \FloatBarrier
 \begin{table}[!htb]
@@ -472,7 +470,7 @@ A tabela \ref{imgManterEstados} descreve o caso de uso de manter  o cadastro, ed
 
 \subsubsection{Manter Cidades}
 
-A tabela \ref{imgManterCidades} descreve o caso de uso de manter  o cadastro, edição e remoção de cidades.
+A Tabela \ref{imgManterCidades} descreve o caso de uso de manter  o cadastro, edição e remoção de cidades.
 
 \FloatBarrier
 \begin{table}[!htb]
@@ -488,7 +486,7 @@ A tabela \ref{imgManterCidades} descreve o caso de uso de manter  o cadastro, ed
 
 \subsubsection{Chat Online}
 
-A tabela \ref{imgManterChat} descreve o caso de uso do chat online, ele servirá para comunicação interna em tempo real dentro do portal de algoritmos.
+A Tabela \ref{imgManterChat} descreve o caso de uso do \textit{chat online}, ele servirá para comunicação interna em tempo real dentro do portal de algoritmos.
 
 \FloatBarrier
 \begin{table}[!htb]
@@ -504,7 +502,7 @@ A tabela \ref{imgManterChat} descreve o caso de uso do chat online, ele servirá 
 
 \subsubsection{Manter suas Informações Pessoais}
 
-A tabela \ref{imgManterPerfil} descreve o caso de uso de cadastro, edição e remoção das informações pessoais do aluno.
+A Tabela \ref{imgManterPerfil} descreve o caso de uso de cadastro, edição e remoção das informações pessoais do aluno.
 
 \FloatBarrier
 \begin{table}[!htb]
@@ -516,38 +514,29 @@ A tabela \ref{imgManterPerfil} descreve o caso de uso de cadastro, edição e remo
 \end{table}
 \FloatBarrier
 
-Foram apresentados os casos de uso que serão utilizados para a evolução do portal de algoritmos.
-
-A seguir são apresentados os protótipos de interface do portal de algoritmos.
+Foram apresentados os casos de uso que serão utilizados para a evolução do portal de algoritmos. Na próxima Seção serão apresentados os protótipos de interface do portal de algoritmos.
 
 \newpage
 
 \section{Protótipos de Interfaces Gráficas}\label{scPrototipos}
 
-Os protótipos exibidos nessa seção procuram seguir os seguintes princípios de usabilidade conforme \citet{Benyon2011}: 
+Os protótipos exibidos nessa seção procuram seguir os seguintes princípios de usabilidade conforme \citet{Benyon2011}:
 
 \begin{enumerate}
-	\item Visibilidade
-		\subitem Garante que as coisas sejam visíveis, de forma que as pessoas possam ver quais funções estão disponíveis e o que o sistema está fazendo atualmente.
-	\item Consistência
-		\subitem Mantém consitência no uso de caracteristicas de \textit{design} e com sistema semelhantes e método-padrão de trabalho.
-	\item Familiaridade
-		\subitem Utilizar linguagem e símbolos com os quais os futuros usuários estão familiarizados.
-	\item \textit{Affordance}
-		\subitem Criar \textit{design} de forma que fique claro para o quê elas servem.
-	\item Navegação
-		\subitem Proporcione suporte para que as pessoas possam se movimentar pelo sistema.
-	\item Retorno
-		\subitem Retorne informação rapidamente a informação do sistema para as pessoas, para que elas saibam que efeito suas ações causaram.
-	\item Estilo
-		\subitem Designs devem ser elegantes e atraentes.
+	\item Visibilidade: garante que os elementos sejam visíveis, de forma que as pessoas possam ver quais funções estão disponíveis e o que o sistema está fazendo atualmente.
+	\item Consistência: mantém consistência no uso de características de \textit{design} e com sistema semelhantes e método-padrão de trabalho.
+	\item Familiaridade: utiliza linguagem e símbolos com os quais os futuros usuários estão familiarizados.
+	\item \textit{Affordance}: criar \textit{design} de forma que fique claro para o quê elas servem.
+	\item Navegação: proporcione suporte para que as pessoas possam se movimentar pelo sistema.
+	\item Retorno: retorna as informações rapidamente a informação do sistema para os usuários para que elas saibam que efeito suas ações causaram.
+	\item Estilo: \textit{designs} devem ser elegantes e atraentes.
 \end{enumerate}
 
 \newpage
 
 \subsection{Cadastro de Aluno}
 
-A figura \ref{mkCadastroAluno} é o protótipo de interface gráfica de cadastro de um novo aluno.
+A Figura \ref{mkCadastroAluno} é o protótipo de interface gráfica de cadastro de um novo aluno.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -565,25 +554,20 @@ Nessa interface gráfica o aluno preenche todos os campos abaixo:
 	\item Nome.
 	\item Sobrenome.
 	\item E-mail.
-	\item Login.
-		\subitem O login é seu \textit{username} que será utilizado para acessar o portal de algoritmos.
+	\item Login: o login é seu \textit{username} que será utilizado para acessar o portal de algoritmos.
 	\item Senha.
-	\item Repita a senha.
-		\subitem Nesse campo faz-se a verificação se a senha digitada anteriormente corresponde a essa.
-	\item Quem é você?
-		\subitem Escolhe uma das opções disponíveis, como por exemplo: Aluno da \ac{UCS}.
+	\item Repita a senha: nesse campo faz-se a verificação se a senha digitada anteriormente corresponde a essa.
+	\item Quem é você? Escolhe uma das opções disponíveis, como por exemplo: Aluno da \ac{UCS}.
 	\item País.
-	\item Estado.
-		\subitem Somente exibirá as opções depois que selecionar um País.
-	\item Cidade
-		\subitem Somente exibirá as opções depois que selecionar um Estado.
+	\item Estado: somente exibirá as opções depois que selecionar um País.
+	\item Cidade: somente exibirá as opções depois que selecionar um Estado.
 \end{itemize}
 
 Após o preenchimento de todos os campos, o alunos clica em ``Registrar" \ e seu cadastro estará realizado.
 
 \subsection{Autenticação}
 
-A figura \ref{mkAutenticacao} é o protótipo de interface gráfica de autenticação.
+A Figura \ref{mkAutenticacao} é o protótipo de interface gráfica de autenticação.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -599,11 +583,11 @@ Nessa interface gráfica o aluno, professor ou administrador realiza a autenticaç
 
 O seu funcionamento é simples, o usuário preenche os campos de ``Usuário ou E-mail" \  e ``Senha" \  com as seguintes informações, e-mail ou usuário e senha, o usuário estando ativo no sistema ele será redirecionado para a página inicial do sistema.
 
-\newpage 
+\newpage
 
 \subsection{Recuperação de Senha}
 
-A figura \ref{mkRecuperacaoSenha} é o protótipo de interface gráfica de recuperação de senha.
+A Figura \ref{mkRecuperacaoSenha} é o protótipo de interface gráfica de recuperação de senha.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -623,7 +607,7 @@ Após o preenchimento do e-mail o usuário clica em ``Enviar", fazendo com que o s
 
 \subsection{Boas Vindas do Aluno}
 
-A figura \ref{mkBoasVindasAlunos} é o protótipo de interface gráfica de Boas Vindas do Aluno.
+A Figura \ref{mkBoasVindasAlunos} é o protótipo de interface gráfica de Boas Vindas do Aluno.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -641,7 +625,7 @@ Essa interface gráfica é exibida após a autenticação com sucesso do Aluno. É exi
 
 \subsection{Boas Vindas ao Administrador e Professor}
 
-A figura \ref{mkBoasVindasAdministrador} é o protótipo de interface gráfica de Boas Vindas do Administrador e Professor.
+A Figura \ref{mkBoasVindasAdministrador} é o protótipo de interface gráfica de Boas Vindas do Administrador e Professor.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -659,7 +643,7 @@ Essa interface gráfica é exibida após a autenticação com sucesso do Administrado
 
 \subsection{Problemas}\label{scListaProblemas}
 
-A figura \ref{mkListaProblemas} é o protótipo de interface gráfica da listagem de problemas. Os problemas são agrupados por tipos de problemas.
+A Figura \ref{mkListaProblemas} é o protótipo de interface gráfica da listagem de problemas. Os problemas são agrupados por tipos de problemas.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -677,20 +661,20 @@ Essa interface gráfica possui as seguintes ações:
 	\item Pesquisa livre.
 		\subitem O administrador pode realizar a filtragem por qualquer palavra.
 	\item Novo Tipo de Problema.
-		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da figura \ref{mkNovoTipoProblema}.
+		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkNovoTipoProblema}.
 	\item Novo Problema.
-		\subitem Selecionando essa ação, o adminsitrador é direcionado para a interface gráfica da figura \ref{mkNovoProblema}.
+		\subitem Selecionando essa ação, o adminsitrador é direcionado para a interface gráfica da Figura \ref{mkNovoProblema}.
 	\item Editar Problema.
-		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da figura \ref{mkNovoProblema}.
+		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkNovoProblema}.
 	\item Remover Problema.
 		\subitem Selecionando essa ação, o administrador remove o problema.
 	\item Visualizar Solução.
-		\subitem Selecionando essa ação, o administrador é direcionado  para a interface gráfica da figura \ref{mkVisualizacaoSolucao1}.
+		\subitem Selecionando essa ação, o administrador é direcionado  para a interface gráfica da Figura \ref{mkVisualizacaoSolucao1}.
 \end{itemize}
 
 \subsection{Tipo de Problema}
 
-A figura \ref{mkNovoTipoProblema} é o protótipo de interface gráfica de cadastro de novo tipo de problema.
+A Figura \ref{mkNovoTipoProblema} é o protótipo de interface gráfica de cadastro de novo tipo de problema.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -702,13 +686,13 @@ A figura \ref{mkNovoTipoProblema} é o protótipo de interface gráfica de cadastro
 \end{figure}
 \FloatBarrier
 
-Nessa interface gráfica o administrador preenche somente um ``Nome" \  para o tipo de problema. Após o preenchimento o administrador clica em ``Salvar" \  e é redirecionado para listagem de problemas que foi descrito na seção \ref{scListaProblemas}.
+Nessa interface gráfica o administrador preenche somente um ``Nome" \  para o tipo de problema. Após o preenchimento o administrador clica em ``Salvar" \  e é redirecionado para listagem de problemas que foi descrito na Seção \ref{scListaProblemas}.
 
 \newpage
 
 \subsection{Cadastro e Edição de Problema}
 
-A figura \ref{mkNovoProblema} é o protótipo de interface gráfica de cadastro e/ou edição de um novo problema.
+A Figura \ref{mkNovoProblema} é o protótipo de interface gráfica de cadastro e/ou edição de um novo problema.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -726,16 +710,16 @@ A interface está dividida em três abas, Problema, Palavras Chave e Dados de Test
 	\item Problema.
 		\subitem O cadastro ou edição do problema consiste em preencher os campos, ``Tipo de Problema", ``Nome do Problema", ``Dica" \ e ``Nível", o ``Custo" \ é correspondente ao menor custo de alguma solução daquele problema.
 	\item Palavras Chaves.
-		\subitem O cadastro de palavras-chave é descrito na seção \ref{scPalavraChave}
+		\subitem O cadastro de palavras-chave é descrito na Seção \ref{scPalavraChave}
 	\item Dados de Testes.
-		\subitem O cadastro de dados de testes é descrito na seção \ref{scDadosTestes}
+		\subitem O cadastro de dados de testes é descrito na Seção \ref{scDadosTestes}
 \end{itemize}
 
 Toda a ação nessa interface deve ser gravada ao clicar no botão ``Salvar".
 
 \subsection{Palavras-chave}\label{scPalavraChave}
 
-A figura \ref{mkPalavrasChaves} é o protótipo de interface gráfica de cadastro e/ou edição de palavras-chave de um problema.
+A Figura \ref{mkPalavrasChaves} é o protótipo de interface gráfica de cadastro e/ou edição de palavras-chave de um problema.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -753,7 +737,7 @@ Nessa interface o administrador preenche o campo ``Palavra-chave" \  e clica em 
 
 \subsection{Dados de Testes}\label{scDadosTestes}
 
-A figura \ref{mkDadosTestes} é o protótipo de interface gráfica de cadastro e/ou edição de dados de testes de um problema.
+A Figura \ref{mkDadosTestes} é o protótipo de interface gráfica de cadastro e/ou edição de dados de testes de um problema.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -771,7 +755,7 @@ Nessa interface o administrador preenche os campos ``Entrada" \ e ``Saída" \  e 
 
 \subsection{Visualização de Solução partindo da listagem de Problemas}
 
-A figura \ref{mkVisualizacaoSolucao1} é o protótipo de interface gráfica de visualização de uma solução de um problema. Podemos observar no topo da interface que é exibido o caminho que foi utilizado para chegar a essa solução. Em outras interfaces que serão descritas no decorrer deste trabalho, esse caminho pode variar de acordo com o contexto do gerenciamento do portal de algoritmos.
+A Figura \ref{mkVisualizacaoSolucao1} é o protótipo de interface gráfica de visualização de uma solução de um problema. Podemos observar no topo da interface que é exibido o caminho que foi utilizado para chegar a essa solução. Em outras interfaces que serão descritas no decorrer deste trabalho, esse caminho pode variar de acordo com o contexto do gerenciamento do portal de algoritmos.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -787,7 +771,7 @@ A figura \ref{mkVisualizacaoSolucao1} é o protótipo de interface gráfica de visu
 
 \subsection{Lista de Grupos}
 
-A figura \ref{mkListaGrupos} é o protótipo de interface gráfica de listagem dos grupos ja cadastrados. Essa listagem corresponde a todos os grupos, caso seja um administrador com total acesso, ou apenas aos grupos cadastrados por um professor, sendo que o professor somente terá na listagem os grupos que ele cadastrou.
+A Figura \ref{mkListaGrupos} é o protótipo de interface gráfica de listagem dos grupos ja cadastrados. Essa listagem corresponde a todos os grupos, caso seja um administrador com total acesso, ou apenas aos grupos cadastrados por um professor, sendo que o professor somente terá na listagem os grupos que ele cadastrou.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -805,18 +789,18 @@ Nessa interface gráfica possuímos as seguintes ações:
 	\item Pesquisa Livre.
 		\subitem O administrador pode realizar a pesquisa por qualquer palavra.
 	\item Novo Grupo.
-		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da figura \ref{mkCadastroGrupo}
+		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroGrupo}
 	\item Editar Grupo.
-		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da figura \ref{mkCadastroGrupo}
+		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroGrupo}
 	\item Remover Grupo.
 		\subitem Selecionando essa ação, o administrador remove somente o grupo, sendo assim, não remove problemas, soluções e/ou usuários.
 	\item Visualizar Solução.
-		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da figura \ref{mkVisualizacaoSolucao2}
+		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkVisualizacaoSolucao2}
 \end{itemize}
 
 \subsection{Cadastro e Edição de Grupo}
 
-A figura \ref{mkCadastroGrupo} é o protótipo de interface gráfica de cadastro e edição de um grupo.
+A Figura \ref{mkCadastroGrupo} é o protótipo de interface gráfica de cadastro e edição de um grupo.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -828,22 +812,22 @@ A figura \ref{mkCadastroGrupo} é o protótipo de interface gráfica de cadastro e 
 \end{figure}
 \FloatBarrier
 
-A interface gráfica está dividida em três abas, Grupo, Participantes, Lista de Problemas, cada uma dessas abas estão descritas abaixo:
+A interface gráfica está dividida em três abas, Grupo, Participantes, Lista de Problemas sendo que cada uma dessas abas estão descritas abaixo:
 
 \begin{itemize}
 	\item Grupo.
 		\subitem Para o cadastro de um novo grupo, basta preencher os campos, Nome e Descrição.
 	\item Participantes.
-		\subitem O cadastro de participantes é descrito na figura \ref{mkParticipantes}
+		\subitem O cadastro de participantes é descrito na Figura \ref{mkParticipantes}
 	\item Lista de Problemas.
-		\subitem O cadastro de lista de problemas é descrito na figura \ref{mkGrupoListaProblemas}
+		\subitem O cadastro de lista de problemas é descrito na Figura \ref{mkGrupoListaProblemas}
 \end{itemize}
 
 \newpage
 
 \subsection{Adicionar Participantes}
 
-A figura \ref{mkParticipantes} é o protótipo de interface gráfica de associação de participantes em um grupo.
+A Figura \ref{mkParticipantes} é o protótipo de interface gráfica de associação de participantes em um grupo.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -855,13 +839,13 @@ A figura \ref{mkParticipantes} é o protótipo de interface gráfica de associação 
 \end{figure}
 \FloatBarrier
 
-Utilizando os botões centrais, é possível adicionar ou remover participantes, pode-se adicionar ou remover todos ou um e/ou mais por vez.
+Utilizando os botões centrais, é possível adicionar ou remover participantes, podendo-se adicionar ou remover todos ou um e/ou mais por vez.
 
 \newpage
 
 \subsection{Adicionar Lista de Problemas}
 
-A figura \ref{mkGrupoListaProblemas} é o protótipo de interface gráfica de associação de lista de problemas em um grupo.
+A Figura \ref{mkGrupoListaProblemas} é o protótipo de interface gráfica de associação de lista de problemas em um grupo.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -873,13 +857,13 @@ A figura \ref{mkGrupoListaProblemas} é o protótipo de interface gráfica de assoc
 \end{figure}
 \FloatBarrier
 
-Utilizando os botões centrais, é possível adicionar ou remover listas de problemas, pode-se adicionar ou remover todos ou um e/ou mais por vez.
+Utilizando os botões centrais, é possível adicionar ou remover listas de problemas, podendo-se adicionar ou remover todos ou um e/ou mais por vez.
 
 \newpage
 
 \subsection{Visualização de Solução partindo da listagem de Grupos}
 
-A figura \ref{mkVisualizacaoSolucao2} é o protótipo de interface gráfica de visualização de uma solução de um problema. Podemos observar no topo da interface que é exibido o caminho que foi utilizado para chegar a essa solução
+A Figura \ref{mkVisualizacaoSolucao2} é o protótipo de interface gráfica de visualização de uma solução de um problema. Podemos observar no topo da interface que é exibido o caminho que foi utilizado para chegar a essa solução
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -895,7 +879,7 @@ A figura \ref{mkVisualizacaoSolucao2} é o protótipo de interface gráfica de visu
 
 \subsection{Lista de Alunos}
 
-A figura \ref{mkListaAlunos} é o protótipo de interface gráfica da listagem de alunos.
+A Figura \ref{mkListaAlunos} é o protótipo de interface gráfica da listagem de alunos.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -910,23 +894,18 @@ A figura \ref{mkListaAlunos} é o protótipo de interface gráfica da listagem de a
 Nessa interface gráfica encontramos as seguintes ações:
 
 \begin{itemize}
-	\item Pesquisa Livre.
-		\subitem O administrador pode realizar a pesquisa por qualquer palavra.
-	\item Novo Aluno.
-		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da figura \ref{mkCadastroAlunoAdmin}
-	\item Editar Aluno.
-		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da figura \ref{mkCadastroAlunoAdmin}
-	\item Remover Aluno.
-		\subitem Selecionando essa ação, o administrador remove o aluno.
-	\item Visualizar Solução.
-		\subitem Selecionando essa ação, o administrador é direcionado  para a interface gráfica da figura \ref{mkVisualizacaoSolucao3}.
+	\item Pesquisa Livre: o administrador pode realizar a pesquisa por qualquer palavra.
+	\item Novo Aluno: selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroAlunoAdmin}
+	\item Editar Aluno: selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroAlunoAdmin}
+	\item Remover Aluno: selecionando essa ação, o administrador remove o aluno.
+	\item Visualizar Solução: selecionando essa ação, o administrador é direcionado  para a interface gráfica da Figura \ref{mkVisualizacaoSolucao3}.
 \end{itemize}
 
 \newpage
 
 \subsection{Cadastro de Alunos}
 
-A figura \ref{mkCadastroAlunoAdmin} é o protótipo de interface gráfica do cadastro e edição de alunos.
+A Figura \ref{mkCadastroAlunoAdmin} é o protótipo de interface gráfica do cadastro e edição de alunos.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -938,13 +917,13 @@ A figura \ref{mkCadastroAlunoAdmin} é o protótipo de interface gráfica do cadast
 \end{figure}
 \FloatBarrier
 
-A única informação que é necessário preencher é selecionar um Usuário, esse usuário ficará associado ao cadastro do aluno.
+A única informação que é necessário preencher é selecionar um Usuário sendo que esse usuário ficará associado ao cadastro do aluno.
 
 \newpage
 
 \subsection{Visualização de Solução partindo da listagem de Alunos}
 
-A figura \ref{mkVisualizacaoSolucao3} é o protótipo de interface gráfica de visualização de uma solução de um problema. Podemos observar no topo da interface que é exibido  o caminho que foi utilizado para chegar a essa solução.
+A Figura \ref{mkVisualizacaoSolucao3} é o protótipo de interface gráfica de visualização de uma solução de um problema. Podemos observar no topo da interface que é exibido  o caminho que foi utilizado para chegar a essa solução.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -960,7 +939,7 @@ A figura \ref{mkVisualizacaoSolucao3} é o protótipo de interface gráfica de visu
 
 \subsection{Listas de Problemas}
 
-A figura \ref{mkListaProblemasListagem} é o protótipo de interface da listagem de listas de problemas. Essa interface lista todas as listas de problemas já cadastradas no portal de algoritmos.
+A Figura \ref{mkListaProblemasListagem} é o protótipo de interface da listagem de listas de problemas. Essa interface apresenta todas as listas de problemas já cadastradas no portal de algoritmos.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -975,23 +954,18 @@ A figura \ref{mkListaProblemasListagem} é o protótipo de interface da listagem d
 Nessa interface gráfica temos as seguintes ações:
 
 \begin{itemize}
-	\item Pesquisa Livre.
-		\subitem O administrador pode realizar a pesquisa por qualquer palavra.
-	\item Nova Lista.
-		\subitem Selecionado essa ação, o administrador é direcionado para a interface gráfica da figura \ref{mkCadastroListaProblemas}
-	\item Editar Lista.
-		\subitem Selecionado essa ação, o administrador é direcionado para a interface gráfica da figura \ref{mkCadastroListaProblemas}
-	\item Remover Lista.
-		\subitem Selecionando essa ação, o administrador remove uma lista.
-	\item Visualizar Solução.
-		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da figura \ref{mkVisualizacaoSolucao4}
+	\item Pesquisa Livre: o administrador pode realizar a pesquisa por qualquer palavra.
+	\item Nova Lista: selecionado essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroListaProblemas}
+	\item Editar Lista: selecionado essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroListaProblemas}
+	\item Remover Lista: selecionando essa ação, o administrador remove uma lista.
+	\item Visualizar Solução: selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkVisualizacaoSolucao4}
 \end{itemize}
 
 \newpage
 
 \subsection{Cadastro e Edição de Lista de Problemas}
 
-A figura \ref{mkCadastroListaProblemas} é o protótipo de interface de cadastro e edição de lista de problemas.
+A Figura \ref{mkCadastroListaProblemas} é o protótipo de interface de cadastro e edição de lista de problemas.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1009,7 +983,7 @@ Para cadastrar ou editar, o administrador deve preencher um nome para lista e se
 
 \subsection{Visualização de Solução partindo da listagem de Listas de Problemas}
 
-A figura \ref{mkVisualizacaoSolucao4} é o protótipo de inteface gráfica de uma solução de um problema. Podemos observar no topo da interface que é exibido  o caminho que foi utilizado para chegar a essa solução.
+A Figura \ref{mkVisualizacaoSolucao4} é o protótipo de inteface gráfica de uma solução de um problema. Podemos observar no topo da interface que é exibido  o caminho que foi utilizado para chegar a essa solução.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1025,7 +999,7 @@ A figura \ref{mkVisualizacaoSolucao4} é o protótipo de inteface gráfica de uma s
 
 \subsection{Lista de Usuários}
 
-A figura \ref{mkListaUsuario} é o protótipo de interface gráfica da listagem dos usuários. Essa interface lista todos os usuários cadastrados no portal de algoritmos, incluindo os inativos.
+A Figura \ref{mkListaUsuario} é o protótipo de interface gráfica da listagem dos usuários. Essa interface lista todos os usuários cadastrados no portal de algoritmos, incluindo os inativos.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1040,21 +1014,17 @@ A figura \ref{mkListaUsuario} é o protótipo de interface gráfica da listagem dos
 Nessa interface gráfica temos as seguintes ações:
 
 \begin{itemize}
-	\item Pesquisa Livre.
-		\subitem O administrador pode realizar a pesquisa por qualquer palavra.
-	\item Novo Usuário.
-		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da figura \ref{mkCadastroUsuario}.
-	\item Editar Usuário.
-		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da figura \ref{mkCadastroUsuario}.
-	\item Remover Usuário.
-		\subitem Selecionando essa ação, o administrador remove um usuário.
+	\item Pesquisa Livre: o administrador pode realizar a pesquisa por qualquer palavra.
+	\item Novo Usuário: selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroUsuario}.
+	\item Editar Usuário: selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroUsuario}.
+	\item Remover Usuário: selecionando essa ação, o administrador remove um usuário.
 \end{itemize}
 
 \newpage
 
 \subsection{Cadastro e Edição de Usuários}
 
-A figura \ref{mkCadastroUsuario} é o protótipo de interface gráfica do cadastro e edição dos usuários.
+A Figura \ref{mkCadastroUsuario} é o protótipo de interface gráfica do cadastro e edição dos usuários.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1066,13 +1036,13 @@ A figura \ref{mkCadastroUsuario} é o protótipo de interface gráfica do cadastro 
 \end{figure}
 \FloatBarrier
 
-O administrador preenche todos os campos do cadastro e clica em ``Salvar", após o administrador cadastrar ou editar o aluno o sistema retorna para listagem de usuários.
+O administrador preenche todos os campos do cadastro e clica em ``Salvar". Após o administrador cadastrar ou editar o aluno o sistema retorna para listagem de usuários.
 
 \newpage
 
 \subsection{Lista de Administradores}
 
-A figura \ref{mkListaAdministradores} é o protótipo de interface gráfica da listagem dos administradores.
+A Figura \ref{mkListaAdministradores} é o protótipo de interface gráfica da listagem dos administradores.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1087,21 +1057,17 @@ A figura \ref{mkListaAdministradores} é o protótipo de interface gráfica da list
 Nessa interface gráfica temos as seguintes ações:
 
 \begin{itemize}
-	\item Pesquisa Livre.
-		\subitem O administrador pode realizar a pesquisa por qualquer palavra.
-	\item Novo Administrador.
-		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da figura \ref{mkCadastroAdministradores}.
-	\item Editar Administrador.
-		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da figura \ref{mkCadastroAdministradores}.
-	\item Remover Administrador.
-		\subitem Selecionando essa ação, o administrador remove um Administrador.
+	\item Pesquisa Livre: o administrador pode realizar a pesquisa por qualquer palavra.
+	\item Novo Administrador: selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroAdministradores}.
+	\item Editar Administrador: selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroAdministradores}.
+	\item Remover Administrador: selecionando essa ação, o administrador remove um Administrador.
 \end{itemize}
 
 \newpage
 
 \subsection{Cadastro e Edição de Administradores}
 
-A figura \ref{mkCadastroAdministradores} é o protótipo de interface gráfica do cadastro e edição dos administradores.
+A Figura \ref{mkCadastroAdministradores} é o protótipo de interface gráfica do cadastro e edição dos administradores.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1119,7 +1085,7 @@ O administrador seleciona um usuário para cadastrar como administrador, podendo 
 
 \subsection{Lista de Professores}
 
-A figura \ref{mkListaProfessores} é o protótipo de interface gráfica da listagem dos professores.
+A Figura \ref{mkListaProfessores} é o protótipo de interface gráfica da listagem dos professores.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1134,21 +1100,17 @@ A figura \ref{mkListaProfessores} é o protótipo de interface gráfica da listagem
 Nessa interface gráfica temos as seguintes ações:
 
 \begin{itemize}
-	\item Pesquisa Livre.
-		\subitem O administrador pode realizar a pesquisa por qualquer palavra.
-	\item Novo Professor.
-		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da figura \ref{mkCadastroProfessores}.
-	\item Editar Professor.
-		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da figura \ref{mkCadastroProfessores}.
-	\item Remover Professor.
-		\subitem Selecionando essa ação, o administrador remove um Professor.
+	\item Pesquisa Livre: o administrador pode realizar a pesquisa por qualquer palavra.
+	\item Novo Professor: selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroProfessores}.
+	\item Editar Professor: selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroProfessores}.
+	\item Remover Professor: selecionando essa ação, o administrador remove um Professor.
 \end{itemize}
 
 \newpage
 
 \subsection{Cadastro e Edição de Professores}
 
-A figura \ref{mkCadastroProfessores} é o protótipo de interface gráfica do cadastro e edição dos professores.
+A Figura \ref{mkCadastroProfessores} é o protótipo de interface gráfica do cadastro e edição dos professores.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1160,13 +1122,13 @@ A figura \ref{mkCadastroProfessores} é o protótipo de interface gráfica do cadas
 \end{figure}
 \FloatBarrier
 
-O administrador seleciona um usuário para cadastrar como professor, podendo também associar uma instituição que ele pertence. Após preencher todo o cadastro, o administrador clica em ``Salvar" \ e o sistema direciona para listagem de professores.
+O administrador seleciona um usuário para cadastrar como professor, podendo também associar a instituição que ele pertence. Após preencher todo o cadastro, o administrador clica em ``Salvar" \ e o sistema direciona para listagem de professores.
 
 \newpage
 
 \subsection{Lista de Instituições}
 
-A figura \ref{mkListaInstituicao} é o protótipo de interface gráfica da listagem das Instituições.
+A Figura \ref{mkListaInstituicao} é o protótipo de interface gráfica da listagem das Instituições.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1181,21 +1143,17 @@ A figura \ref{mkListaInstituicao} é o protótipo de interface gráfica da listagem
 Nessa interface gráfica temos as seguintes ações:
 
 \begin{itemize}
-	\item Pesquisa Livre.
-		\subitem O administrador pode realizar a pesquisa por qualquer palavra.
-	\item Novo Instituição.
-		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da figura \ref{mkCadastroInstituicao}.
-	\item Editar Instituição.
-		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da figura \ref{mkCadastroInstituicao}.
-	\item Remover Instituição.
-		\subitem Selecionando essa ação, o administrador remove uma Instituição.
+	\item Pesquisa Livre: o administrador pode realizar a pesquisa por qualquer palavra.
+	\item Novo Instituição: selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroInstituicao}.
+	\item Editar Instituição: selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroInstituicao}.
+	\item Remover Instituição: selecionando essa ação, o administrador remove uma Instituição.
 \end{itemize}
 
 \newpage
 
 \subsection{Cadastro e Edição de Instituições}
 
-A figura \ref{mkCadastroInstituicao} é o protótipo de interface gráfica do cadastro e edição de instituições.
+A Figura \ref{mkCadastroInstituicao} é o protótipo de interface gráfica do cadastro e edição de instituições.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1213,7 +1171,7 @@ O administrador preenche um nome e seleciona uma cidade para cadastrar ou editar
 
 \subsection{Lista de Permissões}
 
-A figura \ref{mkListaInstituicao} é o protótipo de interface gráfica da listagem das Permissões.
+A Figura \ref{mkListaInstituicao} é o protótipo de interface gráfica da listagem das Permissões.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1231,9 +1189,9 @@ Nessa interface gráfica temos as seguintes ações:
 	\item Pesquisa Livre.
 		\subitem O administrador pode realizar a pesquisa por qualquer palavra.
 	\item Nova Permissões.
-		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da figura \ref{mkCadastroPermissao}.
+		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroPermissao}.
 	\item Editar Permissões.
-		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da figura \ref{mkCadastroPermissao}.
+		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroPermissao}.
 	\item Remover Permissões.
 		\subitem Selecionando essa ação, o administrador remove uma Permissão.
 \end{itemize}
@@ -1242,7 +1200,7 @@ Nessa interface gráfica temos as seguintes ações:
 
 \subsection{Cadastro e Edição de Permissões}
 
-A figura \ref{mkCadastroPermissao} é o protótipo de interface gráfica do cadastro e edição de permissões.
+A Figura \ref{mkCadastroPermissao} é o protótipo de interface gráfica do cadastro e edição de permissões.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1254,13 +1212,13 @@ A figura \ref{mkCadastroPermissao} é o protótipo de interface gráfica do cadastr
 \end{figure}
 \FloatBarrier
 
-O administrador preenche um nome e uma descrição para cadastrar uma permissão, após o preenchimento o administrador clica em ``Salvar" \ e o sistema direciona para a listagem das permissões
+O administrador preenche um nome e uma descrição para cadastrar uma permissão. Após o preenchimento o administrador clica em ``Salvar" \ e o sistema direciona para a listagem das permissões.
 
 \newpage
 
 \subsection{Lista de Grupos de Administradores}
 
-A figura \ref{mkListaGrupoAdministradores} é o protótipo de interface gráfica da listagem das Grupos de Administradores.
+A Figura \ref{mkListaGrupoAdministradores} é o protótipo de interface gráfica da listagem das Grupos de Administradores.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1275,21 +1233,17 @@ A figura \ref{mkListaGrupoAdministradores} é o protótipo de interface gráfica da
 Nessa interface gráfica temos as seguintes ações:
 
 \begin{itemize}
-	\item Pesquisa Livre.
-		\subitem O administrador pode realizar a pesquisa por qualquer palavra.
-	\item Novo Grupo.
-		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da figura \ref{mkCadastroGrupoAdministradores}.
-	\item Editar Grupo.
-		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da figura \ref{mkCadastroGrupoAdministradores}.
-	\item Remover Grupo.
-		\subitem Selecionando essa ação, o administrador remove um Grupo de Administrador.
+	\item Pesquisa Livre: o administrador pode realizar a pesquisa por qualquer palavra.
+	\item Novo Grupo: selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroGrupoAdministradores}.
+	\item Editar Grupo: selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroGrupoAdministradores}.
+	\item Remover Grupo: selecionando essa ação, o administrador remove um Grupo de Administrador.
 \end{itemize}
 
 \newpage
 
 \subsection{Cadastro e Edição de Grupos de Administradores}
 
-A figura \ref{mkCadastroGrupoAdministradores} é o protótipo de interface gráfica do cadastro e edição de permissões.
+A Figura \ref{mkCadastroGrupoAdministradores} é o protótipo de interface gráfica do cadastro e edição de permissões.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1307,7 +1261,7 @@ O administrador preenche um nome, uma descrição e associa permissões a esse grup
 
 \subsection{Lista de Países, Estados e Cidades}
 
-A figura \ref{mkListaPaises} é o protótipo de interface gráfica da listagem de países, estados e cidades cadastradas no portal de algoritmos.
+A Figura \ref{mkListaPaises} é o protótipo de interface gráfica da listagem de países, estados e cidades cadastradas no portal de algoritmos.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1322,33 +1276,23 @@ A figura \ref{mkListaPaises} é o protótipo de interface gráfica da listagem de p
 Nessa interface encontramos as seguintes ações:
 
 \begin{itemize}
-	\item Pesquisa Livre.
-		\subitem O administrador pode realizar a pesquisa por qualquer palavra.
-	\item Novo País.
-		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da figura \ref{mkCadastroPais}.
-	\item Editar País.
-		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da figura \ref{mkCadastroPais}.
-	\item Remover País.
-		\subitem Selecionando essa ação, o administrador remove um país e todos os estados e cidades associados a ele.
-	\item Novo Estado.
-		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da figura \ref{mkCadastroEstado}.
-	\item Editar Estado.
-		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da figura \ref{mkCadastroEstado}.
-	\item Remover Estado.
-		\subitem Selecionando essa ação, o administrador remove um estado e todas as cidades associadas a ele.
-	\item Nova Cidade.
-		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da figura \ref{mkCadastroCidade}.
-	\item Editar Cidade.
-		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da figura \ref{mkCadastroCidade}.
-	\item Remover Cidade.
-		\subitem Selecionado essa ação, o administrador remove uma cidade.
+	\item Pesquisa Livre: o administrador pode realizar a pesquisa por qualquer palavra.
+	\item Novo País: selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroPais}.
+	\item Editar País: selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroPais}.
+	\item Remover País: selecionando essa ação, o administrador remove um país e todos os estados e cidades associados a ele.
+	\item Novo Estado: selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroEstado}.
+	\item Editar Estado: selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroEstado}.
+	\item Remover Estado: selecionando essa ação, o administrador remove um estado e todas as cidades associadas a ele.
+	\item Nova Cidade: selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroCidade}.
+	\item Editar Cidade: selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroCidade}.
+	\item Remover Cidade: selecionado essa ação, o administrador remove uma cidade.
 \end{itemize}
 
 \newpage
 
 \subsection{Cadastro e Edição de País}
 
-A figura \ref{mkCadastroPais} é o protótipo de interface gráfica do cadastro e edição de um País.
+A Figura \ref{mkCadastroPais} é o protótipo de interface gráfica do cadastro e edição de um País.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1366,7 +1310,7 @@ O administrador preenche o nome do País e sua Abreviação e clica em ``Salvar", a
 
 \subsection{Cadastro e Edição de Estado}
 
-A figura \ref{mkCadastroEstado} é o protótipo de interface gráfica do cadastro e edição de um Estado.
+A Figura \ref{mkCadastroEstado} é o protótipo de interface gráfica do cadastro e edição de um Estado.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1384,7 +1328,7 @@ O administrador seleciona um País, preenche o nome do Estado e sua Abreviação e 
 
 \subsection{Cadastro e Edição de Cidade}
 
-A figura \ref{mkCadastroEstado} é o protótipo de interface gráfica do cadastro e edição de uma Cidade.
+A Figura \ref{mkCadastroEstado} é o protótipo de interface gráfica do cadastro e edição de uma Cidade.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1408,7 +1352,7 @@ Diagramas de Robustez tem por objetivo demonstrar a ligação dos casos de uso com
 
 \subsection{Cadastro de Aluno}
 
-A figura \ref{rbRegistroAluno} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkCadastroAluno}.
+A Figura \ref{rbRegistroAluno} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkCadastroAluno}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1422,7 +1366,7 @@ A figura \ref{rbRegistroAluno} demonstra as associações das classes de domínio n
 
 \subsection{Autenticação}
 
-A figura \ref{rbAutenticacao} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkAutenticacao}.
+A Figura \ref{rbAutenticacao} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkAutenticacao}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1438,7 +1382,7 @@ A figura \ref{rbAutenticacao} demonstra as associações das classes de domínio na
 
 \subsection{Recuperação de Senha}
 
-A figura \ref{rbRecuperacaoSenha} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkRecuperacaoSenha}.
+A Figura \ref{rbRecuperacaoSenha} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkRecuperacaoSenha}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1452,7 +1396,7 @@ A figura \ref{rbRecuperacaoSenha} demonstra as associações das classes de domíni
 
 \subsection{Boas Vindas do Aluno}
 
-A figura \ref{rbBoasVindasAluno} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkBoasVindasAlunos}.
+A Figura \ref{rbBoasVindasAluno} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkBoasVindasAlunos}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1468,7 +1412,7 @@ A figura \ref{rbBoasVindasAluno} demonstra as associações das classes de domínio
 
 \subsection{Boas Vindas do Administrador e do Professor}
 
-A figura \ref{rbBoasVindasAdministrador} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkBoasVindasAdministrador}.
+A Figura \ref{rbBoasVindasAdministrador} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkBoasVindasAdministrador}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1482,7 +1426,7 @@ A figura \ref{rbBoasVindasAdministrador} demonstra as associações das classes de
 
 \subsection{Problemas}
 
-A figura \ref{rbProblemas} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkListaProblemas}.
+A Figura \ref{rbProblemas} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkListaProblemas}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1496,7 +1440,7 @@ A figura \ref{rbProblemas} demonstra as associações das classes de domínio na in
 
 \subsection{Tipo de Problema}
 
-A figura \ref{rbTipoProblema} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkNovoTipoProblema}.
+A Figura \ref{rbTipoProblema} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkNovoTipoProblema}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1510,7 +1454,7 @@ A figura \ref{rbTipoProblema} demonstra as associações das classes de domínio na
 
 \subsection{Cadastro e Edição de Problema}
 
-A figura \ref{rbCadastroProblema} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkNovoProblema}.
+A Figura \ref{rbCadastroProblema} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkNovoProblema}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1526,7 +1470,7 @@ A figura \ref{rbCadastroProblema} demonstra as associações das classes de domíni
 
 \subsection{Palavras-chave}
 
-A figura \ref{rbPalavraChave} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkPalavrasChaves}.
+A Figura \ref{rbPalavraChave} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkPalavrasChaves}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1540,7 +1484,7 @@ A figura \ref{rbPalavraChave} demonstra as associações das classes de domínio na
 
 \subsection{Dados de Testes}
 
-A figura \ref{rbDadosTestes} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkDadosTestes}.
+A Figura \ref{rbDadosTestes} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkDadosTestes}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1556,7 +1500,7 @@ A figura \ref{rbDadosTestes} demonstra as associações das classes de domínio na 
 
 \subsection{Visualização de Solução partindo da listagem de Problemas}
 
-A figura \ref{rbVisualizacaoSolucao1} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkVisualizacaoSolucao1}.
+A Figura \ref{rbVisualizacaoSolucao1} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkVisualizacaoSolucao1}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1570,7 +1514,7 @@ A figura \ref{rbVisualizacaoSolucao1} demonstra as associações das classes de do
 
 \subsection{Lista de Grupos}
 
-A figura \ref{rbListaGrupos} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkListaGrupos}.
+A Figura \ref{rbListaGrupos} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkListaGrupos}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1586,7 +1530,7 @@ A figura \ref{rbListaGrupos} demonstra as associações das classes de domínio na 
 
 \subsection{Cadastro e Edição de Grupo}
 
-A figura \ref{rbCadastroGrupo} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkCadastroGrupo}.
+A Figura \ref{rbCadastroGrupo} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkCadastroGrupo}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1600,7 +1544,7 @@ A figura \ref{rbCadastroGrupo} demonstra as associações das classes de domínio n
 
 \subsection{Adicionar Participantes}
 
-A figura \ref{rbVisualizacaoSolucao2} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkParticipantes}.
+A Figura \ref{rbVisualizacaoSolucao2} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkParticipantes}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1616,7 +1560,7 @@ A figura \ref{rbVisualizacaoSolucao2} demonstra as associações das classes de do
 
 \subsection{Adicionar Lista de Problemas}
 
-A figura \ref{rbListaProblema} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkGrupoListaProblemas}.
+A Figura \ref{rbListaProblema} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkGrupoListaProblemas}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1630,7 +1574,7 @@ A figura \ref{rbListaProblema} demonstra as associações das classes de domínio n
 
 \subsection{Visualização de Solução partindo da listagem de Grupos}
 
-A figura \ref{rbVisualizacaoSolucao3} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkVisualizacaoSolucao2}.
+A Figura \ref{rbVisualizacaoSolucao3} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkVisualizacaoSolucao2}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1646,7 +1590,7 @@ A figura \ref{rbVisualizacaoSolucao3} demonstra as associações das classes de do
 
 \subsection{Lista de Alunos}
 
-A figura \ref{rbListaAlunos} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkListaAlunos}.
+A Figura \ref{rbListaAlunos} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkListaAlunos}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1662,7 +1606,7 @@ A figura \ref{rbListaAlunos} demonstra as associações das classes de domínio na 
 
 \subsection{Cadastro de Alunos pelo Administrador}
 
-A figura \ref{rbCadastroAlunoAdministrador} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkCadastroAlunoAdmin}.
+A Figura \ref{rbCadastroAlunoAdministrador} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkCadastroAlunoAdmin}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1676,7 +1620,7 @@ A figura \ref{rbCadastroAlunoAdministrador} demonstra as associações das classes
 
 \subsection{Visualização de Solução partindo da listagem de Alunos}
 
-A figura \ref{rbVisualizacaoSolucao4} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkVisualizacaoSolucao3}.
+A Figura \ref{rbVisualizacaoSolucao4} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkVisualizacaoSolucao3}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1692,7 +1636,7 @@ A figura \ref{rbVisualizacaoSolucao4} demonstra as associações das classes de do
 
 \subsection{Lista de Problemas}
 
-A figura \ref{rbListaProblemas} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkListaProblemasListagem}.
+A Figura \ref{rbListaProblemas} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkListaProblemasListagem}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1708,7 +1652,7 @@ A figura \ref{rbListaProblemas} demonstra as associações das classes de domínio 
 
 \subsection{Cadastro e Edição de Lista de Problemas}
 
-A figura \ref{rbCadastroListaProblemas} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkCadastroListaProblemas}.
+A Figura \ref{rbCadastroListaProblemas} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkCadastroListaProblemas}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1722,7 +1666,7 @@ A figura \ref{rbCadastroListaProblemas} demonstra as associações das classes de 
 
 \subsection{Visualização de Solução partindo da listagem de Listas de Problemas}
 
-A figura \ref{rbVisualizacaoSolucao5} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkVisualizacaoSolucao4}.
+A Figura \ref{rbVisualizacaoSolucao5} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkVisualizacaoSolucao4}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1738,7 +1682,7 @@ A figura \ref{rbVisualizacaoSolucao5} demonstra as associações das classes de do
 
 \subsection{Lista de Usuários}
 
-A figura \ref{rbListaUsuarios} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkListaUsuario}.
+A Figura \ref{rbListaUsuarios} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkListaUsuario}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1752,7 +1696,7 @@ A figura \ref{rbListaUsuarios} demonstra as associações das classes de domínio n
 
 \subsection{Cadastro e Edição de Usuários}
 
-A figura \ref{rbCadastroUsuarios} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkCadastroUsuario}.
+A Figura \ref{rbCadastroUsuarios} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkCadastroUsuario}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1768,7 +1712,7 @@ A figura \ref{rbCadastroUsuarios} demonstra as associações das classes de domíni
 
 \subsection{Lista de Administradores}
 
-A figura \ref{rbListaAdministradores} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkListaAdministradores}.
+A Figura \ref{rbListaAdministradores} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkListaAdministradores}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1782,7 +1726,7 @@ A figura \ref{rbListaAdministradores} demonstra as associações das classes de do
 
 \subsection{Cadastro e Edição de Administradores}
 
-A figura \ref{rbCadastroAdministradores} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkCadastroAdministradores}.
+A Figura \ref{rbCadastroAdministradores} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkCadastroAdministradores}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1796,7 +1740,7 @@ A figura \ref{rbCadastroAdministradores} demonstra as associações das classes de
 
 \subsection{Lista de Professores}
 
-A figura \ref{rbListaProfessores} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkListaProfessores}.
+A Figura \ref{rbListaProfessores} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkListaProfessores}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1810,7 +1754,7 @@ A figura \ref{rbListaProfessores} demonstra as associações das classes de domíni
 
 \subsection{Cadastro e Edição de Professores}
 
-A figura \ref{rbCadastroProfessores} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkCadastroProfessores}.
+A Figura \ref{rbCadastroProfessores} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkCadastroProfessores}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1826,7 +1770,7 @@ A figura \ref{rbCadastroProfessores} demonstra as associações das classes de dom
 
 \subsection{Lista de Instituições}
 
-A figura \ref{rbListaInstituicao} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkListaInstituicao}.
+A Figura \ref{rbListaInstituicao} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkListaInstituicao}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1840,7 +1784,7 @@ A figura \ref{rbListaInstituicao} demonstra as associações das classes de domíni
 
 \subsection{Cadastro e Edição de Instituições}
 
-A figura \ref{rbCadastroInstituicao} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkCadastroInstituicao}.
+A Figura \ref{rbCadastroInstituicao} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkCadastroInstituicao}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1856,7 +1800,7 @@ A figura \ref{rbCadastroInstituicao} demonstra as associações das classes de dom
 
 \subsection{Lista de Permissões}
 
-A figura \ref{rbListaPermissoes} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkListaPermissao}.
+A Figura \ref{rbListaPermissoes} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkListaPermissao}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1870,7 +1814,7 @@ A figura \ref{rbListaPermissoes} demonstra as associações das classes de domínio
 
 \subsection{Cadastro e Edição de Permissões}
 
-A figura \ref{rbCadastroPermissoes} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkCadastroPermissao}.
+A Figura \ref{rbCadastroPermissoes} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkCadastroPermissao}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1886,7 +1830,7 @@ A figura \ref{rbCadastroPermissoes} demonstra as associações das classes de domí
 
 \subsection{Lista de Grupos de Administradores}
 
-A figura \ref{rbListaGruposAdministradores} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkListaGrupoAdministradores}.
+A Figura \ref{rbListaGruposAdministradores} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkListaGrupoAdministradores}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1900,7 +1844,7 @@ A figura \ref{rbListaGruposAdministradores} demonstra as associações das classes
 
 \subsection{Cadastro e Edição de Grupos de Administradores}
 
-A figura \ref{CadastroGruposAdministradores} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkCadastroGrupoAdministradores}.
+A Figura \ref{CadastroGruposAdministradores} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkCadastroGrupoAdministradores}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1916,7 +1860,7 @@ A figura \ref{CadastroGruposAdministradores} demonstra as associações das classe
 
 \subsection{Lista de Países, Estados e Cidades}
 
-A figura \ref{rbListaPaises} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkListaPaises}.
+A Figura \ref{rbListaPaises} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkListaPaises}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1930,7 +1874,7 @@ A figura \ref{rbListaPaises} demonstra as associações das classes de domínio na 
 
 \subsection{Cadastro e Edição de País}
 
-A figura \ref{rbCadastriPais} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkCadastroPais}.
+A Figura \ref{rbCadastriPais} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkCadastroPais}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1946,7 +1890,7 @@ A figura \ref{rbCadastriPais} demonstra as associações das classes de domínio na
 
 \subsection{Cadastro e Edição de Estado}
 
-A figura \ref{rbCadastroEstado} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkCadastroEstado}.
+A Figura \ref{rbCadastroEstado} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkCadastroEstado}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1960,7 +1904,7 @@ A figura \ref{rbCadastroEstado} demonstra as associações das classes de domínio 
 
 \subsection{Cadastro e Edição de Cidade}
 
-A figura \ref{rbCadastroCidade} demonstra as associações das classes de domínio na interface gráfica da figura \ref{mkCadastroCidade}.
+A Figura \ref{rbCadastroCidade} demonstra as associações das classes de domínio na interface gráfica da Figura \ref{mkCadastroCidade}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1976,7 +1920,7 @@ A figura \ref{rbCadastroCidade} demonstra as associações das classes de domínio 
 
 \section{Diagramas de Sequência}
 
-A figura \ref{sqCadastro} demonstra o fluxo de cadastro de um novo problema. O administrador acessa a listagem de problemas, selecionando na interface para o cadastro de um  novo problema, o sistema exibe o formulário de cadastro e o administrador preenche todos os campos mandatórios e clica em ``salvar" \ fazendo com que o sistema retorne para a listagem de problemas.
+A Figura \ref{sqCadastro} demonstra o fluxo de cadastro de um novo problema. O administrador acessa a listagem de problemas, selecionando na interface para o cadastro de um  novo problema, o sistema exibe o formulário de cadastro e o administrador preenche todos os campos mandatórios e clica em ``salvar" \ fazendo com que o sistema retorne para a listagem de problemas.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1994,7 +1938,7 @@ Não foram construídos outrso diagramas de sequência, porque todos seriam muito s
 
 \section{Arquitetura do Software}
 
-Para o desenvolvimento da evolução do portal de algoritmos foi definido utilizar a arquitetura de \textit{software} em camadas, estas representadas na figura \ref{imgArquitetura}.
+Para o desenvolvimento da evolução do portal de algoritmos foi definido utilizar a arquitetura de \textit{software} em camadas, estas representadas na Figura \ref{imgArquitetura}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -2009,7 +1953,7 @@ Para o desenvolvimento da evolução do portal de algoritmos foi definido utilizar
 
 Na camada de Apresentação utilizaremos \ac{HTML} e \textit{AngularJS} para a construção das interfaces gráficas, essa camada comunica-se diretamente com a camada JAX-RS, essa por sua vez responsável por fazer a transferência de informação via \ac{API} \ac{REST}.
 
-Já a camada de Negócio é responsável pelas regras de negócio, essas já definidas nos casos de uso. 
+Já a camada de Negócio é responsável pelas regras de negócio, essas já definidas nos casos de uso.
 
 Por sua vez temos a camada de Persistência, essa responsável por persistir e recuperar os dados, nessa camada utilizaremos \ac{DAO} para realizar essa tarefa.
 
