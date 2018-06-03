@@ -518,7 +518,7 @@ Foram apresentados os casos de uso que serão utilizados para a evolução do porta
 
 \newpage
 
-\section{Protótipos de Interfaces Gráficas}\label{scPrototipos}
+\section{Interfaces Gráficas}\label{scPrototipos}
 
 Os protótipos exibidos nessa seção procuram seguir os seguintes princípios de usabilidade conforme \citet{Benyon2011}:
 
@@ -557,11 +557,13 @@ Nessa interface gráfica o aluno preenche todos os campos abaixo:
 	\item Login: o login é seu \textit{username} que será utilizado para acessar o portal de algoritmos.
 	\item Senha.
 	\item Repita a senha: nesse campo faz-se a verificação se a senha digitada anteriormente corresponde a essa.
-	\item Quem é você? Escolhe uma das opções disponíveis, como por exemplo: Aluno da \ac{UCS}.
+	\item Instituição: exibe todas instituições cadastradas pelo administrador.
 	\item Cidade: exibe todas cidades cadastradas pelo administrador.
 \end{itemize}
 
-Após o preenchimento de todos os campos, o alunos clica em ``Registrar" \ e seu cadastro estará realizado.
+Após o preenchimento de todos os campos, o alunos clica em ``Salvar" \ e seu cadastro estará realizado.
+
+\newpage
 
 \subsection{Autenticação}
 
@@ -580,44 +582,6 @@ A Figura \ref{mkAutenticacao} é ainterface gráfica de autenticação.
 Nessa interface gráfica o aluno, professor ou administrador realiza a autenticação no portal de algoritmos. A autenticação somente é autorizada para usuários ainda ativos no sistema.
 
 O seu funcionamento é simples, o usuário preenche os campos de ``Usuário ou E-mail" \  e ``Senha" \  com as seguintes informações, e-mail ou usuário e senha, o usuário estando ativo no sistema ele será redirecionado para a página inicial do sistema.
-
-\newpage
-
-\subsection{Recuperação de Senha}
-
-A Figura \ref{mkRecuperacaoSenha} é a interface gráfica de recuperação de senha.
-
-\FloatBarrier
-\begin{figure}[!htb]
-	\centering
-	\caption{Interface Gráfica de Recuperação de Senha}
-	\includegraphics[width=15cm]{mockups/4.png}
-	\label{mkRecuperacaoSenha}
-	Fonte: (AUTOR, 2015)
-\end{figure}
-\FloatBarrier
-
-Nessa interface o usuário é capaz de solicitar uma nova senha somente preenchendo seu e-mail cadastrado no portal de algoritmos.
-
-Após o preenchimento do e-mail o usuário clica em ``Enviar", fazendo com que o sistema dispare um e-mail com a senha nova e anulando a senha antiga.
-
-\newpage
-
-\subsection{Boas Vindas do Aluno}
-
-A Figura \ref{mkBoasVindasAlunos} é a interface gráfica de Boas Vindas do Aluno.
-
-\FloatBarrier
-\begin{figure}[!htb]
-	\centering
-	\caption{Interface Gráfica de Boas Vindas do Aluno}
-	\includegraphics[width=15cm]{mockups/2.png}
-	\label{mkBoasVindasAlunos}
-	Fonte: (AUTOR, 2015)
-\end{figure}
-\FloatBarrier
-
-Essa interface gráfica é exibida após a autenticação com sucesso do Aluno. É exibido um vídeo explicativo de utilização do novo portal de algoritmos.
 
 \newpage
 
@@ -641,7 +605,7 @@ Essa interface gráfica é exibida após a autenticação com sucesso do Administrado
 
 \subsection{Problemas}\label{scListaProblemas}
 
-A Figura \ref{mkListaProblemas} é a interface gráfica da listagem de problemas. Os problemas são agrupados por tipos de problemas.
+A Figura \ref{mkListaProblemas} é a interface gráfica da listagem de problemas. 
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -672,12 +636,12 @@ Essa interface gráfica possui as seguintes ações:
 
 \subsection{Tipo de Problema}
 
-A Figura \ref{mkNovoTipoProblema} é a interface gráfica de cadastro de novo tipo de problema.
+A Figura \ref{mkNovoTipoProblema} é a interface gráfica de listagem de tipos de problemas.
 
 \FloatBarrier
 \begin{figure}[!htb]
 	\centering
-	\caption{Interface Gráfica de Novo Tipo de Problema}
+	\caption{Interface Gráfica de Listagem Tipos de Problemas}
 	\includegraphics[width=15cm]{mockups/7.png}
 	\label{mkNovoTipoProblema}
 	Fonte: (AUTOR, 2015)
@@ -749,11 +713,12 @@ A Figura \ref{mkDadosTestes} é a interface gráfica de cadastro e/ou edição de da
 
 Nessa interface o administrador preenche os campos ``Entrada" \ e ``Saída" \  e clica em ``Adicionar", fazendo essa ação ele associa o novo dado de teste ao problema que ele está cadastrando ou editando. O administrador pode também editar ou remover um dado de teste já cadastrado, para isso é preciso selecionar um das ações, ``Editar" \  ou ``Remover". Um problema pode ter apenas dados de testes de ``Entrada" \ ou somente de ``Saída".
 
+
 \newpage
 
-\subsection{Visualização de Solução partindo da listagem de Problemas}
+\subsection{Visualização de Solução de Problema}
 
-A Figura \ref{mkVisualizacaoSolucao1} é a interface gráfica de visualização de uma solução de um problema. Podemos observar no topo da interface que é exibido o caminho que foi utilizado para chegar a essa solução. Em outras interfaces que serão descritas no decorrer deste trabalho, esse caminho pode variar de acordo com o contexto do gerenciamento do portal de algoritmos.
+A Figura \ref{mkVisualizacaoSolucao1} é a interface gráfica de visualização de uma solução de um problema.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -792,8 +757,6 @@ Nessa interface gráfica possuímos as seguintes ações:
 		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroGrupo}
 	\item Remover Grupo.
 		\subitem Selecionando essa ação, o administrador remove somente o grupo, sendo assim, não remove problemas, soluções e/ou usuários.
-	\item Visualizar Solução.
-		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkVisualizacaoSolucao2}
 \end{itemize}
 
 \subsection{Cadastro e Edição de Grupo}
@@ -859,22 +822,6 @@ Utilizando os botões centrais, é possível adicionar ou remover listas de problem
 
 \newpage
 
-\subsection{Visualização de Solução partindo da listagem de Grupos}
-
-A Figura \ref{mkVisualizacaoSolucao2} é a interface gráfica de visualização de uma solução de um problema. Podemos observar no topo da interface que é exibido o caminho que foi utilizado para chegar a essa solução
-
-\FloatBarrier
-\begin{figure}[!htb]
-	\centering
-	\caption{Interface Gráfica de Visualização de Solução dos Grupos}
-	\includegraphics[width=15cm]{mockups/16.png}
-	\label{mkVisualizacaoSolucao2}
-	Fonte: (AUTOR, 2015)
-\end{figure}
-\FloatBarrier
-
-\newpage
-
 \subsection{Lista de Alunos}
 
 A Figura \ref{mkListaAlunos} é a interface gráfica da listagem de alunos.
@@ -916,22 +863,6 @@ A Figura \ref{mkCadastroAlunoAdmin} é a interface gráfica do cadastro e edição d
 \FloatBarrier
 
 A única informação que é necessário preencher é selecionar um Usuário sendo que esse usuário ficará associado ao cadastro do aluno.
-
-\newpage
-
-\subsection{Visualização de Solução partindo da listagem de Alunos}
-
-A Figura \ref{mkVisualizacaoSolucao3} é a interface gráfica de visualização de uma solução de um problema. Podemos observar no topo da interface que é exibido  o caminho que foi utilizado para chegar a essa solução.
-
-\FloatBarrier
-\begin{figure}[!htb]
-	\centering
-	\caption{Interface Gráfica de Visualização de Solução de Alunos}
-	\includegraphics[width=15cm]{mockups/18.png}
-	\label{mkVisualizacaoSolucao3}
-	Fonte: (AUTOR, 2015)
-\end{figure}
-\FloatBarrier
 
 \newpage
 
@@ -979,22 +910,6 @@ Para cadastrar ou editar, o administrador deve preencher um nome para lista e se
 
 \newpage
 
-\subsection{Visualização de Solução partindo da listagem de Listas de Problemas}
-
-A Figura \ref{mkVisualizacaoSolucao4} é a inteface gráfica de uma solução de um problema. Podemos observar no topo da interface que é exibido  o caminho que foi utilizado para chegar a essa solução.
-
-\FloatBarrier
-\begin{figure}[!htb]
-	\centering
-	\caption{Interface Gráfica de Visualização de Solução de Lista de Problemas}
-	\includegraphics[width=15cm]{mockups/24.png}
-	\label{mkVisualizacaoSolucao4}
-	Fonte: (AUTOR, 2015)
-\end{figure}
-\FloatBarrier
-
-\newpage
-
 \subsection{Lista de Usuários}
 
 A Figura \ref{mkListaUsuario} é a interface gráfica da listagem dos usuários. Essa interface lista todos os usuários cadastrados no portal de algoritmos, incluindo os inativos.
@@ -1035,49 +950,6 @@ A Figura \ref{mkCadastroUsuario} é a interface gráfica do cadastro e edição dos 
 \FloatBarrier
 
 O administrador preenche todos os campos do cadastro e clica em ``Salvar". Após o administrador cadastrar ou editar o aluno o sistema retorna para listagem de usuários.
-
-\newpage
-
-\subsection{Lista de Administradores}
-
-A Figura \ref{mkListaAdministradores} é a interface gráfica da listagem dos administradores.
-
-\FloatBarrier
-\begin{figure}[!htb]
-	\centering
-	\caption{Interface Gráfica de Lista de Administradores}
-	\includegraphics[width=15cm]{mockups/26.png}
-	\label{mkListaAdministradores}
-	Fonte: (AUTOR, 2015)
-\end{figure}
-\FloatBarrier
-
-Nessa interface gráfica temos as seguintes ações:
-
-\begin{itemize}
-	\item Pesquisa Livre: o administrador pode realizar a pesquisa por qualquer palavra.
-	\item Novo Administrador: selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroAdministradores}.
-	\item Editar Administrador: selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroAdministradores}.
-	\item Remover Administrador: selecionando essa ação, o administrador remove um Administrador.
-\end{itemize}
-
-\newpage
-
-\subsection{Cadastro e Edição de Administradores}
-
-A Figura \ref{mkCadastroAdministradores} é a interface gráfica do cadastro e edição dos administradores.
-
-\FloatBarrier
-\begin{figure}[!htb]
-	\centering
-	\caption{Interface Gráfica de Cadastro e Edição de Administradores}
-	\includegraphics[width=15cm]{mockups/27.png}
-	\label{mkCadastroAdministradores}
-	Fonte: (AUTOR, 2015)
-\end{figure}
-\FloatBarrier
-
-O administrador seleciona um usuário para cadastrar como administrador, podendo também adicionar grupos de administradores, sendo que esses grupos possuem permissões diferentes para acessar o gerenciamento do portal de algoritmos. Após preencher todo o cadastro o administrador clica em ``Salvar" \ e o sistema direciona para listagem de administradores.
 
 \newpage
 
@@ -1222,7 +1094,7 @@ A Figura \ref{mkListaGrupoAdministradores} é a interface gráfica da listagem das
 \begin{figure}[!htb]
 	\centering
 	\caption{Interface Gráfica de Lista de Grupos de Administradores}
-	\includegraphics[width=15cm]{mockups/34.png}
+	\includegraphics[width=15cm]{mockups/26.png}
 	\label{mkListaGrupoAdministradores}
 	Fonte: (AUTOR, 2015)
 \end{figure}
@@ -1247,7 +1119,7 @@ A Figura \ref{mkCadastroGrupoAdministradores} é a interface gráfica do cadastro 
 \begin{figure}[!htb]
 	\centering
 	\caption{Interface Gráfica de Cadastro e Edição de Grupos de Administradores}
-	\includegraphics[width=15cm]{mockups/35.png}
+	\includegraphics[width=15cm]{mockups/27.png}
 	\label{mkCadastroGrupoAdministradores}
 	Fonte: (AUTOR, 2015)
 \end{figure}
