@@ -36,55 +36,17 @@ A Figura \ref{imgDominio} representa as classes do portal que é utilizado atualm
 \end{figure}
 \FloatBarrier
 
-Abaixo é descrito o que cada classe representa no \textit{software} atual, visa-se manter todas as funcionalidades atuais após a evolução do mesmo, e adicionar algumas novas.
+A Tabela \ref{tbDescricaoTabelaPortalAntigo} mostra as tabelas do banco de dados e suas descrições referente ao portal de algoritmos, visa-se manter todas as funcionalidades atuais após a evolução do mesmo, e adicionar algumas novas.
 
-\subsection{User}
-
-\textit{User} representa os usuários. O usuário tem algumas funções importantes no sistema. Sendo somente com ele é possível ter acesso a áreas restritas, bem como resolver os exercícios do portal.
-
-\subsection{Groups}
-
-\textit{Group} representa os grupos do \ac{ORM} do \textit{framework Django}. Essa classe tem por objetivo agrupar usuários com determinadas permissões, mas para o sistema atual ela não é utilizada.
-
-\subsection{Permission}
-
-\textit{Permission} corresponde às permissões utilizadas no sistema. Tem por objetivo definir permissões de acesso ao sistema, como por exemplo se um usuário que possui acesso ao gerenciamento do portal esse pode cadastrar um aluno ou um novo problema.
-
-\subsection{ContentType}
-
-\textit{ContentType} corresponde aos tipos de conteúdo. É uma classe padrão do \textit{Framework Django}, que representa informações dos modelos utilizados no projeto. Sempre que é criado um modelo novo é criado um tipo de conteúdo automaticamente.
-
-\subsection{Aluno}
-
-Aluno corresponde aos alunos cadastrados no sistema. No portal essa classe é um complemento aos dados do usuário, representando um aluno com suas respectivas informações.
-
-\subsection{Professor}
-
-Professor corresponde aos professores que podem cadastrar problemas no sistema. No portal é um complemento aos dados do usuário, representando um professor com suas respectivas informações.
-
-\subsection{Turma}
-
-Turma corresponde a turmas cadastradas no sistema. As turmas são usadas para agrupar alunos. Essa classe não é utilizada no sistema atual.
-
-\subsection{Problema}
-
-Problema corresponde aos problemas. Essa classe representa todas as informações correspondentes a um problema. Somente administradores do portal tem permissão para gravar infomações. Essas permissões não são controladas pela classe de domínio \textit{Permission}. Esse controle funciona através do campo \textit{is\_superuser} da classe de domínio \textit{User}.
-
-\subsection{Pchave}
-
-Pchave corresponde às palavras-chave. Representa uma palavra-chave que é um facilitador para a pesquisa de problemas.
-
-\subsection{PchaveProb}
-
-PchaveProb corresponde à relação entre a palavra-chave e um problema. Essa classe é utilizada para poder referenciar mais de uma palavra-chave para o mesmo problema.
-
-\subsection{EProblema}
-
-EProblema corresponde às entradas e saídas esperadas de um determinado problema. Nela é posssível informar alguma característica que ajude o usuário a resolver um determinado exercício.
-
-\subsection{SProblema}
-
-SProblema corresponde às soluções submetidas pelos usuários em algum exercício resolvido. Possui relação direta com o usuário e um problema.
+\FloatBarrier
+\begin{table}[!htb]
+	\centering
+	\caption{Tabelas do Banco de Dados do Portal de Algoritmos Atual}
+	\label{tbDescricaoTabelaPortalAntigo}
+	\includegraphics[width=15cm]{UML/classes-de-dominios/1.png}
+	Fonte: (AUTOR, 2015)
+\end{table}
+\FloatBarrier
 
 Nesta seção foram descritas as classes de domínios do portal de algoritmos, a seguir é exibida as interfaces gráficas.
 

@@ -48,77 +48,17 @@ A Figura \ref{imgDiagramaNovo} representa o diagrama de classe de domínio propos
 \end{figure}
 \FloatBarrier
 
-\subsection{User}
+A Tabela \ref{tbDescricaoTabelaPortalNovo} mostra as tabelas do banco de dados e suas descrições referente ao portal de algoritmos.
 
-\textit{User} representa os usuários. Possui a mesma função da classe \textit{User} do portal de algoritmos antigo.
-
-\subsection{Teacher}
-
-\textit{Teacher} representa os professores. Essa classe é equivalente à classe Professor do portal de algoritmos antigo.
-
-\subsection{Student}
-
-\textit{Student} representa os estudantes. Essa classe é equivalente à classe Aluno do portal de algoritmos antigo.
-
-\subsection{Admins}
-
-\textit{Admins} representa a classe de administradores do portal de algoritmos. Essa classe foi criada para fazer a associação entre um \textit{User} e um \textit{GroupAdmin}.
-
-\subsection{GroupAdmin}
-
-\textit{GroupAdmin} representa a classe de Grupo de Administradores. Essa classe é equivalente à classe \textit{Group} do portal de algoritmos antigo.
-
-\subsection{Permission}
-
-\textit{Permission} representa as permissões. Essa classe é equivalente à classe \textit{Permission} do portal de algoritmos antigo.
-
-\subsection{Group}
-
-\textit{Group} representa os grupos de alunos. É equivalente à classe Turma no portal de algoritmos antigo, que não estava sendo utilizada.
-
-\subsection{Institution}
-
-\textit{Institution} representa as instituições que utilizam o portal de algoritmos e serve para identificar a localização de um professor. Essa classe surgiu da necessidade de padronização, pois antes era um campo de texto livre na classe Professor.
-
-\subsection{Problem}
-
-\textit{Problem} representa os problemas do portal de algoritmos. É equivalente à classe Problema do portal de algoritmos antigo.
-
-\subsection{ProblemSolution}
-
-\textit{ProblemSolution} representa as soluções submetidas pelos usuários. É equivalente à classe SProblema.
-
-\subsection{ProblemList}
-
-\textit{ProblemList} representa as listas de problemas. É uma classe nova que surgiu da necessidade de criar listas específicas para grupos ou alunos.
-
-\subsection{ProblemKeyWord}
-
-\textit{ProblemKeyWord} representa a relação entre palavras-chave com o problema. É equivalente à classe PchaveProb do portal de algoritmos antigo.
-
-\subsection{KeyWord}
-
-\textit{KeyWord} representa as palavras-chave. É equivalente à classe Pchave do portal de algoritmos antigo.
-
-\subsection{TestData}
-
-\textit{TestData} representa os dados de teste dos problemas. É equivalente à classe EProblema.
-
-\subsection{ProblemType}
-
-\textit{ProblemType} representa os tipos de problemas. É uma classe nova que surgiu da necessidade de agrupar os problemas por tipos, não mais pela nomenclatura utilizada atualmente.
-
-\subsection{Country}
-
-\textit{Country} representa os países do portal de algoritmos, classe nova que surgiu da necessidade de padronizar nomes de países.
-
-\subsection{State}
-
-\textit{State} representa os estados do portal de algoritmos, classe nova que surgiu da necessidade de padronizar nomes de estados.
-
-\subsection{City}
-
-\textit{City} representa as cidades do portal de algoritmos, classe nova que surgiu da necessidade de padronizar nomes de cidades.
+\FloatBarrier
+\begin{table}[!htb]
+	\centering
+	\caption{Tabelas do Banco de Dados do Portal de Algoritmos Novo}
+	\label{tbDescricaoTabelaPortalNovo}
+	\includegraphics[width=15cm]{UML/classes-de-dominios/2.png}
+	Fonte: (AUTOR, 2015)
+\end{table}
+\FloatBarrier
 
 Ao realizar a modelagem do diagrama de classes de domínios do novo portal de algoritmos, foram padronizadas descrições de campos e descrições de classes para o padrão \textit{CamelCase}.
 
@@ -630,9 +570,9 @@ Essa interface gráfica possui as seguintes ações:
 		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkNovoProblema}.
 	\item Remover Problema.
 		\subitem Selecionando essa ação, o administrador remove o problema.
-	\item Visualizar Solução.
-		\subitem Selecionando essa ação, o administrador é direcionado  para a interface gráfica da Figura \ref{mkVisualizacaoSolucao1}.
 \end{itemize}
+
+\newpage
 
 \subsection{Tipo de Problema}
 
@@ -648,7 +588,7 @@ A Figura \ref{mkNovoTipoProblema} é a interface gráfica de listagem de tipos de 
 \end{figure}
 \FloatBarrier
 
-Nessa interface gráfica o administrador preenche somente um ``Nome" \  para o tipo de problema. Após o preenchimento o administrador clica em ``Salvar" \  e é redirecionado para listagem de problemas que foi descrito na Seção \ref{scListaProblemas}.
+Nessa interface gráfica o administrador visualiza todas os Tipos de Problemas já cadastrados, podendo adicionar, editar e remover.
 
 \newpage
 
@@ -678,6 +618,8 @@ A interface está dividida em três abas, Problema, Palavras Chave e Dados de Test
 \end{itemize}
 
 Toda a ação nessa interface deve ser gravada ao clicar no botão ``Salvar".
+
+\newpage
 
 \subsection{Palavras-chave}\label{scPalavraChave}
 
@@ -729,7 +671,6 @@ A Figura \ref{mkVisualizacaoSolucao1} é a interface gráfica de visualização de u
 	Fonte: (AUTOR, 2015)
 \end{figure}
 \FloatBarrier
-
 \newpage
 
 \subsection{Lista de Grupos}
@@ -758,6 +699,8 @@ Nessa interface gráfica possuímos as seguintes ações:
 	\item Remover Grupo.
 		\subitem Selecionando essa ação, o administrador remove somente o grupo, sendo assim, não remove problemas, soluções e/ou usuários.
 \end{itemize}
+
+\newpage
 
 \subsection{Cadastro e Edição de Grupo}
 
@@ -843,7 +786,6 @@ Nessa interface gráfica encontramos as seguintes ações:
 	\item Novo Aluno: selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroAlunoAdmin}
 	\item Editar Aluno: selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroAlunoAdmin}
 	\item Remover Aluno: selecionando essa ação, o administrador remove o aluno.
-	\item Visualizar Solução: selecionando essa ação, o administrador é direcionado  para a interface gráfica da Figura \ref{mkVisualizacaoSolucao3}.
 \end{itemize}
 
 \newpage
@@ -1214,11 +1156,11 @@ O administrador seleciona um País, seleciona um Estado e preenche o nome da cida
 
 Nesta seção foram apresentados todos os protótipos de interfaces gráficas, a seguir veremos os diagramas de robustez na qual é desmonstrada a ligação entre as interfaces e as classes de domínio.
 
+\newpage
+
 \section{Diagramas de Robustez}
 
 Diagramas de Robustez tem por objetivo demonstrar a ligação dos casos de uso com as interfaces gráficas e classes de domínio dentro do contexto da modelagem do \textit{software}.
-
-\newpage
 
 \subsection{Cadastro de Aluno}
 
