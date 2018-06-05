@@ -1,19 +1,19 @@
 \chapter{Seguran\c{c}a}\label{seguranca}
 
-O Portal de algoritmos atual apresenta falhas de seguran√ßa, algumas delas identificadas s√£o citadas abaixo. Al√©m das falhas,
+O Portal de algoritmos atual apresenta algumas falhas de seguranÁa, abaixo s„o citadas apenas algumas como sendo graves. AlÈm das falhas citadas È proposto uma soluÁ„o utilizando \ac{HTTPS}.
 
 \section{Main in the Middle}
 
-O ataque \textit{man-in-the middle} intercepta uma comunica√ß√£o entre dois sistemas. Por exemplo, em uma transa√ß√£o \ac{HTTP}, o destino √© a conex√£o \ac{TCP} entre cliente e servidor. Usando t√©cnicas diferentes, o invasor divide a conex√£o \ac{TCP} original em duas novas conex√µes, uma entre o cliente e o invasor e a outra entre o invasor e o servidor. Quando a conex√£o \ac{TCP} √© interceptada, o invasor age como um \textit{proxy}, sendo capaz de ler, inserir e modificar os dados na comunica√ß√£o interceptada.\cite{OwaspMainInTheMiddle}
+O ataque \textit{man-in-the middle} intercepta uma comunicaÁ„o entre dois sistemas. Por exemplo, em uma transaÁ„o \ac{HTTP}, o destino È a conex„o \ac{TCP} entre cliente e servidor. Usando tÈcnicas diferentes, o invasor divide a conex„o \ac{TCP} original em duas novas conexıes, uma entre o cliente e o invasor e a outra entre o invasor e o servidor. Quando a conex„o \ac{TCP} È interceptada, o invasor age como um \textit{proxy}, sendo capaz de ler, inserir e modificar os dados na comunicaÁ„o interceptada.\cite{OwaspMainInTheMiddle}
 
 \section{SQL Injection}
 
-Um ataque de inje√ß√£o SQL consiste em inser√ß√£o ou "inje√ß√£o" de uma consulta SQL por meio dos dados de entrada do cliente para o aplicativo. Uma explora√ß√£o de inje√ß√£o SQL bem-sucedida pode ler dados confidenciais do banco de dados, modificar dados do banco de dadosm dentre eles, inserir, atualizar e excluir. Os ataques de inje√ß√£o de SQL s√£o um tipo de ataque de inje√ß√£o , no qual os comandos SQL s√£o injetados na entrada do plano de dados para efetuar a execu√ß√£o de comandos SQL predefinidos.\cite{OwaspSQLInjection}
+Um ataque de injeÁ„o SQL consiste em inserÁ„o ou "injeÁ„o" de uma consulta SQL por meio dos dados de entrada do cliente para o aplicativo. Uma exploraÁ„o de injeÁ„o SQL bem-sucedida pode ler dados confidenciais do banco de dados, modificar dados do banco de dadosm dentre eles, inserir, atualizar e excluir. Os ataques de injeÁ„o de SQL s„o um tipo de ataque de injeÁ„o , no qual os comandos SQL s„o injetados na entrada do plano de dados para efetuar a execuÁ„o de comandos SQL predefinidos.\cite{OwaspSQLInjection}
 
 \section{HTTPS}
 
-O \ac{HTTPS} tecnicamente falando √© \ac{HTTP} sobre \ac{SSl}, ele codifica e decodifica solicita√ß√µes de p√°ginas de usu√°rios. √â importante saber que ele protege contra ataques no site.
+O \ac{HTTPS} tecnicamente falando È \ac{HTTP} sobre \ac{SSl}, ele codifica e decodifica solicitaÁıes de p·ginas de usu·rios. … importante saber que ele protege contra ataques no site.
 
-Para adicionar essa camada de seguran√ßa foi estudado o \textit{Let's Encrypt}, ele √© uma autoridade certificadora livre, autorizada e aberta. Eles fornecem certificados v√°lidos gratuitamente.\cite{LetsEncrypt}
+Para adicionar essa camada de seguranÁa foi estudado o \textit{Let's Encrypt}, ele È uma autoridade certificadora livre, autorizada e aberta. Eles fornecem certificados v·lidos gratuitamente.\cite{LetsEncrypt}
 
-\textit{Let's Encrypt} possui os seguintes principios: ser gratuito, autom√°tico, seguro, transparente, aberto e cooperativo.
+\textit{Let's Encrypt} possui os seguintes principios: ser gratuito, autom·tico, seguro, transparente, aberto e cooperativo.

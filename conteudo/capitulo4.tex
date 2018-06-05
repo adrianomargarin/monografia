@@ -1752,7 +1752,7 @@ Não foram construídos outrso diagramas de sequência, porque todos seriam muito s
 
 \section{Arquitetura do Software}
 
-Para o desenvolvimento da evolução do portal de algoritmos foi definido utilizar a arquitetura de \textit{software} em camadas, estas representadas na Figura \ref{imgArquitetura}.
+Para o desenvolvimento da evolução do portal de algoritmos foi definido utilizar a arquitetura de \textit{software} \ac{MVC}, estas representadas na Figura \ref{imgArquitetura}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -1765,10 +1765,8 @@ Para o desenvolvimento da evolução do portal de algoritmos foi definido utilizar
 \end{figure}
 \FloatBarrier
 
-Na camada de Apresentação utilizaremos \ac{HTML} e \textit{AngularJS} para a construção das interfaces gráficas, essa camada comunica-se diretamente com a camada JAX-RS, essa por sua vez responsável por fazer a transferência de informação via \ac{API} \ac{REST}.
+Na camada de \textit{Model} é feita a manipulação de dados, leitura, escrita de dados.
 
-Já a camada de Negócio é responsável pelas regras de negócio, essas já definidas nos casos de uso.
+Na camada de \textit{Controller} é responsável por receber todas as requisições do usuário, nessa camada possui métodos de ações.
 
-Por sua vez temos a camada de Persistência, essa responsável por persistir e recuperar os dados, nessa camada utilizaremos \ac{DAO} para realizar essa tarefa.
-
-A camada de banco de dados é responsável pelo armazenamento dos dados da aplicação.
+Na camada de \textit{View} temos a interação com o usuário, essa camada faz apenas a exibição dos dados.
