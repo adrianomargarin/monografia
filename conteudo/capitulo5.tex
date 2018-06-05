@@ -1,2 +1,19 @@
 \chapter{Seguran\c{c}a}\label{seguranca}
 
+O Portal de algoritmos atual apresenta falhas de segurança, algumas delas identificadas são citadas abaixo. Além das falhas,
+
+\section{Main in the Middle}
+
+O ataque \textit{man-in-the middle} intercepta uma comunicação entre dois sistemas. Por exemplo, em uma transação \ac{HTTP}, o destino é a conexão \ac{TCP} entre cliente e servidor. Usando técnicas diferentes, o invasor divide a conexão \ac{TCP} original em duas novas conexões, uma entre o cliente e o invasor e a outra entre o invasor e o servidor. Quando a conexão \ac{TCP} é interceptada, o invasor age como um \textit{proxy}, sendo capaz de ler, inserir e modificar os dados na comunicação interceptada.\cite{OwaspMainInTheMiddle}
+
+\section{SQL Injection}
+
+Um ataque de injeção SQL consiste em inserção ou "injeção" de uma consulta SQL por meio dos dados de entrada do cliente para o aplicativo. Uma exploração de injeção SQL bem-sucedida pode ler dados confidenciais do banco de dados, modificar dados do banco de dadosm dentre eles, inserir, atualizar e excluir. Os ataques de injeção de SQL são um tipo de ataque de injeção , no qual os comandos SQL são injetados na entrada do plano de dados para efetuar a execução de comandos SQL predefinidos.\cite{OwaspSQLInjection}
+
+\section{HTTPS}
+
+O \ac{HTTPS} tecnicamente falando é \ac{HTTP} sobre \ac{SSl}, ele codifica e decodifica solicitações de páginas de usuários. É importante saber que ele protege contra ataques no site.
+
+Para adicionar essa camada de segurança foi estudado o \textit{Let's Encrypt}, ele é uma autoridade certificadora livre, autorizada e aberta. Eles fornecem certificados válidos gratuitamente.\cite{LetsEncrypt}
+
+\textit{Let's Encrypt} possui os seguintes principios: ser gratuito, automático, seguro, transparente, aberto e cooperativo.
