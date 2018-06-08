@@ -1,8 +1,8 @@
 \chapter{Segurança}\label{seguranca}
 
-O Portal de algoritmos atual apresenta algumas falhas de segurança, abaixo são citadas apenas algumas como sendo graves. Além das falhas citadas é proposto uma solução utilizando \ac{HTTPS}.
+O Portal de Algoritmos antes da atualização apresenta algumas falhas de segurança, abaixo são citadas apenas algumas como sendo graves. Além das falhas citadas é proposto uma solução utilizando \ac{HTTPS}.
 
-\section{Main in the Middle}
+\section{Man in the Middle}
 
 O ataque \textit{man-in-the middle} intercepta uma comunicação entre dois sistemas. Por exemplo, em uma transação \ac{HTTP}, o destino é a conexão \ac{TCP} entre cliente e servidor. Usando técnicas diferentes, o invasor divide a conexão \ac{TCP} original em duas novas conexões, uma entre o cliente e o invasor e a outra entre o invasor e o servidor. Quando a conexão \ac{TCP} é interceptada, o invasor age como um \textit{proxy}, sendo capaz de ler, inserir e modificar os dados na comunicação interceptada.\cite{OwaspMainInTheMiddle}
 
@@ -12,7 +12,7 @@ Um ataque de injeção SQL consiste em inserção ou "injeção" de uma consulta SQL p
 
 \section{HTTPS}
 
-O \ac{HTTPS} tecnicamente falando é \ac{HTTP} sobre \ac{SSl}, ele codifica e decodifica solicitações de páginas de usuários. É importante saber que ele protege contra ataques no site.
+O \ac{HTTPS} tecnicamente falando é \ac{HTTP} sobre \ac{SSL}, ele codifica e decodifica solicitações de páginas de usuários. É importante saber que ele protege contra ataques no site.
 
 Para adicionar essa camada de segurança foi estudado o \textit{Let's Encrypt}, ele é uma autoridade certificadora livre, autorizada e aberta. Eles fornecem certificados válidos gratuitamente.\cite{LetsEncrypt}
 

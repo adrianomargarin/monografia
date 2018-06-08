@@ -1,4 +1,1230 @@
 \chapter*{Apêndice A - Documentação}\label{Documentacao}
 
+API de Países, endpoint base \textit{countries}
 
-Incluir Documentação nesse apêndice
+\begin{lstlisting}
+	GET /countries
+\end{lstlisting}
+
+\begin{lstlisting}
+[
+	{
+		"id": "Integer",
+		"name": "String",
+		"abbreviation": "String"
+	}
+]
+\end{lstlisting}
+
+\begin{lstlisting}
+	GET /countries/:id
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+	"id": "Integer",
+	"name": "String",
+	"abbreviation": "String"
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	POST /countries
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+	"name": "String",
+	"abbreviation": "String"
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	PUT /countries
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+	"id": "Integer",
+	"name": "String",
+	"abbreviation": "String"
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	DELETE /countries/:id
+\end{lstlisting}
+
+\newpage
+
+\begin{lstlisting}
+	GET /states
+\end{lstlisting}
+
+\begin{lstlisting}
+[
+    {
+        "id": "Integer",
+        "name": "String",
+        "abbreviation": "String",
+        "country": {
+            "id": "Integer",
+            "name": "String",
+            "abbreviation": "String"
+        }
+    }
+]
+\end{lstlisting}
+
+\begin{lstlisting}
+	GET /states/:id
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "id": "Integer",
+    "name": "String",
+    "abbreviation": "String",
+    "country": {
+        "id": "Integer",
+        "name": "String",
+        "abbreviation": "String"
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	POST /states
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "name": "String",
+    "abbreviation": "String",
+    "country": {
+        "id": "Integer"
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	PUT /states
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "id": "Integer",
+    "abbreviation": "String",
+    "country": {
+        "id": "Integer"
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	DELETE /states/:id
+\end{lstlisting}
+
+\newpage
+
+\begin{lstlisting}
+	GET /cities
+\end{lstlisting}
+
+\begin{lstlisting}
+[
+    {
+        "id": "Integer",
+        "name": "String",
+        "state": {
+            "id": "Integer",
+            "name": "String",
+            "abbreviation": "String",
+            "country": {
+                "id": "Integer",
+                "name": "String",
+                "abbreviation": "String"
+            }
+        }
+    }
+]
+\end{lstlisting}
+
+\begin{lstlisting}
+	GET /cities/:id
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "id": "Integer",
+    "name": "String",
+    "state": {
+        "id": "Integer",
+        "name": "String",
+        "abbreviation": "String",
+        "country": {
+            "id": "Integer",
+            "name": "String",
+            "abbreviation": "String"
+        }
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	POST /cities
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "name": "String",
+    "state": {
+        "id": "Integer"
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	PUT /cities
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "id": "Integer",
+    "name": "String",
+    "state": {
+        "id": "Integer",
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	DELETE /cities/:id
+\end{lstlisting}
+
+\newpage
+
+\begin{lstlisting}
+	GET /institutions
+\end{lstlisting}
+
+\begin{lstlisting}
+[
+    {
+        "id": "Integer",
+        "name": "String",
+        "initial": "String",
+        "city": {
+            "id": "Integer",
+            "name": "String",
+            "state": {
+                "id": "Integer",
+                "name": "String",
+                "abbreviation": "String",
+                "country": {
+                    "id": "Integer",
+                    "name": "String",
+                    "abbreviation": "String"
+                }
+            }
+        }
+    }
+]
+\end{lstlisting}
+
+\begin{lstlisting}
+	GET /institutions/:id
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "id": "Integer",
+    "name": "String",
+    "initial": "String",
+    "city": {
+        "id": "Integer",
+        "name": "String",
+        "state": {
+            "id": "Integer",
+            "name": "String",
+            "abbreviation": "String",
+            "country": {
+                "id": "Integer",
+                "name": "String",
+                "abbreviation": "String"
+            }
+        }
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	POST /institutions
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "name": "String",
+    "initial": "String",
+    "city": {
+        "id": "Integer"
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	PUT /institutions
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "id": "Integer",
+    "name": "String",
+    "initial": "String",
+    "city": {
+        "id": "Integer"
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	DELETE /institutions/:id
+\end{lstlisting}
+
+\newpage
+
+\begin{lstlisting}
+	GET /permissions
+\end{lstlisting}
+
+\begin{lstlisting}
+[
+    {
+        "id": "Integer",
+        "codename": "String",
+        "description": "String"
+    }
+]
+\end{lstlisting}
+
+\begin{lstlisting}
+	GET /permissions/:id
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "id": "Integer",
+    "codename": "String",
+    "description": "String"
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	POST /permissions
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "codename": "String",
+    "description": "String"
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	PUT /permissions
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "id": "Integer",
+    "codename": "String",
+    "description": "String"
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	DELETE /permissions/:id
+\end{lstlisting}
+
+\newpage
+
+\begin{lstlisting}
+	GET /users
+\end{lstlisting}
+
+\begin{lstlisting}
+[
+    {
+        "id": "Integer",
+        "username": "String",
+        "firstname": "String",
+        "lastname": "String",
+        "email": "String",
+        "password": "*****",
+    }
+]
+\end{lstlisting}
+
+\begin{lstlisting}
+	GET /users/:id
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "id": "Integer",
+    "username": "String",
+    "firstname": "String",
+    "lastname": "String",
+    "email": "String",
+    "password": "*****",
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	POST /users
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "username": "String",
+    "firstname": "String",
+    "lastname": "String",
+    "email": "String",
+    "password": "*****",
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	PUT /users
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "id": "Integer",
+    "username": "String",
+    "firstname": "String",
+    "lastname": "String",
+    "email": "String",
+    "password": "*****",
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	DELETE /users/:id
+\end{lstlisting}
+
+\newpage
+
+\begin{lstlisting}
+	GET /userpermission/filter-by-user-id/{user-id}
+\end{lstlisting}
+
+\begin{lstlisting}
+[
+    {
+        "id": "Integer",
+        "permission": {
+            "id": "Integer"
+        },
+        "portaluser": {
+            "id": "Integer"
+        }
+    }
+]
+\end{lstlisting}
+
+\begin{lstlisting}
+	POST userpermission/{user-id} # arrumar portaluser para user
+\end{lstlisting}
+
+\begin{lstlisting}
+[
+    {
+        "permission": {
+            "id": 1
+        },
+        "portaluser": {
+            "id": 5
+        }
+    }
+]
+\end{lstlisting}
+
+\newpage
+
+\begin{lstlisting}
+	/teachers
+\end{lstlisting}
+
+\begin{lstlisting}
+	/students
+\end{lstlisting}
+
+\newpage
+
+\begin{lstlisting}
+	GET studentgroups/filter-by-list-student-id/{student-id}
+\end{lstlisting}
+
+\begin{lstlisting}
+[
+    {
+        "id": "Integer",
+        "student": {
+            "id": "Integer"
+        },
+        "group": {
+            "id": "Integer"
+        }
+    }
+]
+\end{lstlisting}
+
+\begin{lstlisting}
+	POST studentgroups/{student-id}
+\end{lstlisting}
+
+\begin{lstlisting}
+[
+    {
+        "student": {
+            "id": "Integer"
+        },
+        "group": {
+            "id": "Integer"
+        }
+    }
+]
+\end{lstlisting}
+
+\newpage
+
+\begin{lstlisting}
+	GET studentproblemlist/filter-by-list-student-id/{student-id}
+\end{lstlisting}
+
+\begin{lstlisting}
+[
+    {
+        "id": "Integer",
+        "listActivity": {
+            "id": "Integer"
+        },
+        "group": {
+            "id": "Integer"
+        }
+    }
+]
+\end{lstlisting}
+
+\begin{lstlisting}
+	POST studentproblemlist/{student-id}
+\end{lstlisting}
+
+\begin{lstlisting}
+[
+    {
+        "listActivity": {
+            "id": "Integer"
+        },
+        "group": {
+            "id": "Integer"
+        }
+    }
+]
+\end{lstlisting}
+
+\newpage
+
+\begin{lstlisting}
+	GET /groupadmins
+\end{lstlisting}
+
+\begin{lstlisting}
+[
+    {
+        "id": "Integer",
+        "name": "String"
+    }
+]
+\end{lstlisting}
+
+\begin{lstlisting}
+	GET /groupadmins/:id
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "id": "Integer",
+    "name": "String"
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	POST /groupadmins
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "name": "String"
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	PUT /groupadmins
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "id": "Integer",
+    "name": "String"
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	DELETE /groupadmins/:id
+\end{lstlisting}
+
+\newpage
+
+\begin{lstlisting}
+	GET /groupadminpermission/filter-by-groupadmin-id/{group-admin-id}
+\end{lstlisting}
+
+\begin{lstlisting}
+[
+    {
+        "id": "Integer",
+        "permission": {
+            "id": "Integer"
+        },
+        "groupadmin": {
+            "id": "Integer"
+        }
+    }
+]
+\end{lstlisting}
+
+\begin{lstlisting}
+	POST /groupadminpermission/{group-admin-id}
+\end{lstlisting}
+
+\begin{lstlisting}
+[
+    {
+        "permission": {
+            "id": "Integer"
+        },
+        "groupadmin": {
+            "id": "Integer"
+        }
+    }
+]
+\end{lstlisting}
+
+\newpage
+
+\begin{lstlisting}
+	GET /groupadminuser/filter-by-groupadmin-id/{group-admin-id}
+\end{lstlisting}
+
+\begin{lstlisting}
+[
+    {
+        "id": "Integer",
+        "user": {
+            "id": "Integer"
+        },
+        "groupadmin": {
+            "id": "Integer"
+        }
+    }
+]
+\end{lstlisting}
+
+\begin{lstlisting}
+	POST /groupadminuser/{group-admin-id}
+\end{lstlisting}
+
+\begin{lstlisting}
+[
+    {
+        "user": {
+            "id": "Integer"
+        },
+        "groupadmin": {
+            "id": "Integer"
+        }
+    }
+]
+\end{lstlisting}
+
+\newpage
+
+\begin{lstlisting}
+	GET /groups
+\end{lstlisting}
+
+\begin{lstlisting}
+[
+    {
+        "id": "Integer",
+        "name": "String",
+        "description": "String",
+        "teacher": {
+            "id": "Integer"
+        }
+    }
+]
+\end{lstlisting}
+
+\begin{lstlisting}
+	GET /groups/:id
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "id": "Integer",
+    "name": "String",
+    "description": "String",
+    "teacher": {
+        "id": "Integer"
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	POST /groups
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "name": "String",
+    "description": "String",
+    "teacher": {
+        "id": "Integer"
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	PUT /groups
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "id": "Integer",
+    "name": "String",
+    "description": "String",
+    "teacher": {
+        "id": "Integer"
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	DELETE /groups/:id
+\end{lstlisting}
+
+\newpage
+
+\begin{lstlisting}
+	GET /groupproblemlist/filter-by-group-id/{group-id}
+\end{lstlisting}
+
+\begin{lstlisting}
+[
+    {
+        "id": "Integer",
+        "listActivity": {
+            "id": "Integer"
+        },
+        "group": {
+            "id": "Integer"
+        }
+    }
+]
+\end{lstlisting}
+
+\begin{lstlisting}
+	POST /groupproblemlist/{group-id}
+\end{lstlisting}
+
+\begin{lstlisting}
+[
+    {
+        "listActivity": {
+            "id": "Integer"
+        },
+        "group": {
+            "id": "Integer"
+        }
+    }
+]
+\end{lstlisting}
+
+\newpage
+
+\begin{lstlisting}
+	GET /problemtypes
+\end{lstlisting}
+
+\begin{lstlisting}
+[
+    {
+        "id": "Integer",
+        "name": "String",
+    }
+]
+\end{lstlisting}
+
+\begin{lstlisting}
+	GET /problemtypes/:id
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "id": "Integer",
+    "name": "String",
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	POST /problemtypes
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "name": "String",
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	PUT /problemtypes
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "id": "Integer",
+    "name": "String",
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	DELETE /problemtypes/:id
+\end{lstlisting}
+
+\newpage
+
+\begin{lstlisting}
+	GET /problems
+\end{lstlisting}
+
+\begin{lstlisting}
+[
+    {
+        "id": "Integer",
+        "name": "String",
+        "problemtype": {
+            "id": "Integer",
+            "name": "String"
+        },
+        "description": "String",
+        "tip": "String",
+        "createdat": "Timestamp",
+        "level": "String",
+        "cost": "Integer"
+    }
+]
+\end{lstlisting}
+
+\begin{lstlisting}
+	GET /problems/:id
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "id": "Integer",
+    "name": "String",
+    "problemtype": {
+        "id": "Integer",
+        "name": "String"
+    },
+    "description": "String",
+    "tip": "String",
+    "createdat": "Timestamp",
+    "level": "String",
+    "cost": "Integer"
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	POST /problems
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "name": "String",
+    "problemtype": {
+        "id": "Integer",
+    },
+    "description": "String",
+    "tip": "String",
+    "level": "String",
+    "cost": "Integer"
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	PUT /problems
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "id": "Integer",
+    "name": "String",
+    "problemtype": {
+        "id": "Integer",
+    },
+    "description": "String",
+    "tip": "String",
+    "level": "String",
+    "cost": "Integer"
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	DELETE /problems/:id
+\end{lstlisting}
+
+\newpage
+
+\begin{lstlisting}
+	GET /testdatas/filter-by-problem-id/{problem-id}
+\end{lstlisting}
+
+\begin{lstlisting}
+[
+    {
+        "id": "Integer",
+        "input": "String",
+        "output": "String",
+        "problem": {
+            "id": "Integer"
+        }
+    }
+]
+\end{lstlisting}
+
+\begin{lstlisting}
+	POST /testdatas/{problem-id}
+\end{lstlisting}
+
+\begin{lstlisting}
+[
+    {
+        "listActivity": {
+            "id": "Integer"
+        },
+        "group": {
+            "id": "Integer"
+        }
+    }
+]
+\end{lstlisting}
+
+\newpage
+
+\begin{lstlisting}
+	GET /keywords
+\end{lstlisting}
+
+\begin{lstlisting}
+[
+    {
+        "id": "Integer",
+        "name": "String",
+    }
+]
+\end{lstlisting}
+
+\begin{lstlisting}
+	GET /keywords/:id
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "id": "Integer",
+    "name": "String",
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	POST /keywords
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "name": "String",
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	PUT /keywords
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "id": "Integer",
+    "name": "String",
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	DELETE /keywords/:id
+\end{lstlisting}
+
+\newpage
+
+\begin{lstlisting}
+	GET /problemkeywords/filter-by-problem-id/{problem-id}
+\end{lstlisting}
+
+\begin{lstlisting}
+[
+    {
+        "id": "Integer",
+        "keyword": {
+            "id": "Integer"
+        },
+        "problem": {
+            "id": "Integer"
+        }
+    }
+]
+\end{lstlisting}
+
+\begin{lstlisting}
+	POST /problemkeywords/{problem-id}
+\end{lstlisting}
+
+\begin{lstlisting}
+[
+    {
+        "keyword": {
+            "id": "Integer"
+        },
+        "problem": {
+            "id": "Integer"
+        }
+    }
+]
+\end{lstlisting}
+
+\newpage
+
+\begin{lstlisting}
+	GET /listactivities
+\end{lstlisting}
+
+\begin{lstlisting}
+[
+    {
+        "id": "Integer",
+        "name": "String",
+    }
+]
+\end{lstlisting}
+
+\begin{lstlisting}
+	GET /listactivities/:id
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "id": "Integer",
+    "name": "String",
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	POST /listactivities
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "name": "String",
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	PUT /listactivities
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "id": "Integer",
+    "name": "String",
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	DELETE /listactivities/:id
+\end{lstlisting}
+
+\newpage
+
+\begin{lstlisting}
+	GET /problemlists
+\end{lstlisting}
+
+\begin{lstlisting}
+[
+    {
+        "id": "Integer",
+        "problem": {
+            "id": "Integer",
+            "name": "String",
+        },
+        "listactivity": {
+            "id": "Integer",
+            "name": "String"
+        }
+    }
+]
+\end{lstlisting}
+
+\begin{lstlisting}
+	GET /problemlists/filter-by-list-activity-id/{activity-id}
+\end{lstlisting}
+
+\begin{lstlisting}
+[
+    {
+        "id": "Integer",
+        "problem": {
+            "id": "Integer",
+            "name": "String"
+        },
+        "listactivity": {
+            "id": "Integer",
+            "name": "String"
+        }
+    }
+]
+\end{lstlisting}
+
+\begin{lstlisting}
+	POST /problemlists/{activity-id}
+\end{lstlisting}
+
+\begin{lstlisting}
+[
+    {
+        "problem": {
+            "id": "Integer"
+        },
+        "listactivity": {
+            "id": "Integer"
+        }
+    }
+]
+\end{lstlisting}
+
+\newpage
+
+\begin{lstlisting}
+	GET /problemsolutions
+\end{lstlisting}
+
+\begin{lstlisting}
+[
+    {
+        "id": "Integer",
+        "solution": "String",
+        "name": "String",
+        "cost": null,
+        "datesolution": "Timestamp",
+        "result": "String",
+        "user": {
+            "id": "Integer",
+            "username": "String",
+        },
+        "problem": {
+            "id": "Integer",
+            "name": "String",
+        }
+    }
+]
+\end{lstlisting}
+
+\begin{lstlisting}
+	GET /problemsolutions/:id
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "id": "Integer",
+    "solution": "String",
+    "name": "String",
+    "cost": null,
+    "datesolution": "Timestamp",
+    "result": "String",
+    "user": {
+        "id": "Integer",
+        "username": "String",
+    },
+    "problem": {
+        "id": "Integer",
+        "name": "String",
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	POST /problemsolutions
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "solution": "String",
+    "name": "String",
+    "user": {
+        "id": "Integer"
+    },
+    "problem": {
+        "id": "Integer"
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	PUT /problemsolutions
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "id": "Integer",
+    "solution": "String",
+    "name": "String",
+    "user": {
+        "id": "Integer"
+    },
+    "problem": {
+        "id": "Integer"
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+	DELETE /problemsolutions/:id
+\end{lstlisting}
+
+
+
+
+
+
+
+
+
