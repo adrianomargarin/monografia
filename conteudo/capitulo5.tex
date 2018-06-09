@@ -1,6 +1,6 @@
 \chapter{Segurança}\label{seguranca}
 
-O Portal de Algoritmos antes da atualização apresenta algumas falhas de segurança, abaixo são citadas apenas algumas como sendo graves. Além das falhas citadas é proposto uma solução utilizando \ac{HTTPS}.
+O Portal de Algoritmos desatualizado apresenta algumas falhas de segurança, abaixo são citadas apenas algumas dessas falhas. Ao final é apresetando uma indicação para aumentar a segurança das informações \ac{HTTPS}.
 
 \section{Man in the Middle}
 
@@ -16,4 +16,8 @@ O \ac{HTTPS} tecnicamente falando é \ac{HTTP} sobre \ac{SSL}, ele codifica e dec
 
 Para adicionar essa camada de segurança foi estudado o \textit{Let's Encrypt}, ele é uma autoridade certificadora livre, autorizada e aberta. Eles fornecem certificados válidos gratuitamente.\cite{LetsEncrypt}
 
-\textit{Let's Encrypt} possui os seguintes principios: ser gratuito, automático, seguro, transparente, aberto e cooperativo.
+\section{Sugestão de instalação}
+
+No mercado existem diversas autoridades certificadoras que fornecem certificados digitais para fornecer segurança e criptografia de dados nos sistemas online.
+
+Bem como existem certificados pagos, exitem também certificados gratuitos. E para esse trabalho sugerimos utilizar a \textit{Let's Encrypt}, uma autoridade certitifadora que fornece certificados gratuitos com validade de 3 meses, mas que podem seer auto-renovados diretamente no servidor da aplicação.
