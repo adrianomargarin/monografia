@@ -1,6 +1,6 @@
 \chapter{Proposta de Solução}\label{cpProposta}
 
-O presente trabalho tem por objetivo realizar a evolução do gerenciamento do portal de algoritmos. Para tanto, é realizada a engenharia reversa do \textit{software} atual, através da análise do código fonte, suas funcionalidades, sua arquitetura e seu banco de dados.
+O presente trabalho tem por objetivo realizar a evolução do gerenciamento do portal de algoritmos. Para tanto, foi realizada a engenharia reversa do \textit{software} atual, através da análise do código fonte, suas funcionalidades, sua arquitetura e seu banco de dados.
 
 Para descrever a evolução de \textit{software}, nas seções seguintes serão apresentados conceitos e artefatos da engenharia de \textit{software}. Utilizando-se de artefatos da metodologia ICONIX será modelado o \textit{software}.
 
@@ -19,24 +19,16 @@ Na evolução do \textit{software} serão mantidas as funcionalidades atuais e adic
 	\item Manter Permissões.
 	\item Manter Países, Estados e Cidades.
 	\item Manter Tipos de Problemas.
-	\begin{itemize}
-		\item Manter Problemas.
-		\item Manter Entradas e Saídas
-		\item Manter Palavras-chave
-		\item Manter Listas de Problemas
-		\item Manter Soluções de Problemas
-	\end{itemize}
-	\item Chat para comunicação entre usuários
-	\item Relatórios.
-	\begin{itemize}
-		\item Relatórios de acesso: esse relatório demonstra todas as vezes que um usuário acessou o portal, podendo ser filtrado por data.
-		\item Relatório de problemas solucionados: esse relatório demonstra todas as soluções submetidas pelos usuários, podendo ser filtrado por data.
-	\end{itemize}
+	\item Manter Problemas.
+	\item Manter Entradas e Saídas
+	\item Manter Palavras-chave
+	\item Manter Listas de Problemas
+	\item Manter Soluções de Problemas
 \end{itemize}
 
 \section{Diagrama de Classe de Domínio}
 
-A Figura \ref{imgDiagramaNovo} representa o diagrama de classe de domínio proposto para a evolução do portal de algoritmos novo. Nesse novo diagrama foram melhoradas as descrições dos campos, descrevendo-os em inglês e utilizando \textit{CamelCase}.
+A Figura \ref{imgDiagramaNovo} representa o diagrama de classe de domínio proposto para a evolução do portal de algoritmos novo. Nesse novo diagrama foram melhoradas as descrições dos campos, descrevendo-os em inglês.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -104,8 +96,6 @@ Cada requisito funcional elicitado pode se tornar um caso de uso. Esses casos de
 
 Após o levantamento e descrição dos requisitos do \textit{software}, pode ser criado o diagrama macro de interação entre o usuário e os casos de uso do sistema, ressaltando que um \textit{software} dessa natureza deve ter um ambiente de execução com acesso a \textit{internet}.
 
-\newpage
-
 Na Figura \ref{imgCasoUsoAdministrador} estão representados os casos de uso em que o ator ``Administrador" \ está envolvido para o gerenciamento do portal.
 
 \FloatBarrier
@@ -131,6 +121,8 @@ Na Figura \ref{imgCasoUsoProfessor} estão representados os casos de uso em que o
 \end{figure}
 \FloatBarrier
 
+\newpage
+
 Na Figura \ref{imgCasoUsoAluno} estão representados os casos de uso em que o ator ``Aluno" \ está envolvido para o gerenciamento do portal.
 
 \FloatBarrier
@@ -146,11 +138,11 @@ Na Figura \ref{imgCasoUsoAluno} estão representados os casos de uso em que o ato
 
 A seguir são apresentados detalhadamente cada um dos caso de uso apresentados nas figuras \ref{imgCasoUsoAdministrador}, \ref{imgCasoUsoProfessor} e \ref{imgCasoUsoAluno}. Serão apresentados os fluxos de execução principais e alternativos de cada caso de uso.
 
+\newpage
+
 \subsection{Descrição dos Casos de Uso}
 
 Nesta seção são descritos os casos de uso levantados a partir dos requisitos funcionais.
-
-\newpage
 
 \subsubsection{Manter Usuários}
 
@@ -418,22 +410,6 @@ A Tabela \ref{imgManterCidades} descreve o caso de uso de manter  o cadastro, ed
 	\caption{Caso de Uso Manter Cidades}
 	\includegraphics[width=15cm]{UML/casos-de-uso/17.png}
 	\label{imgManterCidades}
-	Fonte: (AUTOR, 2018)
-\end{table}
-\FloatBarrier
-
-\newpage
-
-\subsubsection{Chat Online}
-
-A Tabela \ref{imgManterChat} descreve o caso de uso do \textit{chat online}, ele servirá para comunicação interna em tempo real dentro do portal de algoritmos.
-
-\FloatBarrier
-\begin{table}[!htb]
-	\centering
-	\caption{Caso de Uso Chat Online}
-	\includegraphics[width=15cm]{UML/casos-de-uso/18.png}
-	\label{imgManterChat}
 	Fonte: (AUTOR, 2018)
 \end{table}
 \FloatBarrier
@@ -829,7 +805,6 @@ Nessa interface gráfica temos as seguintes ações:
 	\item Nova Lista: selecionado essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroListaProblemas}
 	\item Editar Lista: selecionado essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroListaProblemas}
 	\item Remover Lista: selecionando essa ação, o administrador remove uma lista.
-	\item Visualizar Solução: selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkVisualizacaoSolucao4}
 \end{itemize}
 
 \newpage
@@ -1683,3 +1658,10 @@ Além da arquitetura lógica, temos a arquiterura de sistema, que é apresentado na
 	Fonte: (AUTOR, 2018)
 \end{figure}
 \FloatBarrier
+
+Na camada de \textit{View e Controller} utilizamos duas tecnologias, \textit{AngularJS 4 e JAX-RS} com a implementação \textit{Jersey 2.26}, essas tecnologias são responsáveis da exibição do dados e comunicação com a camada de modelos.
+
+Na camada de \textit{POJO e JAVA 8} é responsável pela manipulação dos dados transformando-os em objetos interpretados pelo sistema operacional.
+
+Na camada de persistência temos o \ac{JDBC} que é responsável pela comunicação com o banco de dados \textit{Postgresql} 10.
+ 

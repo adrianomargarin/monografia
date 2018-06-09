@@ -2,6 +2,8 @@
 
 Nesse capítulo é descrita a situação atual do sistema, sua modelagem e arquitetura.
 
+
+
 \section{Diagrama de Classe de Domínio}
 
 O diagrama de classe de domínio é a representação visual de classes conceituais, ou objetos do mundo real. Também é chamado de modelo conceitual, que significa uma representação de classes conceitos do mundo real, não de objetos de \textit{software} \cite{Larman2007}.
@@ -9,17 +11,10 @@ O diagrama de classe de domínio é a representação visual de classes conceituais,
 Durante a tradução do código fonte dos modelos de classes do \textit{Django}, foi constatada nenhuma padronização em nomes de váriaveis e classes. Abaixo algumas considerações:
 
 \begin{itemize}
-	\item Os campos não possuem nomes padronizados utilizando \textit{CamelCase};
+	\item Os campos não possuem nomes padronizados utilizando \textit{CamelCase}\footnote[1]{\textit{CamelCase} é a denominação em inglês para a prática de escrever palavras compostas, onde cada palavra é iniciada com minúscula ou maiúscula e unidas sem espaço};
 	\item Nomes de campos escritos em inglês e em português;
 	\item Nomes de classes escritos em inglês e em português;
 	\item Nomes de classes não são intuitivos quanto ao seu objetivo;
-\end{itemize}
-
-\textit{CamelCase} é a denominação em inglês para a prática de escrever palavras compostas, onde cada palavra é iniciada com minúscula ou maiúscula e unidas sem espaço. Exemplo:
-
-\begin{itemize}
-	\item lowerCamelCase;
-	\item UpperCamelCase;
 \end{itemize}
 
 \newpage
@@ -36,7 +31,9 @@ A Figura \ref{imgDominio} representa as classes do portal que é utilizado atualm
 \end{figure}
 \FloatBarrier
 
-A Tabela \ref{tbDescricaoTabelaPortalAntigo} mostra as tabelas do banco de dados e suas descrições referente ao portal de algoritmos, visa-se manter todas as funcionalidades atuais após a evolução do mesmo, e adicionar algumas novas.
+O modelo acima foi obtido através da engenharia reversa do banco de dados do Portal de Algoritmos atual.
+
+A Tabela \ref{tbDescricaoTabelaPortalAntigo} mostra as tabelas do banco de dados e suas descrições referentes ao portal de algoritmos. Visa-se manter todas as funcionalidades atuais após a evolução do mesmo, e adicionar algumas novas.
 
 \FloatBarrier
 \begin{table}[!htb]
@@ -48,7 +45,7 @@ A Tabela \ref{tbDescricaoTabelaPortalAntigo} mostra as tabelas do banco de dados
 \end{table}
 \FloatBarrier
 
-Nesta seção foram descritas as classes de domínios do portal de algoritmos, a seguir é exibida as interfaces gráficas.
+Nesta seção foram descritas as classes de domínios do portal de algoritmos, a seguir são exibidas as interfaces gráficas do mesmo.
 
 \section{Interfaces Gráficas}
 
@@ -72,7 +69,6 @@ Problemas encontrados:
 
 \begin{itemize}
 	\item \textit{Java Applet} não funciona mais em nenhum navegador de internet atual.
-	\item Pouca Usabilidade, uma vez que o cadastro do aluno está na mesma interface da programação de algoritmos.
 \end{itemize}
 
 \subsection{Criação de Solução de Problemas}
@@ -129,7 +125,7 @@ A Figura \ref{imgAdministracaodeAlunos} é a interface de gerenciamento de alunos
 Problemas encontrados:
 
 \begin{itemize}
-	\item Pouca Usabilidade, uma vez que os campos dispostos na interface de maneira pouco intuitiva ao usuário.
+	\item Pouca Usabilidade, uma vez que os campos dispostos na interface de maneira pouco intuitiva ao usuário, bem como muito pequenos.
 \end{itemize}
 
 \subsection{Gerenciamento de Problemas}
@@ -211,7 +207,7 @@ Problemas encontrados:
 	\item Pouca Usabilidade.
 	\begin{itemize}
 		\item A nova janela que é aberta é muito pequena e sem a possibilidade de aumentar.
-		\item Não é possível editar.
+		\item Não é possível editar a solução do problema.
 	\end{itemize}
 \end{itemize}
 
@@ -220,4 +216,4 @@ Os problemas encontrados no \textit{software} atual prejudicam a usabilidade do 
 
 Para solucionar e deixá-lo mais usável, fazendo com que mais alunos sejam beneficiados pelo portal, bem como facilitando o uso por parte dos professores,  no próximo capítulo será descrita toda a modelagem, novas interfaces e novas funcionalidades, utilizando-se de tecnologias mais atuais.
 
-Foram apresentados nesse capítuloos problemas atuais do serviço do portal de algoritmos. No próximo capítulo serão apresentados alternativas de soluções para estes problemas.
+Foram apresentados nesse capítulo problemas atuais do serviço do portal de algoritmos. No próximo capítulo serão apresentados alternativas de soluções para estes problemas.
