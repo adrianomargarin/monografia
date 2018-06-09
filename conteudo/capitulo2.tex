@@ -1,8 +1,8 @@
 \chapter{Evolução de Software}\label{cpReferencial}
 
-Para manter um \textit{software} útil ele deve mudar continuamente. Essa mudança pode ser a partir de uma pressão constante de mudanças que os usuários impõem, para facilitar ou automatizar algumas tarefas do dia-a-dia, entre outros fatores.
+Para manter um \textit{software} útil ele deve mudar continuamente. Essa mudança pode ser a partir de uma pressão constante de mudanças que os usuários impõem, para facilitar ou automatizar algumas tarefas do dia-a-dia.
 
-Todos os \textit{softwares} passarão pelo processo de envelhecimento, isso é inevitável. Algumas causas de problemas podem ser previstas, minimizando os impactos dos danos que são causados por esse fator. A continuidade de uso do \textit{software} implica que ocorram mudanças, que podem ocorrer em regras de negócio ou nas expectativas dos usuários \cite{Sommerville2011}.
+Todos os \textit{softwares} passarão pelo processo de envelhecimento, isso é inevitável. Algumas causas de problemas podem ser previstas, minimizando os impactos dos danos causados. A continuidade de uso do \textit{software} implica que ocorram mudanças, que podem ocorrer em regras de negócio ou nas expectativas dos usuários \cite{Sommerville2011}.
 
 \citet{Rezende2005}, define que um \textit{software} tem um ciclo de vida de no máximo 10 anos, quando ele não sofre novas implementações. O ciclo de vida natural de um \textit{software} abrange as seguintes fases: concepção, construção, implementações, implantação, maturidade e utilização plena, declínio, manutenção e morte.
 
@@ -12,7 +12,7 @@ A evolução de \textit{software} compreende as mudanças que irão ocorrer a fim de
 
 O processo de evolução varia conforme o tipo de \textit{software} que esteja sendo mantido, dos processos de desenvolvimento e as habilidades das pessoas envolvidas. Em alguns casos a evolução pode ser um processo informal, em que na maioria das vezes as mudanças resultam de conversas com usuários. Já em outros casos é um processo formal, envolvendo documentação estruturada que é produzida em cada estágio do processo \cite{Sommerville2011}.
 
-O processo de evolução de \textit{software} envolve a compreensão do \textit{software} que tem que ser alterado. Para tornar-se possível a evolução é preciso aplicar reengenharia no \textit{software} atual, visando melhorar sua estrutura e inteligibilidade \cite{Sommerville2011}.
+O processo de evolução de \textit{software} envolve a compreensão do \textit{software} que tem que ser alterado. Para tornar-se possível a evolução uma das técnicas que podem ser usada é a reengenharia no \textit{software} atual, visando melhorar sua estrutura e inteligibilidade \cite{Sommerville2011}.
 
 Para tornar possível a evolução de \textit{software} é preciso seguir alguns processos. Nas próximas seções serão apresentadas as metodologias e tecnologias que serão utilizadas neste trabalho.
 
@@ -32,7 +32,7 @@ Para tornar possível a evolução de \textit{software} é preciso seguir alguns pro
 			\item Python e Django
 			\item Java EE
 			\item Wildfly
-			\item DAO
+			\item Padrões de Projeto: \ac{DAO}
 			\item \ac{REST}
 			\item AngularJS
 		\end{itemize}
@@ -72,7 +72,7 @@ Na reengenharia um dos processos é a engenharia reversa. Na próxima seção é desc
 
 A engenharia reversa, segundo \citet{Sommerville2011}, consiste em uma técnica de análise de software com o objetivo de recuperar o projeto e suas especificações técnicas.
 
-É possível fazer a engenharia reversa através de diversas formas, na maioria das vezes utiliza os de códigos fontes, conhecimentos técnicos e experiências dos próprios desenvolvedores.
+É possível fazer a engenharia reversa através de diversas formas, na maioria das vezes utilizando os códigos fontes, além dos conhecimentos técnicos e experiências dos próprios desenvolvedores.
 
 Na seção seguinte é descrita a Engenharia de \textit{software} e suas respectivas camadas.
 
@@ -103,7 +103,6 @@ Dentre muitos processos de \textit{software} existentes todos devem incluir quat
 \begin{itemize}
 	\item Especificação de \textit{software}
 	\item Projeto e implementação de \textit{software}
-	\item Validação de \textit{software}
 	\item Evolução de \textit{software}
 \end{itemize}
 
@@ -197,6 +196,8 @@ A Figura \ref{imgExSequencia} pode ser lida da seguinte maneira:
 
 \subsection{Diagrama de Robustez}
 
+Este é um diagrama que não existe na \textit{UML} e é geralmente um diagrama de colaboração adaptado e que faz uso dos estereótipos \textit{entity}, \textit{boundary} e \textit{control}. Ele é utilizado em processos como o ICONIX para passar da análise (o que) para o desenho (como). Esse é um diagrama que não é necessário ser mantido atualizado, uma vez que é utilizado apenas para a transição entre os \textit{softwares}. A análise de robustez consiste então em ler o texto do caso de uso e identificar de forma preliminar, o conjunto de objetos que irão participar do caso de uso.
+
 A Figura \ref{imgExRobustez} representa a interação entre o usuário e as interface de um sistema, bem como todas as interações entre as interfaces.
 
 Como podemos observar na Figura \ref{imgExRobustez}, o ator usuário clica no ``ícone de contatos" na tela principal, após o clique é exibido a tela de contatos, na sequência o ator clica em ``adicionar novo" no qual resulta na exibição da tela de novo contato, continuando a ação o ator preenche os campos selecionados e faz a ação de salvar contato na memória retornando assim para para tela de exibição de contatos.
@@ -213,6 +214,8 @@ Como podemos observar na Figura \ref{imgExRobustez}, o ator usuário clica no ``í
 \FloatBarrier
 
 \subsection{Casos de Usos}
+
+Diagrama de casos de usos descrevem funcionalidades propostas para o novo sistema, fornecendo uma descrição clara e consistente do que o sistema deve fazer.
 
 A Figura \ref{imgExCasoUso} representa o caso de uso de transferência de dados que envolve os atores Recepcionista do médico e Sistema de registro de pacientes \cite{Sommerville2011}.
 
@@ -241,15 +244,15 @@ Um modelo de domínio é uma representação visual de classes conceituais, ou objet
 
 O projeto de arquitetura é a representação da estrutura de dados e seus componentes. Ele compreende como o sistema deve ser organizado a fim de atender as necessidades levantadas na engenharia de requisitos \cite{Sommerville2011, Pressman2011}.
 
-Na arquitetura em camadas o \textit{software} é dividido em camadas, onde cada camada possui um próposito bem definido e cada camada conhece apenas a camada imediatamente inferior \cite{Sommerville2011}.
+Na arquitetura em camadas o \textit{software} é dividido em subconjuntos funcionais denomidadas camadas, onde cada parte possui um próposito bem definido e cada parte conhece apenas a parte imediatamente inferior \cite{Sommerville2011}.
 
-Na arquitetura em camadas encontram-se todas as camadas do \textit{software}, e define-se a responsabilidade de cada uma. Esse padrão de arquitetura é uma das maneiras de se conseguir independência entre elas, como por exemplo o padrão \ac{MVC}, em que são separadas as camadas de apresentação da interação dos dados do sistema \cite{Sommerville2011, Pressman2011}.
+Na arquitetura em camadas encontram-se todas as partes do \textit{software}, e define-se a responsabilidade de cada uma. Esse padrão de arquitetura é uma das maneiras de se conseguir independência entre elas, como por exemplo o padrão \ac{MVC}, em que são separadas as camadas de apresentação da interação dos dados do sistema \cite{Sommerville2011, Pressman2011}.
 
 \section{Usabilidade}
 
-Sistemas deve ser flexíveis, simples e agradáveis de usar. A usabilidade é a principal busca da \ac{IHC}, \ac{IHC} tem por objetivo produzir sistemas usáveis, seguros e funcionais.
+Sistemas devem ser flexíveis, simples e agradáveis de usar. A usabilidade é a principal ciência da \ac{IHC}, \ac{IHC} tem por objetivo produzir sistemas usáveis, seguros e funcionais.
 
-Na \ac{IHC}, a usabilidade se refere ã simplicidade e facilidade com que uma interface de um sistema pode ser utilizado. A importância do \ac{IHC} no desenvolvimento de \textit{software} é de ter uma definição de padrão visual, padrão de mensagens e prototipação e validação de telas com usuário, medindo a usabilidade e garantindo a padronização e consistência.
+Na \ac{IHC}, a usabilidade se refere a simplicidade e facilidade com que uma interface de um sistema pode ser utilizado. A importância do \ac{IHC} no desenvolvimento de \textit{software} é de ter uma definição de padrão visual, padrão de mensagens e prototipação e validação de telas com usuário, medindo a usabilidade e garantindo a padronização e consistência.
 
 De acordo com \citet{Benyon2011}, um sistema com usabilidade terá as seguintes características:
 
@@ -267,11 +270,11 @@ Até aqui foram apresentadas as metodologias que serão utilizadas na evolução do 
 
 \section{Tecnologias}
 
-Nesta seção serão descritas as tecnologias que vão ser utilizadas na evolução do portal de algoritmos, tais como a linguagem de programação \textit{Java}, \ac{REST} e \textit{AngularJS}. São tecnologias bem consolidades no mercado, com \textit{upgrade} garantido por tempo indeterminado, mantidas por empresas sérias e de grande porte.
+Nesta seção serão descritas as tecnologias que vão ser utilizadas na evolução do portal de algoritmos, tais como a linguagem de programação \textit{Java}, \ac{REST} e \textit{AngularJS}. São tecnologias bem consolidades no mercado, com \textit{upgrade} garantido por tempo indeterminado, mantidas por empresas conhecidas e de grande porte.
 
 \subsection{Python e Django}
 
-O \textit{Python} é uma linguagem interpretada de alto nível, criada por Guido Van Rossum em 1989 e lançada em 1991 e atualmente possui o modelo de desenvolvimento comunitário \cite{Python2015}. Com o auxílio do \textit{framework Django}, criado originalmente para gerenciar conteúdos de um jornal da cidade de Lawrence, no Kansas, é possível definir a modelagem de dados através de classes \textit{Python} e gerar tabelas do banco de dados para manipulação sem a necessidade de \ac{SQL} \cite{Django2015}.
+O \textit{Python} é uma linguagem interpretada de alto nível, criada por Guido Van Rossum em 1989 e lançada em 1991 e atualmente possui o modelo de desenvolvimento comunitário \cite{Python2015}. Com o auxílio do \textit{framework Django}, criado originalmente para gerenciar conteúdos de um jornal da cidade de Lawrence, no Kansas, é possível definir a modelagem de dados através de classes \textit{Python} e gerar tabelas do banco de dados para manipulação sem a necessidade direta de \ac{SQL} \cite{Django2015}.
 
 \subsection{Java EE}
 
@@ -285,17 +288,17 @@ O \ac{JAVA EE} é uma série de especificações que descrevem como deve ser impleme
 
 O servidor de aplicação \textit{WildFly} implementa a mais recente versão do \ac{JAVA EE}, sendo mantido pela \textit{Red Hat} \cite{Wildfly2015}.
 
-Os \textit{frameworks} que compõem o \ac{JAVA EE} são fortemente testado em diversas combinações. De acordo com padrões com os quais o servidor foi desenvolvido o desenvolvedor pode focar nas regras de negócio e utilizar-se dos recursos de infraestrutura fornecidas pelo \textit{framework} \cite{Wildfly2015}.
+Os \textit{frameworks} que compõem o \ac{JAVA EE} são fortemente testados em diversas combinações. De acordo com padrões com os quais o servidor foi desenvolvido o desenvolvedor pode focar nas regras de negócio e utilizar-se dos recursos de infraestrutura fornecidas pelo \textit{framework} \cite{Wildfly2015}.
 
 \subsection{DAO}
 
-\ac{DAO} é um mecanismo de acesso para trabalhar com fonte de dados, essa fonte de dados pode ser um banco de dados relacional, banco de dados orientado a objetos entre outros \cite{Deepak2004}.
+\ac{DAO} é um padrão de projeto para trabalhar com fontes de dados, que podem ser um banco de dados relacional, banco de dados orientado a objetos, entre outros ... \cite{Deepak2004}.
 
-Com \ac{DAO} é possível adaptar a diferentes esquemas de armazenamento sem afetar outros componentes de negócio, basicamente o \ac{DAO} atua como um adaptador entre o componente e a fonte de dados \cite{Deepak2004}.
+Com \ac{DAO} é possível adaptar a diferentes esquemas de armazenamento sem afetar outros componentes de negócio, basicamente o \ac{DAO} atua como um adaptador entre o componente de apresentação de dados e a fonte de dados \cite{Deepak2004}.
 
 \subsection{REST}
 
-O \ac{REST} não é um protocolo, é um formato de arquivo ou uma estrutura de desenvolvimento. \ac{REST} é uma solução simples baseada em \ac{HTTP} utilizando-se dos verbos desse protocolo. As princípios fundamentais do \ac{REST} são: dê a todas as coisas um identificador, vincule as coisas, utilize métodos padronizados, recursos com múltiplas representações e comunique sem estado \cite{Rest2000}.
+A \ac{REST} é um estilo de arquitetura que define um conjunto de restrições e propriedades baseado no \ac{HTTP}, utilizando-se dos verbos desse protocolo. As princípios fundamentais do \ac{REST} são: dê a todas as coisas um identificador, vincule as coisas, utilize métodos padronizados, recursos com múltiplas representações e comunique sem estado \cite{Rest2000}.
 
 O \ac{REST} possui um conjunto de operações bem definidas, os mais importantes são \textit{GET}, \textit{POST}, \textit{PUT} e \textit{DELETE} \cite{Restful2013}. Conforme \cite{Rest2000}, \ac{REST} é um modelo de arquitetura bem definido para servir aplicações \textit{WEB}.
 
@@ -303,7 +306,7 @@ O \ac{REST} possui um conjunto de operações bem definidas, os mais importantes s
 
 \textit{AngularJS} foi criado por Misko Hevery e Adam Abrons em 2009, sendo seu código fonte aberto (\textit{Open Source}). Ele é um \textit{framework JavaScript} que é executado no navegador de internet do usuário, através do qual é possível aumentar sua produtividade no desenvolvimento \textit{WEB} \cite{Angular2014}.
 
-\textit{AngularJs} foi construído com a crença de que a programação declarativa é a melhor escolha para a construção de intefaces de usuários. Para isso, o \textit{AngularJs} aumenta o vocabulário do \ac{HTML} padrão, tornando a vida dos desenvolvedores mais fácil \cite{Angular2014}.
+\textit{AngularJs} foi construído com a crença de que a programação declarativa é a melhor escolha para a construção de intefaces de usuários. Para isso, o \textit{AngularJs} aumenta o vocabulário do \ac{HTML} padrão, tornando mais versátil o desenvolvimento de sistemas \ac{WEB} \cite{Angular2014}.
 
 O resultado é o desenvolvimento reutilizável e aplicação sustentável de componentes, deixando para trás códigos desnecessários e mantendo a equipe focada no que é importante \cite{Angular2014}.
 
@@ -311,12 +314,14 @@ O padrão \ac{MVC} ganhou muita popularidade nas fábricas de \textit{software}, t
 
 Uma aplicação em \textit{AngularJS} trabalha com \ac{HTML} e \ac{MVC}, mas também possui serviços, diretivas e filtros \cite{Angular2014}.
 
-A \textit{View} é escrita em \ac{HTML} que faz com que \textit{web designers} e programadores trabalhem lado a lado, com a ajuda das diretivas, que são um tipo de extensão do vocabulário \ac{HTML}, que traz a capacidade de executar tarefas de linguagem de programação \cite{Angular2014}.
+A \textit{View} é escrita em \ac{HTML}, que faz com que \textit{web designers} e programadores trabalhem lado a lado, com a ajuda das diretivas, que são um tipo de extensão do vocabulário \ac{HTML}, que traz a capacidade de executar tarefas de linguagem de programação \cite{Angular2014}.
 
 Atrás da \textit{View} existe um \textit{Controller}, que contém toda a lógica do negócio usado pela \textit{View}.
 
 A conexão entre a visão e o controlador é feita por um objeto compartilhado
 chamado \textit{scope}. Ele está localizado entre eles e é usado para trocar informações relacionados com o \textit{Model}.
+
+\newpage
 
 A Figura \ref{imgAngularJS} representa a interação entre os componentes do \textit{AngularJS}
 
@@ -332,10 +337,12 @@ A Figura \ref{imgAngularJS} representa a interação entre os componentes do \text
 
 \section{Ambiente Virtual de Aprendizagem}
 
-\ac{AVA} é um local virtual que possui um conjunto de elementos tecnológicos, onde são disponibilizadas ferramentas que permitem o acesso a um ou mais cursos ou disciplinas de uma instituição de ensino. De modo geral, um AVA refere-se ao uso de recurso digitais de comunicação, principalmente, através de softwares educacionais via internet que reúnem diversas ferramentas de interação \cite{Oliveira2004, Valentini2005}.
+\ac{AVA} é um aplicativo \ac{WEB} que possui um conjunto de elementos tecnológicos, onde são disponibilizadas ferramentas que permitem o acesso a um ou mais cursos ou disciplinas de uma instituição de ensino. De modo geral, um AVA refere-se ao uso de recurso digitais de comunicação, principalmente, através de softwares educacionais via internet que reúnem diversas ferramentas de interação \cite{Oliveira2004, Valentini2005}.
 
 O objetivo de um ambiente virtual de aprendizagem é de facilitar o acesso de alunos ao ensino, práticas de exercícios e livros online para consulta. Na Universidade de Caxias do Sul o \ac{AVA} já é utilizado desde meados de 2005, onde é possível acessar os materiais disponibilizados pelos professores em suas respectivas disciplinas, podendo também acompanhar o cronograma, entre outras funcionalidades \cite{Oliveira2004, Valentini2005}.
 
-O portal de algoritmos é um ambiente virtual de aprendizagem utilizado pelos alunos da \ac{UCS} nas disciplinas do \ac{CCET}. O portal tem por objetivo auxiliar no ensino da lógica de programação através da linguagem do português estruturado \cite{Dorneles2004}.
+O portal de algoritmos é um ambiente virtual de aprendizagem utilizado pelos alunos da \ac{UCS} nas disciplinas de ciências exatas. O portal tem por objetivo auxiliar no ensino da lógica de programação através da linguagem do português estruturado \cite{Dorneles2004}.
 
-Vimos até aqui todos os conceitos necessários para o desenvolvimento do trabalho, no capítulo a seguir veremos a reengenharia do portal de algoritmos atual, onde é descrita a modelagem e seus problemas de usabilidade e de tecnologia.
+Vimos até aqui todos os conceitos necessários para o desenvolvimento do trabalho, no capítulo a seguir veremos a reengenharia do portal de algoritmos atual, onde são descritos os problemas do \textit{software} e modelagem de uma nova aplicação.
+
+ descrita a modelagem e seus problemas de usabilidade e de tecnologia.
