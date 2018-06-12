@@ -1,0 +1,1849 @@
+\chapter*{Apêndice B - SQL de criação do banco de dados}\label{SQL}
+
+\begin{lstlisting}
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.6.8
+-- Dumped by pg_dump version 9.6.8
+
+-- Started on 2018-06-12 19:41:20 -03
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- TOC entry 1 (class 3079 OID 13368)
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- TOC entry 3404 (class 0 OID 0)
+-- Dependencies: 1
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 200 (class 1259 OID 235732)
+-- Name: admins; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.admins (
+id integer NOT NULL,
+user_id integer NOT NULL,
+groupadmin_id integer NOT NULL
+);
+
+
+ALTER TABLE public.admins OWNER TO postgres;
+
+--
+-- TOC entry 199 (class 1259 OID 235730)
+-- Name: admins_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.admins_id_seq
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
+
+
+ALTER TABLE public.admins_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3405 (class 0 OID 0)
+-- Dependencies: 199
+-- Name: admins_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.admins_id_seq OWNED BY public.admins.id;
+
+
+--
+-- TOC entry 190 (class 1259 OID 235659)
+-- Name: city; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.city (
+id integer NOT NULL,
+name character varying(254) NOT NULL,
+state_id integer NOT NULL
+);
+
+
+ALTER TABLE public.city OWNER TO postgres;
+
+--
+-- TOC entry 189 (class 1259 OID 235657)
+-- Name: city_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.city_id_seq
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
+
+
+ALTER TABLE public.city_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3406 (class 0 OID 0)
+-- Dependencies: 189
+-- Name: city_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.city_id_seq OWNED BY public.city.id;
+
+
+--
+-- TOC entry 186 (class 1259 OID 235624)
+-- Name: country; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.country (
+id integer NOT NULL,
+name character varying(254) NOT NULL,
+abbreviation character varying(2) NOT NULL
+);
+
+
+ALTER TABLE public.country OWNER TO postgres;
+
+--
+-- TOC entry 185 (class 1259 OID 235622)
+-- Name: country_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.country_id_seq
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
+
+
+ALTER TABLE public.country_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3407 (class 0 OID 0)
+-- Dependencies: 185
+-- Name: country_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.country_id_seq OWNED BY public.country.id;
+
+
+--
+-- TOC entry 227 (class 1259 OID 342475)
+-- Name: group_problemlist_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.group_problemlist_id_seq
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
+
+
+ALTER TABLE public.group_problemlist_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 223 (class 1259 OID 342431)
+-- Name: group_problemlist; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.group_problemlist (
+id integer DEFAULT nextval('public.group_problemlist_id_seq'::regclass) NOT NULL,
+group_id integer NOT NULL,
+problemlist_id integer NOT NULL
+);
+
+
+ALTER TABLE public.group_problemlist OWNER TO postgres;
+
+--
+-- TOC entry 198 (class 1259 OID 235708)
+-- Name: groupadmin; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.groupadmin (
+id integer NOT NULL,
+name character varying(254) NOT NULL
+);
+
+
+ALTER TABLE public.groupadmin OWNER TO postgres;
+
+--
+-- TOC entry 197 (class 1259 OID 235706)
+-- Name: groupadmin_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.groupadmin_id_seq
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
+
+
+ALTER TABLE public.groupadmin_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3408 (class 0 OID 0)
+-- Dependencies: 197
+-- Name: groupadmin_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.groupadmin_id_seq OWNED BY public.groupadmin.id;
+
+
+--
+-- TOC entry 226 (class 1259 OID 342456)
+-- Name: groupadmin_permission_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.groupadmin_permission_id_seq
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
+
+
+ALTER TABLE public.groupadmin_permission_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 225 (class 1259 OID 342443)
+-- Name: groupadmin_permission; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.groupadmin_permission (
+id integer DEFAULT nextval('public.groupadmin_permission_id_seq'::regclass) NOT NULL,
+groupadmin_id integer NOT NULL,
+permission_id integer NOT NULL
+);
+
+
+ALTER TABLE public.groupadmin_permission OWNER TO postgres;
+
+--
+-- TOC entry 192 (class 1259 OID 235671)
+-- Name: institution; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.institution (
+id integer NOT NULL,
+name character varying(254) NOT NULL,
+city_id integer NOT NULL,
+initial character varying(10) NOT NULL
+);
+
+
+ALTER TABLE public.institution OWNER TO postgres;
+
+--
+-- TOC entry 191 (class 1259 OID 235669)
+-- Name: institution_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.institution_id_seq
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
+
+
+ALTER TABLE public.institution_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3409 (class 0 OID 0)
+-- Dependencies: 191
+-- Name: institution_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.institution_id_seq OWNED BY public.institution.id;
+
+
+--
+-- TOC entry 204 (class 1259 OID 235756)
+-- Name: keyword; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.keyword (
+id integer NOT NULL,
+name character varying(254) NOT NULL
+);
+
+
+ALTER TABLE public.keyword OWNER TO postgres;
+
+--
+-- TOC entry 203 (class 1259 OID 235754)
+-- Name: keyword_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.keyword_id_seq
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
+
+
+ALTER TABLE public.keyword_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3410 (class 0 OID 0)
+-- Dependencies: 203
+-- Name: keyword_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.keyword_id_seq OWNED BY public.keyword.id;
+
+
+--
+-- TOC entry 222 (class 1259 OID 341024)
+-- Name: listactivity_id_seq; Type: SEQUENCE; Schema: public; Owner: portalg
+--
+
+CREATE SEQUENCE public.listactivity_id_seq
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
+
+
+ALTER TABLE public.listactivity_id_seq OWNER TO portalg;
+
+--
+-- TOC entry 221 (class 1259 OID 341015)
+-- Name: listactivity; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.listactivity (
+id integer DEFAULT nextval('public.listactivity_id_seq'::regclass) NOT NULL,
+name character varying(254) NOT NULL
+);
+
+
+ALTER TABLE public.listactivity OWNER TO postgres;
+
+--
+-- TOC entry 196 (class 1259 OID 235697)
+-- Name: permission; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.permission (
+id integer NOT NULL,
+codename character varying(75) NOT NULL,
+description character varying(254)
+);
+
+
+ALTER TABLE public.permission OWNER TO postgres;
+
+--
+-- TOC entry 195 (class 1259 OID 235695)
+-- Name: permission_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.permission_id_seq
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
+
+
+ALTER TABLE public.permission_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3411 (class 0 OID 0)
+-- Dependencies: 195
+-- Name: permission_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.permission_id_seq OWNED BY public.permission.id;
+
+
+--
+-- TOC entry 216 (class 1259 OID 235826)
+-- Name: portalgroup; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.portalgroup (
+id integer NOT NULL,
+name character varying(254) NOT NULL,
+description character varying(1000),
+teacher_id integer NOT NULL
+);
+
+
+ALTER TABLE public.portalgroup OWNER TO postgres;
+
+--
+-- TOC entry 215 (class 1259 OID 235824)
+-- Name: portalgroup_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.portalgroup_id_seq
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
+
+
+ALTER TABLE public.portalgroup_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3412 (class 0 OID 0)
+-- Dependencies: 215
+-- Name: portalgroup_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.portalgroup_id_seq OWNED BY public.portalgroup.id;
+
+
+--
+-- TOC entry 194 (class 1259 OID 235683)
+-- Name: portaluser; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.portaluser (
+id integer NOT NULL,
+username character varying(254) NOT NULL,
+firstname character varying(254),
+lastname character varying(254),
+email character varying(254) NOT NULL,
+password character varying(254) NOT NULL,
+isactive boolean,
+lastlogin timestamp without time zone,
+datejoined timestamp without time zone
+);
+
+
+ALTER TABLE public.portaluser OWNER TO postgres;
+
+--
+-- TOC entry 193 (class 1259 OID 235681)
+-- Name: portaluser_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.portaluser_id_seq
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
+
+
+ALTER TABLE public.portaluser_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3413 (class 0 OID 0)
+-- Dependencies: 193
+-- Name: portaluser_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.portaluser_id_seq OWNED BY public.portaluser.id;
+
+
+--
+-- TOC entry 230 (class 1259 OID 350624)
+-- Name: portaluser_permission_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.portaluser_permission_id_seq
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
+
+
+ALTER TABLE public.portaluser_permission_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 231 (class 1259 OID 350656)
+-- Name: portaluser_permission; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.portaluser_permission (
+id integer DEFAULT nextval('public.portaluser_permission_id_seq'::regclass) NOT NULL,
+portaluser_id integer NOT NULL,
+permission_id integer NOT NULL
+);
+
+
+ALTER TABLE public.portaluser_permission OWNER TO postgres;
+
+--
+-- TOC entry 208 (class 1259 OID 235774)
+-- Name: problem; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.problem (
+id integer NOT NULL,
+name character varying(254) NOT NULL,
+tip character varying(254),
+createdat timestamp without time zone,
+level character varying(75),
+cost integer,
+problemtype_id integer NOT NULL,
+description text NOT NULL
+);
+
+
+ALTER TABLE public.problem OWNER TO postgres;
+
+--
+-- TOC entry 207 (class 1259 OID 235772)
+-- Name: problem_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.problem_id_seq
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
+
+
+ALTER TABLE public.problem_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3414 (class 0 OID 0)
+-- Dependencies: 207
+-- Name: problem_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.problem_id_seq OWNED BY public.problem.id;
+
+
+--
+-- TOC entry 220 (class 1259 OID 235850)
+-- Name: problemkeyword; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.problemkeyword (
+id integer NOT NULL,
+keyword_id integer NOT NULL,
+problem_id integer NOT NULL
+);
+
+
+ALTER TABLE public.problemkeyword OWNER TO postgres;
+
+--
+-- TOC entry 219 (class 1259 OID 235848)
+-- Name: problemkeyword_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.problemkeyword_id_seq
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
+
+
+ALTER TABLE public.problemkeyword_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3415 (class 0 OID 0)
+-- Dependencies: 219
+-- Name: problemkeyword_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.problemkeyword_id_seq OWNED BY public.problemkeyword.id;
+
+
+--
+-- TOC entry 214 (class 1259 OID 235814)
+-- Name: problemlist; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.problemlist (
+id integer NOT NULL,
+problem_id integer NOT NULL,
+listactivity_id integer NOT NULL
+);
+
+
+ALTER TABLE public.problemlist OWNER TO postgres;
+
+--
+-- TOC entry 213 (class 1259 OID 235812)
+-- Name: problemlist_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.problemlist_id_seq
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
+
+
+ALTER TABLE public.problemlist_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3416 (class 0 OID 0)
+-- Dependencies: 213
+-- Name: problemlist_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.problemlist_id_seq OWNED BY public.problemlist.id;
+
+
+--
+-- TOC entry 212 (class 1259 OID 235799)
+-- Name: problemsolution; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.problemsolution (
+id integer NOT NULL,
+solution character varying NOT NULL,
+name character varying(254) NOT NULL,
+cost integer,
+datesolution timestamp without time zone,
+result character varying(254),
+user_id integer NOT NULL,
+problem_id integer NOT NULL
+);
+
+
+ALTER TABLE public.problemsolution OWNER TO postgres;
+
+--
+-- TOC entry 211 (class 1259 OID 235797)
+-- Name: problemsolution_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.problemsolution_id_seq
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
+
+
+ALTER TABLE public.problemsolution_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3417 (class 0 OID 0)
+-- Dependencies: 211
+-- Name: problemsolution_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.problemsolution_id_seq OWNED BY public.problemsolution.id;
+
+
+--
+-- TOC entry 206 (class 1259 OID 235765)
+-- Name: problemtype; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.problemtype (
+id integer NOT NULL,
+name character varying(254) NOT NULL
+);
+
+
+ALTER TABLE public.problemtype OWNER TO postgres;
+
+--
+-- TOC entry 205 (class 1259 OID 235763)
+-- Name: problemtype_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.problemtype_id_seq
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
+
+
+ALTER TABLE public.problemtype_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3418 (class 0 OID 0)
+-- Dependencies: 205
+-- Name: problemtype_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.problemtype_id_seq OWNED BY public.problemtype.id;
+
+
+--
+-- TOC entry 188 (class 1259 OID 235635)
+-- Name: state; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.state (
+id integer NOT NULL,
+name character varying(254) NOT NULL,
+abbreviation character varying(3) NOT NULL,
+country_id integer NOT NULL
+);
+
+
+ALTER TABLE public.state OWNER TO postgres;
+
+--
+-- TOC entry 187 (class 1259 OID 235633)
+-- Name: state_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.state_id_seq
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
+
+
+ALTER TABLE public.state_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3419 (class 0 OID 0)
+-- Dependencies: 187
+-- Name: state_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.state_id_seq OWNED BY public.state.id;
+
+
+--
+-- TOC entry 218 (class 1259 OID 235838)
+-- Name: student; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.student (
+id integer NOT NULL,
+user_id integer NOT NULL,
+city_id integer NOT NULL
+);
+
+
+ALTER TABLE public.student OWNER TO postgres;
+
+--
+-- TOC entry 228 (class 1259 OID 342494)
+-- Name: student_group_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.student_group_id_seq
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
+
+
+ALTER TABLE public.student_group_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 232 (class 1259 OID 350723)
+-- Name: student_group; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.student_group (
+id integer DEFAULT nextval('public.student_group_id_seq'::regclass) NOT NULL,
+group_id integer NOT NULL,
+student_id integer NOT NULL
+);
+
+
+ALTER TABLE public.student_group OWNER TO postgres;
+
+--
+-- TOC entry 217 (class 1259 OID 235836)
+-- Name: student_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.student_id_seq
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
+
+
+ALTER TABLE public.student_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3420 (class 0 OID 0)
+-- Dependencies: 217
+-- Name: student_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.student_id_seq OWNED BY public.student.id;
+
+
+--
+-- TOC entry 229 (class 1259 OID 342513)
+-- Name: student_problemlist_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.student_problemlist_id_seq
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
+
+
+ALTER TABLE public.student_problemlist_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 224 (class 1259 OID 342434)
+-- Name: student_problemlist; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.student_problemlist (
+id integer DEFAULT nextval('public.student_problemlist_id_seq'::regclass) NOT NULL,
+problemlist_id integer NOT NULL,
+student_id integer NOT NULL
+);
+
+
+ALTER TABLE public.student_problemlist OWNER TO postgres;
+
+--
+-- TOC entry 202 (class 1259 OID 235744)
+-- Name: teacher; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.teacher (
+id integer NOT NULL,
+user_id integer NOT NULL,
+institution_id integer NOT NULL
+);
+
+
+ALTER TABLE public.teacher OWNER TO postgres;
+
+--
+-- TOC entry 201 (class 1259 OID 235742)
+-- Name: teacher_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.teacher_id_seq
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
+
+
+ALTER TABLE public.teacher_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3421 (class 0 OID 0)
+-- Dependencies: 201
+-- Name: teacher_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.teacher_id_seq OWNED BY public.teacher.id;
+
+
+--
+-- TOC entry 210 (class 1259 OID 235786)
+-- Name: testdata; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.testdata (
+id integer NOT NULL,
+input character varying(254),
+output character varying(254) NOT NULL,
+problem_id integer NOT NULL
+);
+
+
+ALTER TABLE public.testdata OWNER TO postgres;
+
+--
+-- TOC entry 209 (class 1259 OID 235784)
+-- Name: testdata_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.testdata_id_seq
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
+
+
+ALTER TABLE public.testdata_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3422 (class 0 OID 0)
+-- Dependencies: 209
+-- Name: testdata_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.testdata_id_seq OWNED BY public.testdata.id;
+
+
+--
+-- TOC entry 3140 (class 2604 OID 235735)
+-- Name: admins id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.admins ALTER COLUMN id SET DEFAULT nextval('public.admins_id_seq'::regclass);
+
+
+--
+-- TOC entry 3135 (class 2604 OID 235662)
+-- Name: city id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.city ALTER COLUMN id SET DEFAULT nextval('public.city_id_seq'::regclass);
+
+
+--
+-- TOC entry 3133 (class 2604 OID 235627)
+-- Name: country id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.country ALTER COLUMN id SET DEFAULT nextval('public.country_id_seq'::regclass);
+
+
+--
+-- TOC entry 3139 (class 2604 OID 235711)
+-- Name: groupadmin id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.groupadmin ALTER COLUMN id SET DEFAULT nextval('public.groupadmin_id_seq'::regclass);
+
+
+--
+-- TOC entry 3136 (class 2604 OID 235674)
+-- Name: institution id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.institution ALTER COLUMN id SET DEFAULT nextval('public.institution_id_seq'::regclass);
+
+
+--
+-- TOC entry 3142 (class 2604 OID 235759)
+-- Name: keyword id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.keyword ALTER COLUMN id SET DEFAULT nextval('public.keyword_id_seq'::regclass);
+
+
+--
+-- TOC entry 3138 (class 2604 OID 235700)
+-- Name: permission id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.permission ALTER COLUMN id SET DEFAULT nextval('public.permission_id_seq'::regclass);
+
+
+--
+-- TOC entry 3148 (class 2604 OID 350698)
+-- Name: portalgroup id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.portalgroup ALTER COLUMN id SET DEFAULT nextval('public.portalgroup_id_seq'::regclass);
+
+
+--
+-- TOC entry 3137 (class 2604 OID 235686)
+-- Name: portaluser id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.portaluser ALTER COLUMN id SET DEFAULT nextval('public.portaluser_id_seq'::regclass);
+
+
+--
+-- TOC entry 3144 (class 2604 OID 235777)
+-- Name: problem id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.problem ALTER COLUMN id SET DEFAULT nextval('public.problem_id_seq'::regclass);
+
+
+--
+-- TOC entry 3150 (class 2604 OID 235853)
+-- Name: problemkeyword id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.problemkeyword ALTER COLUMN id SET DEFAULT nextval('public.problemkeyword_id_seq'::regclass);
+
+
+--
+-- TOC entry 3147 (class 2604 OID 235817)
+-- Name: problemlist id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.problemlist ALTER COLUMN id SET DEFAULT nextval('public.problemlist_id_seq'::regclass);
+
+
+--
+-- TOC entry 3146 (class 2604 OID 235802)
+-- Name: problemsolution id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.problemsolution ALTER COLUMN id SET DEFAULT nextval('public.problemsolution_id_seq'::regclass);
+
+
+--
+-- TOC entry 3143 (class 2604 OID 235768)
+-- Name: problemtype id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.problemtype ALTER COLUMN id SET DEFAULT nextval('public.problemtype_id_seq'::regclass);
+
+
+--
+-- TOC entry 3134 (class 2604 OID 235638)
+-- Name: state id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.state ALTER COLUMN id SET DEFAULT nextval('public.state_id_seq'::regclass);
+
+
+--
+-- TOC entry 3149 (class 2604 OID 235841)
+-- Name: student id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.student ALTER COLUMN id SET DEFAULT nextval('public.student_id_seq'::regclass);
+
+
+--
+-- TOC entry 3141 (class 2604 OID 235747)
+-- Name: teacher id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.teacher ALTER COLUMN id SET DEFAULT nextval('public.teacher_id_seq'::regclass);
+
+
+--
+-- TOC entry 3145 (class 2604 OID 235789)
+-- Name: testdata id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.testdata ALTER COLUMN id SET DEFAULT nextval('public.testdata_id_seq'::regclass);
+
+
+--
+-- TOC entry 3185 (class 2606 OID 235740)
+-- Name: admins admins_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.admins
+ADD CONSTRAINT admins_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3167 (class 2606 OID 235667)
+-- Name: city city_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.city
+ADD CONSTRAINT city_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3161 (class 2606 OID 235629)
+-- Name: country country_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.country
+ADD CONSTRAINT country_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3229 (class 2606 OID 342482)
+-- Name: group_problemlist group_problemlist_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.group_problemlist
+ADD CONSTRAINT group_problemlist_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3240 (class 2606 OID 342463)
+-- Name: groupadmin_permission groupadmin_permission_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.groupadmin_permission
+ADD CONSTRAINT groupadmin_permission_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3182 (class 2606 OID 235716)
+-- Name: groupadmin groupadmin_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.groupadmin
+ADD CONSTRAINT groupadmin_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3170 (class 2606 OID 235679)
+-- Name: institution institution_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.institution
+ADD CONSTRAINT institution_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3193 (class 2606 OID 235761)
+-- Name: keyword keyword_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.keyword
+ADD CONSTRAINT keyword_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3227 (class 2606 OID 341022)
+-- Name: listactivity list_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.listactivity
+ADD CONSTRAINT list_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3179 (class 2606 OID 235702)
+-- Name: permission permission_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.permission
+ADD CONSTRAINT permission_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3216 (class 2606 OID 235834)
+-- Name: portalgroup portalgroup_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.portalgroup
+ADD CONSTRAINT portalgroup_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3245 (class 2606 OID 350661)
+-- Name: portaluser_permission portaluser_permission_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.portaluser_permission
+ADD CONSTRAINT portaluser_permission_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3174 (class 2606 OID 235691)
+-- Name: portaluser portaluser_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.portaluser
+ADD CONSTRAINT portaluser_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3202 (class 2606 OID 235782)
+-- Name: problem problem_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.problem
+ADD CONSTRAINT problem_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3222 (class 2606 OID 235858)
+-- Name: problemkeyword problemkeyword_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.problemkeyword
+ADD CONSTRAINT problemkeyword_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3211 (class 2606 OID 235822)
+-- Name: problemlist problemlist_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.problemlist
+ADD CONSTRAINT problemlist_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3208 (class 2606 OID 235807)
+-- Name: problemsolution problemsolution_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.problemsolution
+ADD CONSTRAINT problemsolution_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3196 (class 2606 OID 340995)
+-- Name: problemtype problemtype_name_uindex; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.problemtype
+ADD CONSTRAINT problemtype_name_uindex UNIQUE (name);
+
+
+--
+-- TOC entry 3198 (class 2606 OID 235770)
+-- Name: problemtype problemtype_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.problemtype
+ADD CONSTRAINT problemtype_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3164 (class 2606 OID 235643)
+-- Name: state state_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.state
+ADD CONSTRAINT state_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3249 (class 2606 OID 350728)
+-- Name: student_group student_group_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.student_group
+ADD CONSTRAINT student_group_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3219 (class 2606 OID 235846)
+-- Name: student student_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.student
+ADD CONSTRAINT student_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3234 (class 2606 OID 342520)
+-- Name: student_problemlist student_problemlist_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.student_problemlist
+ADD CONSTRAINT student_problemlist_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3190 (class 2606 OID 235752)
+-- Name: teacher teacher_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.teacher
+ADD CONSTRAINT teacher_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3205 (class 2606 OID 235794)
+-- Name: testdata testdata_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.testdata
+ADD CONSTRAINT testdata_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3251 (class 2606 OID 407796)
+-- Name: student_group unique_together_group_id_with_student_id; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.student_group
+ADD CONSTRAINT unique_together_group_id_with_student_id UNIQUE (group_id, student_id);
+
+
+--
+-- TOC entry 3242 (class 2606 OID 407792)
+-- Name: groupadmin_permission unique_together_groupadmin_id_with_permission_id; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.groupadmin_permission
+ADD CONSTRAINT unique_together_groupadmin_id_with_permission_id UNIQUE (groupadmin_id, permission_id);
+
+
+--
+-- TOC entry 3213 (class 2606 OID 341044)
+-- Name: problemlist unique_together_listactivity_id_with_problem_id; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.problemlist
+ADD CONSTRAINT unique_together_listactivity_id_with_problem_id UNIQUE (problem_id, listactivity_id);
+
+
+--
+-- TOC entry 3247 (class 2606 OID 407794)
+-- Name: portaluser_permission unique_together_portaluser_id_with_permission_id; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.portaluser_permission
+ADD CONSTRAINT unique_together_portaluser_id_with_permission_id UNIQUE (portaluser_id, permission_id);
+
+
+--
+-- TOC entry 3224 (class 2606 OID 341007)
+-- Name: problemkeyword unique_together_problem_id_with_keyword_id; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.problemkeyword
+ADD CONSTRAINT unique_together_problem_id_with_keyword_id UNIQUE (keyword_id, problem_id);
+
+
+--
+-- TOC entry 3232 (class 2606 OID 407790)
+-- Name: group_problemlist unique_together_problemlist_id_with_group_id; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.group_problemlist
+ADD CONSTRAINT unique_together_problemlist_id_with_group_id UNIQUE (group_id, problemlist_id);
+
+
+--
+-- TOC entry 3237 (class 2606 OID 407798)
+-- Name: student_problemlist unique_together_problemlist_id_with_student_id; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.student_problemlist
+ADD CONSTRAINT unique_together_problemlist_id_with_student_id UNIQUE (problemlist_id, student_id);
+
+
+--
+-- TOC entry 3187 (class 2606 OID 407788)
+-- Name: admins unique_together_user_id_with_groupadmin_id; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.admins
+ADD CONSTRAINT unique_together_user_id_with_groupadmin_id UNIQUE (user_id, groupadmin_id);
+
+
+--
+-- TOC entry 3183 (class 1259 OID 235741)
+-- Name: admins_id_uindex; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE UNIQUE INDEX admins_id_uindex ON public.admins USING btree (id);
+
+
+--
+-- TOC entry 3165 (class 1259 OID 235668)
+-- Name: city_id_uindex; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE UNIQUE INDEX city_id_uindex ON public.city USING btree (id);
+
+
+--
+-- TOC entry 3157 (class 1259 OID 235632)
+-- Name: country_abbreviation_uindex; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE UNIQUE INDEX country_abbreviation_uindex ON public.country USING btree (abbreviation);
+
+
+--
+-- TOC entry 3158 (class 1259 OID 235630)
+-- Name: country_id_uindex; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE UNIQUE INDEX country_id_uindex ON public.country USING btree (id);
+
+
+--
+-- TOC entry 3159 (class 1259 OID 235631)
+-- Name: country_name_uindex; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE UNIQUE INDEX country_name_uindex ON public.country USING btree (name);
+
+
+--
+-- TOC entry 3199 (class 1259 OID 331882)
+-- Name: fki_problemtype_id_fk; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX fki_problemtype_id_fk ON public.problem USING btree (problemtype_id);
+
+
+--
+-- TOC entry 3230 (class 1259 OID 342493)
+-- Name: group_problemlist_uindex; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE UNIQUE INDEX group_problemlist_uindex ON public.group_problemlist USING btree (id);
+
+
+--
+-- TOC entry 3180 (class 1259 OID 235717)
+-- Name: groupadmin_id_uindex; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE UNIQUE INDEX groupadmin_id_uindex ON public.groupadmin USING btree (id);
+
+
+--
+-- TOC entry 3238 (class 1259 OID 342474)
+-- Name: groupadmin_permission_id_uindex; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE UNIQUE INDEX groupadmin_permission_id_uindex ON public.groupadmin_permission USING btree (id);
+
+
+--
+-- TOC entry 3168 (class 1259 OID 235680)
+-- Name: institution_id_uindex; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE UNIQUE INDEX institution_id_uindex ON public.institution USING btree (id);
+
+
+--
+-- TOC entry 3191 (class 1259 OID 235762)
+-- Name: keyword_id_uindex; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE UNIQUE INDEX keyword_id_uindex ON public.keyword USING btree (id);
+
+
+--
+-- TOC entry 3225 (class 1259 OID 341023)
+-- Name: list_id_uindex; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX list_id_uindex ON public.listactivity USING btree (id);
+
+
+--
+-- TOC entry 3176 (class 1259 OID 235704)
+-- Name: permission_codename_uindex; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE UNIQUE INDEX permission_codename_uindex ON public.permission USING btree (codename);
+
+
+--
+-- TOC entry 3177 (class 1259 OID 235703)
+-- Name: permission_id_uindex; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE UNIQUE INDEX permission_id_uindex ON public.permission USING btree (id);
+
+
+--
+-- TOC entry 3214 (class 1259 OID 235835)
+-- Name: portalgroup_id_uindex; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE UNIQUE INDEX portalgroup_id_uindex ON public.portalgroup USING btree (id);
+
+
+--
+-- TOC entry 3171 (class 1259 OID 235694)
+-- Name: portaluser_email_uindex; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE UNIQUE INDEX portaluser_email_uindex ON public.portaluser USING btree (email);
+
+
+--
+-- TOC entry 3172 (class 1259 OID 235692)
+-- Name: portaluser_id_uindex; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE UNIQUE INDEX portaluser_id_uindex ON public.portaluser USING btree (id);
+
+
+--
+-- TOC entry 3243 (class 1259 OID 350672)
+-- Name: portaluser_permission_id_uindex; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX portaluser_permission_id_uindex ON public.portaluser_permission USING btree (id);
+
+
+--
+-- TOC entry 3175 (class 1259 OID 235693)
+-- Name: portaluser_username_uindex; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE UNIQUE INDEX portaluser_username_uindex ON public.portaluser USING btree (username);
+
+
+--
+-- TOC entry 3200 (class 1259 OID 235783)
+-- Name: problem_id_uindex; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE UNIQUE INDEX problem_id_uindex ON public.problem USING btree (id);
+
+
+--
+-- TOC entry 3220 (class 1259 OID 235859)
+-- Name: problemkeyword_id_uindex; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE UNIQUE INDEX problemkeyword_id_uindex ON public.problemkeyword USING btree (id);
+
+
+--
+-- TOC entry 3209 (class 1259 OID 235823)
+-- Name: problemlist_id_uindex; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE UNIQUE INDEX problemlist_id_uindex ON public.problemlist USING btree (id);
+
+
+--
+-- TOC entry 3206 (class 1259 OID 235808)
+-- Name: problemsolution_id_uindex; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE UNIQUE INDEX problemsolution_id_uindex ON public.problemsolution USING btree (id);
+
+
+--
+-- TOC entry 3194 (class 1259 OID 235771)
+-- Name: problemtype_id_uindex; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE UNIQUE INDEX problemtype_id_uindex ON public.problemtype USING btree (id);
+
+
+--
+-- TOC entry 3162 (class 1259 OID 235644)
+-- Name: state_id_uindex; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE UNIQUE INDEX state_id_uindex ON public.state USING btree (id);
+
+
+--
+-- TOC entry 3217 (class 1259 OID 235847)
+-- Name: student_id_uindex; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE UNIQUE INDEX student_id_uindex ON public.student USING btree (id);
+
+
+--
+-- TOC entry 3235 (class 1259 OID 342531)
+-- Name: student_problemlist_uindex; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX student_problemlist_uindex ON public.student_problemlist USING btree (id);
+
+
+--
+-- TOC entry 3188 (class 1259 OID 235753)
+-- Name: teacher_id_uindex; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE UNIQUE INDEX teacher_id_uindex ON public.teacher USING btree (id);
+
+
+--
+-- TOC entry 3203 (class 1259 OID 235795)
+-- Name: testdata_id_uindex; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE UNIQUE INDEX testdata_id_uindex ON public.testdata USING btree (id);
+
+
+--
+-- TOC entry 3254 (class 2606 OID 278023)
+-- Name: institution city_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.institution
+ADD CONSTRAINT city_id_fk FOREIGN KEY (city_id) REFERENCES public.city(id);
+
+
+--
+-- TOC entry 3267 (class 2606 OID 350678)
+-- Name: student city_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.student
+ADD CONSTRAINT city_id_fk FOREIGN KEY (city_id) REFERENCES public.city(id);
+
+
+--
+-- TOC entry 3252 (class 2606 OID 278013)
+-- Name: state country_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.state
+ADD CONSTRAINT country_id_fk FOREIGN KEY (country_id) REFERENCES public.country(id);
+
+
+--
+-- TOC entry 3270 (class 2606 OID 342483)
+-- Name: group_problemlist group_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.group_problemlist
+ADD CONSTRAINT group_id_fk FOREIGN KEY (group_id) REFERENCES public.portalgroup(id);
+
+
+--
+-- TOC entry 3279 (class 2606 OID 350734)
+-- Name: student_group group_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.student_group
+ADD CONSTRAINT group_id_fk FOREIGN KEY (group_id) REFERENCES public.portalgroup(id);
+
+
+--
+-- TOC entry 3256 (class 2606 OID 342451)
+-- Name: admins groupadmin_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.admins
+ADD CONSTRAINT groupadmin_id_fk FOREIGN KEY (groupadmin_id) REFERENCES public.groupadmin(id);
+
+
+--
+-- TOC entry 3274 (class 2606 OID 342464)
+-- Name: groupadmin_permission groupadmin_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.groupadmin_permission
+ADD CONSTRAINT groupadmin_id_fk FOREIGN KEY (groupadmin_id) REFERENCES public.groupadmin(id);
+
+
+--
+-- TOC entry 3258 (class 2606 OID 332807)
+-- Name: teacher institution_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.teacher
+ADD CONSTRAINT institution_id_fk FOREIGN KEY (institution_id) REFERENCES public.institution(id);
+
+
+--
+-- TOC entry 3269 (class 2606 OID 341001)
+-- Name: problemkeyword keyword_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.problemkeyword
+ADD CONSTRAINT keyword_id_fk FOREIGN KEY (keyword_id) REFERENCES public.keyword(id);
+
+
+--
+-- TOC entry 3264 (class 2606 OID 341038)
+-- Name: problemlist listactivity_id_pk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.problemlist
+ADD CONSTRAINT listactivity_id_pk FOREIGN KEY (listactivity_id) REFERENCES public.listactivity(id);
+
+
+--
+-- TOC entry 3275 (class 2606 OID 342469)
+-- Name: groupadmin_permission permission_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.groupadmin_permission
+ADD CONSTRAINT permission_id_fk FOREIGN KEY (permission_id) REFERENCES public.permission(id);
+
+
+--
+-- TOC entry 3277 (class 2606 OID 350667)
+-- Name: portaluser_permission permission_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.portaluser_permission
+ADD CONSTRAINT permission_id_fk FOREIGN KEY (permission_id) REFERENCES public.permission(id);
+
+
+--
+-- TOC entry 3276 (class 2606 OID 350662)
+-- Name: portaluser_permission portaluser_permission_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.portaluser_permission
+ADD CONSTRAINT portaluser_permission_id_fk FOREIGN KEY (portaluser_id) REFERENCES public.portaluser(id);
+
+
+--
+-- TOC entry 3268 (class 2606 OID 340996)
+-- Name: problemkeyword problem_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.problemkeyword
+ADD CONSTRAINT problem_id_fk FOREIGN KEY (problem_id) REFERENCES public.problem(id);
+
+
+--
+-- TOC entry 3260 (class 2606 OID 341008)
+-- Name: testdata problem_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.testdata
+ADD CONSTRAINT problem_id_fk FOREIGN KEY (problem_id) REFERENCES public.problem(id);
+
+
+--
+-- TOC entry 3263 (class 2606 OID 341027)
+-- Name: problemlist problem_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.problemlist
+ADD CONSTRAINT problem_id_fk FOREIGN KEY (problem_id) REFERENCES public.problem(id);
+
+
+--
+-- TOC entry 3262 (class 2606 OID 350744)
+-- Name: problemsolution problem_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.problemsolution
+ADD CONSTRAINT problem_id_fk FOREIGN KEY (problem_id) REFERENCES public.problem(id);
+
+
+--
+-- TOC entry 3273 (class 2606 OID 350683)
+-- Name: student_problemlist problemlist_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.student_problemlist
+ADD CONSTRAINT problemlist_id_fk FOREIGN KEY (problemlist_id) REFERENCES public.listactivity(id);
+
+
+--
+-- TOC entry 3271 (class 2606 OID 350699)
+-- Name: group_problemlist problemlist_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.group_problemlist
+ADD CONSTRAINT problemlist_id_fk FOREIGN KEY (problemlist_id) REFERENCES public.listactivity(id);
+
+
+--
+-- TOC entry 3259 (class 2606 OID 331877)
+-- Name: problem problemtype_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.problem
+ADD CONSTRAINT problemtype_id_fk FOREIGN KEY (problemtype_id) REFERENCES public.problemtype(id);
+
+
+--
+-- TOC entry 3253 (class 2606 OID 278018)
+-- Name: city state_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.city
+ADD CONSTRAINT state_id_fk FOREIGN KEY (state_id) REFERENCES public.state(id);
+
+
+--
+-- TOC entry 3272 (class 2606 OID 342521)
+-- Name: student_problemlist student_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.student_problemlist
+ADD CONSTRAINT student_id_fk FOREIGN KEY (student_id) REFERENCES public.student(id);
+
+
+--
+-- TOC entry 3278 (class 2606 OID 350729)
+-- Name: student_group student_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.student_group
+ADD CONSTRAINT student_id_fk FOREIGN KEY (student_id) REFERENCES public.student(id);
+
+
+--
+-- TOC entry 3265 (class 2606 OID 350693)
+-- Name: portalgroup teacher_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.portalgroup
+ADD CONSTRAINT teacher_id_fk FOREIGN KEY (teacher_id) REFERENCES public.teacher(id);
+
+
+--
+-- TOC entry 3257 (class 2606 OID 332802)
+-- Name: teacher user_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.teacher
+ADD CONSTRAINT user_id_fk FOREIGN KEY (user_id) REFERENCES public.portaluser(id);
+
+
+--
+-- TOC entry 3255 (class 2606 OID 342446)
+-- Name: admins user_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.admins
+ADD CONSTRAINT user_id_fk FOREIGN KEY (user_id) REFERENCES public.portaluser(id);
+
+
+--
+-- TOC entry 3266 (class 2606 OID 350673)
+-- Name: student user_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.student
+ADD CONSTRAINT user_id_fk FOREIGN KEY (user_id) REFERENCES public.portaluser(id);
+
+
+--
+-- TOC entry 3261 (class 2606 OID 350739)
+-- Name: problemsolution user_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.problemsolution
+ADD CONSTRAINT user_id_fk FOREIGN KEY (user_id) REFERENCES public.portaluser(id);
+
+
+-- Completed on 2018-06-12 19:41:20 -03
+
+--
+-- PostgreSQL database dump complete
+--
+
+\end{lstlisting}
