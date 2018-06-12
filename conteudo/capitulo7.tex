@@ -1,10 +1,85 @@
 \chapter*{Apêndice A - Documentação}\label{Documentacao}
 
-API de Países, endpoint base \textit{countries}
+Essa documentação tem por objetivo de exemplificar todas as chamadas da API do Portal de Algoritmos.
+
+\begin{center}
+	\begin{tabular}{| l | l |}
+		\hline
+		Código & Descrição  \\ \hline
+		200 & OK \\ \hline
+		201 & Recurso criado  \\ \hline
+		204 & Sem conteúdo  \\ \hline
+		401 & Credenciais inválidas  \\ \hline
+		403 & Não permitido  \\ \hline
+		404 & Não encontrado  \\ \hline
+		500 & Erro interno do servidor \\ \hline
+	\end{tabular}
+\end{center}
+
+O código 200 é gerado numa requisição de sucesso. Por exemplo na listagem de algum recurso.
+
+O código 201 é gerado na criação de um novo recurso.
+
+O código 204 é gerado na deleção de um recurso.
+
+O código 401 é gerado quando as credenciais são inválidas.
+
+O código 403 é gerado quando as credenciais não tem permissão no recurso solicitado.
+
+O código 404 é gerado quando não é encontrado determinado recurso.
+
+O código 500 é gerado quando o servidor aprensentou algum erro interno.
+
+\newpage
+
+\section*{API Login}
+
+Para todas as chamadas que necessitam de autenticação para seu uso é preciso realizar o login para obter o token de autenticação, esse token é adicionado no header da requisição.
+
+\subsubsection*{Request}
 
 \begin{lstlisting}
-	GET /countries
+POST /rest/login
 \end{lstlisting}
+
+\begin{lstlisting}
+{
+	"username": "String",
+	"password": "String"
+}
+\end{lstlisting}
+
+\subsubsection*{Response}
+
+\begin{lstlisting}
+{
+	"token": "String"
+}
+\end{lstlisting}
+
+\subsection*{Cabeçalho}
+
+Todas as requisições que exigem autenticação será preciso enviar o token recebido no login.
+
+\begin{lstlisting}
+"Authorization": "Bearer <token>"
+\end{lstlisting}
+
+\newpage
+
+\section*{API de Países}
+
+API de países.
+
+\subsection*{Buscar todos os países}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+GET /rest/countries
+\end{lstlisting}
+
+\subsubsection*{Response}
 
 \begin{lstlisting}
 [
@@ -16,8 +91,55 @@ API de Países, endpoint base \textit{countries}
 ]
 \end{lstlisting}
 
+\subsection*{Detalhes de um país}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	GET /countries/:id
+GET /rest/countries/{id}
+\end{lstlisting}
+
+\subsubsection*{Response}
+
+\begin{lstlisting}
+{
+	"id": "Integer",
+	"name": "String",
+	"abbreviation": "String"
+}
+\end{lstlisting}
+
+\subsection*{Criar um novo país}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+POST /rest/countries
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+	"name": "String",
+	"abbreviation": "String"
+}
+\end{lstlisting}
+
+\subsubsection*{Response}
+
+\begin{lstlisting}
+{
+	"id": "Integer",
+	"name": "String",
+	"abbreviation": "String"
+}
+\end{lstlisting}
+
+\subsection*{Atualizar um país}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+PUT /rest/countries
 \end{lstlisting}
 
 \begin{lstlisting}
@@ -28,20 +150,7 @@ API de Países, endpoint base \textit{countries}
 }
 \end{lstlisting}
 
-\begin{lstlisting}
-	POST /countries
-\end{lstlisting}
-
-\begin{lstlisting}
-{
-	"name": "String",
-	"abbreviation": "String"
-}
-\end{lstlisting}
-
-\begin{lstlisting}
-	PUT /countries
-\end{lstlisting}
+\subsubsection*{Response}
 
 \begin{lstlisting}
 {
@@ -51,15 +160,29 @@ API de Países, endpoint base \textit{countries}
 }
 \end{lstlisting}
 
+\subsection*{Deletar um país}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	DELETE /countries/:id
+DELETE /rest/countries/{id}
 \end{lstlisting}
 
 \newpage
 
+\section*{API de Estados}
+
+API de estados.
+
+\subsection*{Buscar todos os estados}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	GET /states
+GET /rest/states
 \end{lstlisting}
+
+\subsubsection*{Response}
 
 \begin{lstlisting}
 [
@@ -76,9 +199,15 @@ API de Países, endpoint base \textit{countries}
 ]
 \end{lstlisting}
 
+\subsection*{Detalhes de um estado}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	GET /states/:id
+GET /rest/states/{id}
 \end{lstlisting}
+
+\subsubsection*{Response}
 
 \begin{lstlisting}
 {
@@ -93,8 +222,14 @@ API de Países, endpoint base \textit{countries}
 }
 \end{lstlisting}
 
+\newpage
+
+\subsection*{Criar um novo estado}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	POST /states
+POST /rest/states
 \end{lstlisting}
 
 \begin{lstlisting}
@@ -107,8 +242,27 @@ API de Países, endpoint base \textit{countries}
 }
 \end{lstlisting}
 
+\subsubsection*{Response}
+
 \begin{lstlisting}
-	PUT /states
+{
+	"id": "Integer",
+	"name": "String",
+	"abbreviation": "String",
+	"country": {
+		"id": "Integer",
+		"name": "String",
+		"abbreviation": "String"
+	}
+}
+\end{lstlisting}
+
+\subsection*{Atualizar um estado}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+PUT /rest/states
 \end{lstlisting}
 
 \begin{lstlisting}
@@ -121,15 +275,44 @@ API de Países, endpoint base \textit{countries}
 }
 \end{lstlisting}
 
-\begin{lstlisting}
-	DELETE /states/:id
-\end{lstlisting}
-
 \newpage
 
+\subsubsection*{Response}
+
 \begin{lstlisting}
-	GET /cities
+{
+	"id": "Integer",
+	"name": "String",
+	"abbreviation": "String",
+	"country": {
+		"id": "Integer",
+		"name": "String",
+		"abbreviation": "String"
+	}
+}
 \end{lstlisting}
+
+\subsection*{Deletar um estado}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+DELETE /rest/states/{id}
+\end{lstlisting}
+
+\section*{API de Cidades}
+
+API de cidades.
+
+\subsection*{Buscar todos as cidades}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+GET /rest/cities
+\end{lstlisting}
+
+\subsubsection*{Response}
 
 \begin{lstlisting}
 [
@@ -150,9 +333,17 @@ API de Países, endpoint base \textit{countries}
 ]
 \end{lstlisting}
 
+\newpage
+
+\subsection*{Detalhes de uma cidade}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	GET /cities/:id
+GET /rest/cities/{id}
 \end{lstlisting}
+
+\subsubsection*{Response}
 
 \begin{lstlisting}
 {
@@ -171,8 +362,12 @@ API de Países, endpoint base \textit{countries}
 }
 \end{lstlisting}
 
+\subsection*{Criar uma nova cidade}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	POST /cities
+POST /rest/cities
 \end{lstlisting}
 
 \begin{lstlisting}
@@ -184,8 +379,31 @@ API de Países, endpoint base \textit{countries}
 }
 \end{lstlisting}
 
+\subsubsection*{Response}
+
 \begin{lstlisting}
-	PUT /cities
+{
+	"id": "Integer",
+	"name": "String",
+	"state": {
+		"id": "Integer",
+		"name": "String",
+		"abbreviation": "String"
+		"country": {
+			"id": "Integer",
+			"name": "String",
+			"abbreviation": "String"
+		}
+	}
+}
+\end{lstlisting}
+
+\subsection*{Atualizar uma cidade}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+PUT /rest/cities
 \end{lstlisting}
 
 \begin{lstlisting}
@@ -198,15 +416,48 @@ API de Países, endpoint base \textit{countries}
 }
 \end{lstlisting}
 
+\subsubsection*{Response}
+
 \begin{lstlisting}
-	DELETE /cities/:id
+{
+	"id": "Integer",
+	"name": "String",
+	"state": {
+		"id": "Integer",
+		"name": "String",
+		"abbreviation": "String"
+		"country": {
+			"id": "Integer",
+			"name": "String",
+			"abbreviation": "String"
+		}
+	}
+}
+\end{lstlisting}
+
+\subsection*{Deletar uma cidade}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+DELETE /rest/cities/{id}
 \end{lstlisting}
 
 \newpage
 
+\section*{API de Instituições}
+
+API de instituições.
+
+\subsection*{Buscar todas as instituições}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	GET /institutions
+GET /rest/institutions
 \end{lstlisting}
+
+\subsubsection*{Response}
 
 \begin{lstlisting}
 [
@@ -232,9 +483,17 @@ API de Países, endpoint base \textit{countries}
 ]
 \end{lstlisting}
 
+\subsection*{Detalhes de uma instituição}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	GET /institutions/:id
+GET /rest/institutions/{id}
 \end{lstlisting}
+
+\newpage
+
+\subsubsection*{Response }
 
 \begin{lstlisting}
 {
@@ -258,8 +517,12 @@ API de Países, endpoint base \textit{countries}
 }
 \end{lstlisting}
 
+\subsection*{Criar uma nova instituição}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	POST /institutions
+POST /rest/institutions
 \end{lstlisting}
 
 \begin{lstlisting}
@@ -272,8 +535,38 @@ API de Países, endpoint base \textit{countries}
 }
 \end{lstlisting}
 
+\newpage
+
+\subsubsection*{Response}
+
 \begin{lstlisting}
-	PUT /institutions
+{
+	"id": "Integer",
+	"name": "String",
+	"initial": "String",
+	"city": {
+		"id": "Integer",
+		"name": "String",
+		"state": {
+			"id": "Integer",
+			"name": "String",
+			"abbreviation": "String",
+			"country": {
+				"id": "Integer",
+				"name": "String",
+				"abbreviation": "String"
+			}
+		}
+	}
+}
+\end{lstlisting}
+
+\subsection*{Atualizar uma instituição}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+PUT /rest/institutions
 \end{lstlisting}
 
 \begin{lstlisting}
@@ -287,15 +580,53 @@ API de Países, endpoint base \textit{countries}
 }
 \end{lstlisting}
 
-\begin{lstlisting}
-	DELETE /institutions/:id
-\end{lstlisting}
-
 \newpage
 
+\subsubsection*{Response}
+
 \begin{lstlisting}
-	GET /permissions
+{
+	"id": "Integer",
+	"name": "String",
+	"initial": "String",
+	"city": {
+		"id": "Integer",
+		"name": "String",
+		"state": {
+			"id": "Integer",
+			"name": "String",
+			"abbreviation": "String",
+			"country": {
+				"id": "Integer",
+				"name": "String",
+				"abbreviation": "String"
+			}
+		}
+	}
+}
 \end{lstlisting}
+
+\subsection*{Deletar uma instituição}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+DELETE /rest/institutions/{id}
+\end{lstlisting}
+
+\section*{API de Permissões}
+
+API de permissões.
+
+\subsection*{Buscar todas as permissões}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+GET /rest/permissions
+\end{lstlisting}
+
+\subsubsection*{Response}
 
 \begin{lstlisting}
 [
@@ -307,50 +638,98 @@ API de Países, endpoint base \textit{countries}
 ]
 \end{lstlisting}
 
-\begin{lstlisting}
-	GET /permissions/:id
-\end{lstlisting}
-
-\begin{lstlisting}
-{
-    "id": "Integer",
-    "codename": "String",
-    "description": "String"
-}
-\end{lstlisting}
-
-\begin{lstlisting}
-	POST /permissions
-\end{lstlisting}
-
-\begin{lstlisting}
-{
-    "codename": "String",
-    "description": "String"
-}
-\end{lstlisting}
-
-\begin{lstlisting}
-	PUT /permissions
-\end{lstlisting}
-
-\begin{lstlisting}
-{
-    "id": "Integer",
-    "codename": "String",
-    "description": "String"
-}
-\end{lstlisting}
-
-\begin{lstlisting}
-	DELETE /permissions/:id
-\end{lstlisting}
-
 \newpage
 
+\subsection*{Detalhes de uma permissão}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	GET /users
+GET /rest/permissions/{id}
 \end{lstlisting}
+
+\subsubsection*{Response}
+
+\begin{lstlisting}
+{
+    "id": "Integer",
+    "codename": "String",
+    "description": "String"
+}
+\end{lstlisting}
+
+\subsection*{Criar uma nova permissão}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+POST /rest/permissions
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "codename": "String",
+    "description": "String"
+}
+\end{lstlisting}
+
+\subsubsection*{Response}
+
+\begin{lstlisting}
+{
+	"id": "Integer",
+	"codename": "String",
+	"description": "String"
+}
+\end{lstlisting}
+
+\subsection*{Atualizar uma permissão}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+PUT /rest/permissions
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "id": "Integer",
+    "codename": "String",
+    "description": "String"
+}
+\end{lstlisting}
+
+\subsubsection*{Response}
+
+\begin{lstlisting}
+{
+	"id": "Integer",
+	"codename": "String",
+	"description": "String"
+}
+\end{lstlisting}
+
+\subsection*{Deletar uma permissão}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+DELETE /rest/permissions/{id}
+\end{lstlisting}
+
+\section*{API de Usuários}
+
+API de usuários.
+
+\subsection*{Buscar todos os usuários}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+GET /rest/users
+\end{lstlisting}
+
+\subsubsection*{Response}
 
 \begin{lstlisting}
 [
@@ -365,9 +744,17 @@ API de Países, endpoint base \textit{countries}
 ]
 \end{lstlisting}
 
+\newpage
+
+\subsection*{Detalhes de um usuário}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	GET /users/:id
+GET /rest/users/{id}
 \end{lstlisting}
+
+\subsubsection*{Response}
 
 \begin{lstlisting}
 {
@@ -380,8 +767,12 @@ API de Países, endpoint base \textit{countries}
 }
 \end{lstlisting}
 
+\subsection*{Criar um novo usuário}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	POST /users
+POST /rest/users
 \end{lstlisting}
 
 \begin{lstlisting}
@@ -394,30 +785,76 @@ API de Países, endpoint base \textit{countries}
 }
 \end{lstlisting}
 
-\begin{lstlisting}
-	PUT /users
-\end{lstlisting}
+\subsubsection*{Response}
 
 \begin{lstlisting}
 {
-    "id": "Integer",
-    "username": "String",
-    "firstname": "String",
-    "lastname": "String",
-    "email": "String",
-    "password": "*****",
+	"id": "Integer",
+	"username": "String",
+	"firstname": "String",
+	"lastname": "String",
+	"email": "String",
+	"password": "*****",
 }
-\end{lstlisting}
-
-\begin{lstlisting}
-	DELETE /users/:id
 \end{lstlisting}
 
 \newpage
 
+\subsection*{Atualizar um usuário}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	GET /userpermission/filter-by-user-id/{user-id}
+PUT /rest/users
 \end{lstlisting}
+
+\begin{lstlisting}
+{
+	"id": "Integer",
+	"username": "String",
+	"firstname": "String",
+	"lastname": "String",
+	"email": "String",
+	"password": "*****",
+}
+\end{lstlisting}
+
+\subsubsection*{Response}
+
+\begin{lstlisting}
+{
+    "id": "Integer",
+    "username": "String",
+    "firstname": "String",
+    "lastname": "String",
+    "email": "String",
+    "password": "*****",
+}
+\end{lstlisting}
+
+\subsection*{Deletar um usuário}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+DELETE /rest/users/{id}
+\end{lstlisting}
+
+\newpage
+
+\section*{API de Permissões de Usuários}
+
+API de permissões de usuários.
+
+\subsection*{Buscar todas as pemissões de um usuário}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+GET /rest/userpermission/filter-by-user-id/{user-id}
+\end{lstlisting}
+
+\subsubsection*{Response}
 
 \begin{lstlisting}
 [
@@ -433,8 +870,12 @@ API de Países, endpoint base \textit{countries}
 ]
 \end{lstlisting}
 
+\subsection*{Adicionar pemissões para um usuário}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	POST userpermission/{user-id} # arrumar portaluser para user
+POST /rest/userpermission/{user-id}
 \end{lstlisting}
 
 \begin{lstlisting}
@@ -453,18 +894,28 @@ API de Países, endpoint base \textit{countries}
 \newpage
 
 \begin{lstlisting}
-	/teachers
+/teachers
 \end{lstlisting}
 
 \begin{lstlisting}
-	/students
+/students
 \end{lstlisting}
 
 \newpage
 
+\section*{API de Grupos de Estudantes}
+
+API de grupos de estudantes.
+
+\subsection*{Buscar todos os grupos de um estudante}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	GET studentgroups/filter-by-list-student-id/{student-id}
+GET /rest/studentgroups/filter-by-list-student-id/{student-id}
 \end{lstlisting}
+
+\subsubsection*{Response}
 
 \begin{lstlisting}
 [
@@ -480,8 +931,12 @@ API de Países, endpoint base \textit{countries}
 ]
 \end{lstlisting}
 
+\subsection*{Adiciona grupos para um estudante}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	POST studentgroups/{student-id}
+POST /rest/studentgroups/{student-id}
 \end{lstlisting}
 
 \begin{lstlisting}
@@ -499,8 +954,16 @@ API de Países, endpoint base \textit{countries}
 
 \newpage
 
+\section*{API de Listas de Problemas de um Estudante}
+
+API de listas de problemas de um estudante
+
+\subsection*{Buscar todas as listas de problemas de um estudante}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	GET studentproblemlist/filter-by-list-student-id/{student-id}
+GET /rest/studentproblemlist/filter-by-list-student-id/{student-id}
 \end{lstlisting}
 
 \begin{lstlisting}
@@ -510,15 +973,19 @@ API de Países, endpoint base \textit{countries}
         "listActivity": {
             "id": "Integer"
         },
-        "group": {
+        "student": {
             "id": "Integer"
         }
     }
 ]
 \end{lstlisting}
 
+\subsection*{Adicionar listas de problemas para um estudante}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	POST studentproblemlist/{student-id}
+POST /rest/studentproblemlist/{student-id}
 \end{lstlisting}
 
 \begin{lstlisting}
@@ -527,7 +994,7 @@ API de Países, endpoint base \textit{countries}
         "listActivity": {
             "id": "Integer"
         },
-        "group": {
+        "student": {
             "id": "Integer"
         }
     }
@@ -536,9 +1003,19 @@ API de Países, endpoint base \textit{countries}
 
 \newpage
 
+\section*{API de Grupo de Administradores}
+
+API de grupo de administradores.
+
+\subsection*{Buscar todos os grupos de administradores}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	GET /groupadmins
+GET /rest/groupadmins
 \end{lstlisting}
+
+\subsubsection*{Response}
 
 \begin{lstlisting}
 [
@@ -549,9 +1026,15 @@ API de Países, endpoint base \textit{countries}
 ]
 \end{lstlisting}
 
+\subsection*{Detalhes de um grupo de administradores}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	GET /groupadmins/:id
+GET /rest/groupadmins/{id}
 \end{lstlisting}
+
+\subsubsection*{Response}
 
 \begin{lstlisting}
 {
@@ -560,36 +1043,78 @@ API de Países, endpoint base \textit{countries}
 }
 \end{lstlisting}
 
+\subsection*{Criar um novo grupo de administradores}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	POST /groupadmins
+POST /rest/groupadmins
 \end{lstlisting}
 
 \begin{lstlisting}
 {
     "name": "String"
 }
-\end{lstlisting}
-
-\begin{lstlisting}
-	PUT /groupadmins
-\end{lstlisting}
-
-\begin{lstlisting}
-{
-    "id": "Integer",
-    "name": "String"
-}
-\end{lstlisting}
-
-\begin{lstlisting}
-	DELETE /groupadmins/:id
 \end{lstlisting}
 
 \newpage
 
+\subsubsection*{Response}
+
 \begin{lstlisting}
-	GET /groupadminpermission/filter-by-groupadmin-id/{group-admin-id}
+{
+	"id": "Integer",
+	"name": "String"
+}
 \end{lstlisting}
+
+\subsection*{Atualizar um grupo de administradores}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+PUT /rest/groupadmins
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "id": "Integer",
+    "name": "String"
+}
+\end{lstlisting}
+
+\subsubsection*{Response}
+
+\begin{lstlisting}
+{
+	"id": "Integer",
+	"name": "String"
+}
+\end{lstlisting}
+
+\subsection*{Deletar um grupo de administradores}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+DELETE /rest/groupadmins/{id}
+\end{lstlisting}
+
+\newpage
+
+\section*{API de Permissões de um Grupo de Administradores}
+
+API de permissões de um grupo de administradores
+
+\subsection*{Buscar todas as permissões de um grupo de administradores}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+GET /rest/groupadminpermission/filter-by-groupadmin-id/{group-admin-id}
+\end{lstlisting}
+
+\subsubsection*{Response}
 
 \begin{lstlisting}
 [
@@ -605,8 +1130,12 @@ API de Países, endpoint base \textit{countries}
 ]
 \end{lstlisting}
 
+\subsection*{Adicionar permissões para um grupo de administradores}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	POST /groupadminpermission/{group-admin-id}
+POST /rest/groupadminpermission/{group-admin-id}
 \end{lstlisting}
 
 \begin{lstlisting}
@@ -624,9 +1153,19 @@ API de Países, endpoint base \textit{countries}
 
 \newpage
 
+\section*{API de Usuários de um Grupo de Administradores}
+
+API de usuários de um grupo de administradores
+
+\subsection*{Buscar todas os usuários de um grupo de administradores}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	GET /groupadminuser/filter-by-groupadmin-id/{group-admin-id}
+GET /rest/groupadminuser/filter-by-groupadmin-id/{group-admin-id}
 \end{lstlisting}
+
+\subsubsection*{Response}
 
 \begin{lstlisting}
 [
@@ -642,8 +1181,12 @@ API de Países, endpoint base \textit{countries}
 ]
 \end{lstlisting}
 
+\subsection*{Adicionar usuários para um grupo de administradores}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	POST /groupadminuser/{group-admin-id}
+POST /rest/groupadminuser/{group-admin-id}
 \end{lstlisting}
 
 \begin{lstlisting}
@@ -661,9 +1204,19 @@ API de Países, endpoint base \textit{countries}
 
 \newpage
 
+\section*{API de Grupos}
+
+API de grupos.
+
+\subsection*{Buscar todos os grupos}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	GET /groups
+GET /rest/groups
 \end{lstlisting}
+
+\subsubsection*{Response}
 
 \begin{lstlisting}
 [
@@ -678,9 +1231,15 @@ API de Países, endpoint base \textit{countries}
 ]
 \end{lstlisting}
 
+\subsection*{Detalhes de um grupo}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	GET /groups/:id
+GET /rest/groups/{id}
 \end{lstlisting}
+
+\subsubsection*{Response}
 
 \begin{lstlisting}
 {
@@ -691,46 +1250,94 @@ API de Países, endpoint base \textit{countries}
         "id": "Integer"
     }
 }
-\end{lstlisting}
-
-\begin{lstlisting}
-	POST /groups
-\end{lstlisting}
-
-\begin{lstlisting}
-{
-    "name": "String",
-    "description": "String",
-    "teacher": {
-        "id": "Integer"
-    }
-}
-\end{lstlisting}
-
-\begin{lstlisting}
-	PUT /groups
-\end{lstlisting}
-
-\begin{lstlisting}
-{
-    "id": "Integer",
-    "name": "String",
-    "description": "String",
-    "teacher": {
-        "id": "Integer"
-    }
-}
-\end{lstlisting}
-
-\begin{lstlisting}
-	DELETE /groups/:id
 \end{lstlisting}
 
 \newpage
 
+\subsection*{Criar um novo grupo}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	GET /groupproblemlist/filter-by-group-id/{group-id}
+POST /rest/groups
 \end{lstlisting}
+
+\begin{lstlisting}
+{
+    "name": "String",
+    "description": "String",
+    "teacher": {
+        "id": "Integer"
+    }
+}
+\end{lstlisting}
+
+\subsubsection*{Response}
+
+\begin{lstlisting}
+{
+	"id": "Integer",
+	"name": "String",
+	"description": "String",
+	"teacher": {
+		"id": "Integer"
+	}
+}
+\end{lstlisting}
+
+\subsection*{Atualizar um grupo}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+PUT /rest/groups
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "id": "Integer",
+    "name": "String",
+    "description": "String",
+    "teacher": {
+        "id": "Integer"
+    }
+}
+\end{lstlisting}
+
+\subsubsection*{Response}
+
+\begin{lstlisting}
+{
+	"id": "Integer",
+	"name": "String",
+	"description": "String",
+	"teacher": {
+		"id": "Integer"
+	}
+}
+\end{lstlisting}
+
+\subsection*{Deletar um grupo}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+DELETE /rest/groups/{id}
+\end{lstlisting}
+
+\section*{API de Listas de Problemas de Grupos}
+
+API de listas de problemas de grupos.
+
+\subsection*{Buscar todas as listas de problemas de um grupo}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+GET /rest/groupproblemlist/filter-by-group-id/{group-id}
+\end{lstlisting}
+
+\subsubsection*{Response}
 
 \begin{lstlisting}
 [
@@ -746,8 +1353,12 @@ API de Países, endpoint base \textit{countries}
 ]
 \end{lstlisting}
 
+\subsection*{Adicionar listas de problemas para um grupo}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	POST /groupproblemlist/{group-id}
+POST /rest/groupproblemlist/{group-id}
 \end{lstlisting}
 
 \begin{lstlisting}
@@ -765,9 +1376,19 @@ API de Países, endpoint base \textit{countries}
 
 \newpage
 
+\section*{API de Tipos de Problemas}
+
+API de tipos de problemas.
+
+\subsection*{Buscar todos os tipos de problemas}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	GET /problemtypes
+GET /rest/problemtypes
 \end{lstlisting}
+
+\subsubsection*{Response}
 
 \begin{lstlisting}
 [
@@ -778,9 +1399,15 @@ API de Países, endpoint base \textit{countries}
 ]
 \end{lstlisting}
 
+\subsection*{Detalhes de um tipo de problema}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	GET /problemtypes/:id
+GET /rest/problemtypes/{id}
 \end{lstlisting}
+
+\subsubsection*{Response}
 
 \begin{lstlisting}
 {
@@ -789,36 +1416,76 @@ API de Países, endpoint base \textit{countries}
 }
 \end{lstlisting}
 
+\subsection*{Criar um novo tipo de problema}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	POST /problemtypes
+POST /rest/problemtypes
 \end{lstlisting}
 
 \begin{lstlisting}
 {
     "name": "String",
 }
-\end{lstlisting}
-
-\begin{lstlisting}
-	PUT /problemtypes
-\end{lstlisting}
-
-\begin{lstlisting}
-{
-    "id": "Integer",
-    "name": "String",
-}
-\end{lstlisting}
-
-\begin{lstlisting}
-	DELETE /problemtypes/:id
 \end{lstlisting}
 
 \newpage
 
+\subsubsection*{Response}
+
 \begin{lstlisting}
-	GET /problems
+{
+	"id": "Integer",
+	"name": "String",
+}
 \end{lstlisting}
+
+\subsection*{Atualizar um tipo de problema}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+PUT /rest/problemtypes
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "id": "Integer",
+    "name": "String",
+}
+\end{lstlisting}
+
+\subsubsection*{Response}
+
+\begin{lstlisting}
+{
+	"id": "Integer",
+	"name": "String",
+}
+\end{lstlisting}
+
+\subsection*{Deletar um tipo de problema}
+
+\begin{lstlisting}
+DELETE /rest/problemtypes/{id}
+\end{lstlisting}
+
+\newpage
+
+\section*{API de Problemas}
+
+API de problemas.
+
+\subsection*{Buscar todos os problemas}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+GET /rest/problems
+\end{lstlisting}
+
+\subsubsection*{Response}
 
 \begin{lstlisting}
 [
@@ -838,9 +1505,15 @@ API de Países, endpoint base \textit{countries}
 ]
 \end{lstlisting}
 
+\subsection*{Detalhes de um problema}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	GET /problems/:id
+GET /rest/problems/{id}
 \end{lstlisting}
+
+\subsubsection*{Response}
 
 \begin{lstlisting}
 {
@@ -858,50 +1531,106 @@ API de Países, endpoint base \textit{countries}
 }
 \end{lstlisting}
 
+\subsection*{Criar um novo problema}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	POST /problems
+POST /rest/problems
 \end{lstlisting}
 
 \begin{lstlisting}
 {
     "name": "String",
-    "problemtype": {
-        "id": "Integer",
-    },
     "description": "String",
     "tip": "String",
     "level": "String",
-    "cost": "Integer"
+    "cost": "Integer",
+    "problemtype": {
+   		"id": "Integer",
+    }
 }
 \end{lstlisting}
 
+\subsubsection*{Response}
+
 \begin{lstlisting}
-	PUT /problems
+{
+	"id": "Integer",
+	"name": "String",
+	"description": "String",
+	"tip": "String",
+	"createdat": "Timestamp",
+	"level": "String",
+	"cost": "Integer",
+	"problemtype": {
+		"id": "Integer",
+		"name": "String"
+	}
+}
+\end{lstlisting}
+
+\subsection*{Atualizar um problema}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+PUT /rest/problems
 \end{lstlisting}
 
 \begin{lstlisting}
 {
     "id": "Integer",
     "name": "String",
-    "problemtype": {
-        "id": "Integer",
-    },
     "description": "String",
     "tip": "String",
     "level": "String",
-    "cost": "Integer"
+    "cost": "Integer",
+    "problemtype": {
+    	"id": "Integer",
+    }
 }
 \end{lstlisting}
 
-\begin{lstlisting}
-	DELETE /problems/:id
-\end{lstlisting}
-
-\newpage
+\subsubsection*{Response}
 
 \begin{lstlisting}
-	GET /testdatas/filter-by-problem-id/{problem-id}
+{
+	"id": "Integer",
+	"name": "String",
+	"description": "String",
+	"tip": "String",
+	"createdat": "Timestamp",
+	"level": "String",
+	"cost": "Integer",
+	"problemtype": {
+		"id": "Integer",
+		"name": "String"
+	}
+}
 \end{lstlisting}
+
+\subsection*{Deletar um problema}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+DELETE /rest/problems/{id}
+\end{lstlisting}
+
+\section*{API de Dados de Teste de Problema}
+
+API de dados de teste de problema.
+
+\subsection*{Buscar todos os dados de teste de um problema}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+GET /rest/testdatas/filter-by-problem-id/{problem-id}
+\end{lstlisting}
+
+\subsubsection*{Response}
 
 \begin{lstlisting}
 [
@@ -916,8 +1645,14 @@ API de Países, endpoint base \textit{countries}
 ]
 \end{lstlisting}
 
+\newpage
+
+\subsection*{Adicionar dados de teste para um problema}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	POST /testdatas/{problem-id}
+POST /rest/testdatas/{problem-id}
 \end{lstlisting}
 
 \begin{lstlisting}
@@ -933,11 +1668,19 @@ API de Países, endpoint base \textit{countries}
 ]
 \end{lstlisting}
 
-\newpage
+\section*{API de Palavras Chaves}
+
+API de palavras chaves.
+
+\subsection*{Buscar todas as palavras chaves}
+
+\subsubsection*{Request}
 
 \begin{lstlisting}
-	GET /keywords
+GET /rest/keywords
 \end{lstlisting}
+
+\subsubsection*{Response}
 
 \begin{lstlisting}
 [
@@ -948,9 +1691,15 @@ API de Países, endpoint base \textit{countries}
 ]
 \end{lstlisting}
 
+\subsection*{Detalhes de uma palavra chave}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	GET /keywords/:id
+GET /rest/keywords/{id}
 \end{lstlisting}
+
+\subsubsection*{Response}
 
 \begin{lstlisting}
 {
@@ -959,36 +1708,76 @@ API de Países, endpoint base \textit{countries}
 }
 \end{lstlisting}
 
+\subsection*{Criar uma nova palavra chave}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	POST /keywords
+POST /rest/keywords
 \end{lstlisting}
 
 \begin{lstlisting}
 {
-    "name": "String",
+    "name": "String"
 }
 \end{lstlisting}
 
+\subsubsection*{Response}
+
 \begin{lstlisting}
-	PUT /keywords
+{
+	"id": "Integer",
+	"name": "String",
+}
+\end{lstlisting}
+
+\subsection*{Atualizar uma palavra chave}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+PUT /rest/keywords
 \end{lstlisting}
 
 \begin{lstlisting}
 {
     "id": "Integer",
-    "name": "String",
+    "name": "String"
 }
 \end{lstlisting}
 
+\subsubsection*{Response}
+
 \begin{lstlisting}
-	DELETE /keywords/:id
+{
+	"id": "Integer",
+	"name": "String"
+}
+\end{lstlisting}
+
+\subsection*{Deletar uma palavra chave}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+DELETE /rest/keywords/{id}
 \end{lstlisting}
 
 \newpage
 
+\section*{API de Palavras Chaves no Problemas}
+
+API de palavras chaves no problemas.
+
+\subsection*{Buscar todas as palavras chaves de um problema}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	GET /problemkeywords/filter-by-problem-id/{problem-id}
+GET /rest/problemkeywords/filter-by-problem-id/{problem-id}
 \end{lstlisting}
+
+\subsubsection*{Response}
 
 \begin{lstlisting}
 [
@@ -1004,8 +1793,12 @@ API de Países, endpoint base \textit{countries}
 ]
 \end{lstlisting}
 
+\subsection*{Adicionar palavras chaves para um problema}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	POST /problemkeywords/{problem-id}
+POST /rest/problemkeywords/{problem-id}
 \end{lstlisting}
 
 \begin{lstlisting}
@@ -1023,9 +1816,19 @@ API de Países, endpoint base \textit{countries}
 
 \newpage
 
+\section*{API de Lista de Atividades}
+
+API de lista de atividades.
+
+\subsection*{Buscar todas as listas de atividades}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	GET /listactivities
+GET /rest/listactivities
 \end{lstlisting}
+
+\subsubsection*{Response}
 
 \begin{lstlisting}
 [
@@ -1036,9 +1839,15 @@ API de Países, endpoint base \textit{countries}
 ]
 \end{lstlisting}
 
+\subsection*{Detalhes de uma lista de atividades}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	GET /listactivities/:id
+GET /rest/listactivities/{id}
 \end{lstlisting}
+
+\subsubsection*{Response}
 
 \begin{lstlisting}
 {
@@ -1047,36 +1856,78 @@ API de Países, endpoint base \textit{countries}
 }
 \end{lstlisting}
 
+\subsection*{Criar uma nova lista de atividade}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	POST /listactivities
+POST /rest/listactivities
 \end{lstlisting}
 
 \begin{lstlisting}
 {
     "name": "String",
 }
-\end{lstlisting}
-
-\begin{lstlisting}
-	PUT /listactivities
-\end{lstlisting}
-
-\begin{lstlisting}
-{
-    "id": "Integer",
-    "name": "String",
-}
-\end{lstlisting}
-
-\begin{lstlisting}
-	DELETE /listactivities/:id
 \end{lstlisting}
 
 \newpage
 
+\subsubsection*{Response}
+
 \begin{lstlisting}
-	GET /problemlists
+{
+	"id": "Integer",
+	"name": "String",
+}
 \end{lstlisting}
+
+\subsection*{Atualizar uma lista de atividade}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+PUT /rest/listactivities
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "id": "Integer",
+    "name": "String",
+}
+\end{lstlisting}
+
+\subsubsection*{Response}
+
+\begin{lstlisting}
+{
+	"id": "Integer",
+	"name": "String",
+}
+\end{lstlisting}
+
+\subsection*{Deletar uma lista de atividade}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+DELETE /rest/listactivities/{id}
+\end{lstlisting}
+
+\newpage
+
+\section*{API de Lista de Problemas de uma Lista de Atividades}
+
+API de lista de problemas de uma lista de atividades.
+
+\subsection*{Buscar todas os problemas de todas lista de atividades}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+GET /rest/problemlists
+\end{lstlisting}
+
+\subsubsection*{Response}
 
 \begin{lstlisting}
 [
@@ -1094,9 +1945,15 @@ API de Países, endpoint base \textit{countries}
 ]
 \end{lstlisting}
 
+\subsection*{Buscar todas os problemas de uma lista de atividades}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	GET /problemlists/filter-by-list-activity-id/{activity-id}
+GET /rest/problemlists/filter-by-list-activity-id/{activity-id}
 \end{lstlisting}
+
+\subsubsection*{Response}
 
 \begin{lstlisting}
 [
@@ -1114,9 +1971,15 @@ API de Países, endpoint base \textit{countries}
 ]
 \end{lstlisting}
 
+\subsection*{Adicionar problemas para uma lista de atividade}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	POST /problemlists/{activity-id}
+POST /rest/problemlists/{activity-id}
 \end{lstlisting}
+
+\subsubsection*{Response}
 
 \begin{lstlisting}
 [
@@ -1131,11 +1994,19 @@ API de Países, endpoint base \textit{countries}
 ]
 \end{lstlisting}
 
-\newpage
+\section*{API de Soluções de Problemas}
+
+API de soluções de problemas.
+
+\subsection*{Buscar todos as soluções de problemas}
+
+\subsubsection*{Request}
 
 \begin{lstlisting}
-	GET /problemsolutions
+GET /rest/problemsolutions
 \end{lstlisting}
+
+\subsubsection*{Response}
 
 \begin{lstlisting}
 [
@@ -1158,9 +2029,15 @@ API de Países, endpoint base \textit{countries}
 ]
 \end{lstlisting}
 
+\subsection*{Detalhes de uma solução de problema}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	GET /problemsolutions/:id
+GET /rest/problemsolutions/{id}
 \end{lstlisting}
+
+\subsubsection*{Response}
 
 \begin{lstlisting}
 {
@@ -1181,8 +2058,12 @@ API de Países, endpoint base \textit{countries}
 }
 \end{lstlisting}
 
+\subsection*{Criar uma nova solução de problema}
+
+\subsubsection*{Request}
+
 \begin{lstlisting}
-	POST /problemsolutions
+POST /rest/problemsolutions
 \end{lstlisting}
 
 \begin{lstlisting}
@@ -1198,26 +2079,80 @@ API de Países, endpoint base \textit{countries}
 }
 \end{lstlisting}
 
+\newpage
+
+\subsubsection*{Response}
+
 \begin{lstlisting}
-	PUT /problemsolutions
+{
+	"id": "Integer",
+	"solution": "String",
+	"name": "String",
+	"cost": null,
+	"datesolution": "Timestamp",
+	"result": "String",
+	"user": {
+		"id": "Integer",
+		"username": "String",
+	},
+	"problem": {
+		"id": "Integer",
+		"name": "String",
+	}
+}
+\end{lstlisting}
+
+\subsection*{Atualizar uma solução de problema}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+PUT /rest/problemsolutions
 \end{lstlisting}
 
 \begin{lstlisting}
 {
-    "id": "Integer",
-    "solution": "String",
-    "name": "String",
-    "user": {
-        "id": "Integer"
-    },
-    "problem": {
-        "id": "Integer"
-    }
+	"id": "Integer",
+	"solution": "String",
+	"name": "String",
+	"user": {
+		"id": "Integer"
+	},
+	"problem": {
+		"id": "Integer"
+	}
 }
 \end{lstlisting}
 
+\newpage
+
+\subsubsection*{Response}
+
 \begin{lstlisting}
-	DELETE /problemsolutions/:id
+{
+	"id": "Integer",
+	"solution": "String",
+	"name": "String",
+	"cost": null,
+	"datesolution": "Timestamp",
+	"result": "String",
+	"user": {
+		"id": "Integer",
+		"username": "String",
+	},
+	"problem": {
+		"id": "Integer",
+		"name": "String",
+	}
+}
+\end{lstlisting}
+
+\subsection*{Deletar uma solução de problema}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+DELETE /rest/problemsolutions/{id}
 \end{lstlisting}
 
 
