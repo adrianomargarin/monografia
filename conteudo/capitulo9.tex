@@ -1,0 +1,137 @@
+\chapter*{Apêndice C - Migração Banco de dados}\label{SQL}
+
+\textit{Script} de migraçao de dados.
+
+\begin{lstlisting}
+SELECT id, username, first_name, last_name, email, is_active, password FROM auth_user INTO OUTFILE 'auth_user.csv' FIELDS TERMINATED BY ',' enclosed '"' LINES TERMINATED BY '\n';
+
+SELECT id, username_id FROM portal_aluno INTO OUTFILE 'portal_aluno.csv' FIELDS TERMINATED BY ',' enclosed '"' LINES TERMINATED BY '\n';
+
+SELECT id, nome, descricao, dica, nivel, custo FROM portal_probemas INTO OUTFILE 'portal_probemas.csv' FIELDS TERMINATED BY ',' enclosed '"' LINES TERMINATED BY '\n';
+
+SELECT id, codProblema_id, entrada, saida FROM portal_eproblemas INTO OUTFILE 'portal_eproblemas.csv' FIELDS TERMINATED BY ',' enclosed '"' LINES TERMINATED BY '\n';
+
+SELECT id, nome FROM portal_pchave INTO OUTFILE 'portal_pchave.csv' FIELDS TERMINATED BY ',' enclosed '"' LINES TERMINATED BY '\n';
+
+SELECT id, nome_id, codProblema_id FROM portal_pchaveprob INTO OUTFILE 'portal_pchaveprob.csv' FIELDS TERMINATED BY ',' enclosed '"' LINES TERMINATED BY '\n';
+
+SELECT id, codProblema_id, nomeSolucao, custo, username_id, data_solucao, resultado FROM portal_sprobemas INTO OUTFILE 'portal_sprobemas.csv' FIELDS TERMINATED BY ',' enclosed '"' LINES terminated by '\n';
+\end{lstlisting}
+
+\begin{lstlisting}
+import psycopg2
+connection = psycopg2.connect(dbname='portalg', user='postgres', password='', host='localhost')
+cursor = connection.cursor()
+
+file_auth_user = open('auth_user.csv', 'r')
+for row in file_auth_user.readlines():
+row = row.split(';')
+
+sql = "INSERT INTO portaluser (id, username, firstname, lastname, email, isactive, password) "
+sql += "VALUES ({}, '{}', '{}', '{}', '{}', {}, '{}')".format(row[0], row[1], row[2], row[3], row[4], row[5], row[6])
+cursor.execute(sql)
+connection.commit()
+\end{lstlisting}
+
+\begin{lstlisting}
+cursor.execute("SELECT setval('portaluser_id_seq', (SELECT MAX(id) FROM portaluser)+1);")
+connection.commit()
+cursor.execute("INSERT INTO country (id, name, abbreviation) VALUES (1, 'Brasil', 'BR')")
+cursor.execute("INSERT INTO state (id, name, abbreviation, country_id) VALUES (1, 'Rio Grande do Sul', 'RS', 1)")
+cursor.execute("INSERT INTO city (id, name, abbreviation, state_id) VALUES (1, 'Caxias do Sul', 'RS', 1)")
+connection.commit()
+
+cursor.execute("SELECT setval('country_id_seq', (SELECT MAX(id) FROM country)+1);")
+cursor.execute("SELECT setval('state_id_seq', (SELECT MAX(id) FROM state)+1);")
+cursor.execute("SELECT setval('city_id_seq', (SELECT MAX(id) FROM city)+1);")
+connection.commit()
+
+
+file_portal_aluno = open('portal_aluno.csv', 'r')
+for row in file_portal_aluno.readlines():
+row = row.split(';')
+
+sql = "INSERT INTO student (id, user_id, city_id) VALUES ({}, {}, {})".format(row[0], row[1], 1)
+cursor.execute(sql)
+connection.commit()
+
+cursor.execute("SELECT setval('portaluser_id_seq', (SELECT MAX(id) FROM portaluser)+1);")
+connection.commit()
+
+
+cursor.execute("INSERT INTO problemtype (id, name) VALUES (1, 'Padrão')")
+connection.commit()
+
+cursor.execute("SELECT setval('problemtype_id_seq', (SELECT MAX(id) FROM problemtype)+1);")
+connection.commit()
+
+
+file_portal_probemas = open('portal_probemas.csv', 'r')
+for row in file_portal_probemas.readlines():
+row = row.split(';')
+
+sql = "INSERT INTO problem (id, name, description, tip, level, cost, problemtype_id) "
+sql += "VALUES ({}, {}, {})".format(row[0], row[1], row[2], row[3], row[4], row[5], 1)
+cursor.execute(sql)
+connection.commit()
+
+cursor.execute("SELECT setval('problem_id_seq', (SELECT MAX(id) FROM problem)+1);")
+connection.commit()
+
+
+file_portal_eproblemas = open('portal_eproblemas.csv', 'r')
+for row in file_portal_eproblemas.readlines():
+row = row.split(';')
+
+sql = "INSERT INTO testdata (id, problemtype_id, input, output) "
+sql += "VALUES ({}, {}, {})".format(row[0], row[1], row[2], row[3])
+cursor.execute(sql)
+connection.commit()
+
+cursor.execute("SELECT setval('testdata_id_seq', (SELECT MAX(id) FROM testdata)+1);")
+connection.commit()
+
+
+file_portal_pchave = open('portal_pchave.csv', 'r')
+for row in file_portal_pchave.readlines():
+row = row.split(';')
+
+sql = "INSERT INTO keyword (id, name) "
+sql += "VALUES ({}, {}, {})".format(row[0], row[1])
+cursor.execute(sql)
+connection.commit()
+
+cursor.execute("SELECT setval('keyword_id_seq', (SELECT MAX(id) FROM keyword)+1);")
+connection.commit()
+
+
+file_portal_pchaveprob = open('portal_pchaveprob.csv', 'r')
+for row in file_portal_pchaveprob.readlines():
+row = row.split(';')
+
+sql = "INSERT INTO problemkeyword (id, keyword_id, problem_id) "
+sql += "VALUES ({}, {}, {})".format(row[0], row[1], row[2])
+cursor.execute(sql)
+connection.commit()
+
+cursor.execute("SELECT setval('problemkeyword_id_seq', (SELECT MAX(id) FROM problemkeyword)+1);")
+connection.commit()
+
+
+file_portal_sprobemas = open('portal_sprobemas.csv', 'r')
+for row in file_portal_sprobemas.readlines():
+row = row.split(';')
+
+sql = "INSERT INTO problemsolution (id, problem_id, name, cost, user_id, datesolution, result) "
+sql += "VALUES ({}, {}, {}, {}, {}, {}, {})".format(row[0], row[1], row[2], row[3], row[4], row[5], row[6])
+cursor.execute(sql)
+connection.commit()
+
+cursor.execute("SELECT setval('problemsolution_id_seq', (SELECT MAX(id) FROM problemsolution)+1);")
+connection.commit()
+
+
+cursor.close()
+connection.close()
+
+\end{lstlisting}

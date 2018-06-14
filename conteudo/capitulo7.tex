@@ -842,6 +842,462 @@ DELETE /rest/users/{id}
 
 \newpage
 
+\section*{API de Professores}
+
+API de professores.
+
+\subsection*{Buscar todos os professores}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+GET /rest/teachers
+\end{lstlisting}
+
+\subsubsection*{Response}
+
+\begin{lstlisting}
+[
+	{
+		"id": "Integer",
+		"user": {
+			"id": "Integer",
+			"username": "String",
+			"firstname": "String",
+			"lastname": "String",
+			"email": "String",
+			"password": "String",
+			"isactive": "Boolean",
+			"lastlogin": "Date",
+			"datejoined": "Date"
+		},
+		"institution": {
+			"id": "Integer",
+			"name": "String",
+			"initial": "String",
+			"city": {
+				"id": "Integer",
+				"name": "String",
+				"state": {
+					"id": "Integer",
+					"name": "String",
+					"abbreviation": "String",
+					"country": {
+						"id": "Integer",
+						"name": "String",
+						"abbreviation": "String"
+					}
+				}
+			}
+		}
+	}
+]
+\end{lstlisting}
+
+\newpage
+
+\subsection*{Detalhes de um professor}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+GET /rest/teachers/{id}
+\end{lstlisting}
+
+\subsubsection*{Response}
+
+\begin{lstlisting}
+{
+	"id": "Integer",
+	"user": {
+		"id": "Integer",
+		"username": "String",
+		"firstname": "String",
+		"lastname": "String",
+		"email": "String",
+		"password": "String",
+		"isactive": "Boolean",
+		"lastlogin": "Date",
+		"datejoined": "Date"
+	},
+	"institution": {
+		"id": "Integer",
+		"name": "String",
+		"initial": "String",
+		"city": {
+			"id": "Integer",
+			"name": "String",
+			"state": {
+				"id": "Integer",
+				"name": "String",
+				"abbreviation": "String",
+				"country": {
+					"id": "Integer",
+					"name": "String",
+					"abbreviation": "String"
+				}
+			}
+		}
+	}
+}
+\end{lstlisting}
+
+\newpage
+
+\subsection*{Criar um novo professor}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+POST /rest/teachers
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+	"user": {
+		"id": "Integer"
+	},
+	"city": {
+		"id": "Integer"
+	}
+}
+\end{lstlisting}
+
+\subsubsection*{Response}
+
+\begin{lstlisting}
+{
+	"id": "Integer",
+	"user": {
+		"id": "Integer",
+		"username": "String",
+		"firstname": "String",
+		"lastname": "String",
+		"email": "String",
+		"password": "String",
+		"isactive": "Boolean",
+		"lastlogin": "Date",
+		"datejoined": "Date"
+	},
+	"institution": {
+		"id": "Integer",
+		"name": "String",
+		"initial": "String",
+		"city": {
+			"id": "Integer",
+			"name": "String",
+			"state": {
+				"id": "Integer",
+				"name": "String",
+				"abbreviation": "String",
+				"country": {
+					"id": "Integer",
+					"name": "String",
+					"abbreviation": "String"
+				}
+			}
+		}
+	}
+}
+\end{lstlisting}
+
+\newpage
+
+\subsection*{Atualizar um professor}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+PUT /rest/teachers
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+	"user": {
+		"id": "Integer"
+	},
+	"city": {
+		"id": "Integer"
+	}
+}
+\end{lstlisting}
+
+\subsubsection*{Response}
+
+\begin{lstlisting}
+{
+    "id": "Integer",
+    "user": {
+        "id": "Integer",
+        "username": "String",
+        "firstname": "String",
+        "lastname": "String",
+        "email": "String",
+        "password": "String",
+        "isactive": "Boolean",
+        "lastlogin": "Date",
+        "datejoined": "Date"
+    },
+    "institution": {
+        "id": "Integer",
+        "name": "String",
+        "initial": "String",
+        "city": {
+            "id": "Integer",
+            "name": "String",
+            "state": {
+                "id": "Integer",
+                "name": "String",
+                "abbreviation": "String",
+                "country": {
+                    "id": "Integer",
+                    "name": "String",
+                    "abbreviation": "String"
+                }
+            }
+        }
+    }
+}
+\end{lstlisting}
+
+\newpage
+
+\subsection*{Deletar um Professor}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+DELETE /rest/teachers/{id}
+\end{lstlisting}
+
+\section*{API de Estudantes}
+
+API de estudantes.
+
+\subsection*{Buscar todos os estudantes}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+GET /rest/students
+\end{lstlisting}
+
+\subsubsection*{Response}
+
+\begin{lstlisting}
+[
+    {
+        "id": "Integer",
+        "user": {
+            "id": "Integer",
+            "username": "String",
+            "firstname": "String",
+            "lastname": "String",
+            "email": "String",
+            "password": "String",
+            "isactive": "Boolean",
+            "lastlogin": "Date",
+            "datejoined": "Date"
+        },
+        "institution": {
+            "id": "Integer",
+            "name": "String",
+            "initial": "String",
+            "city": {
+                "id": "Integer",
+                "name": "String",
+                "state": {
+                    "id": "Integer",
+                    "name": "String",
+                    "abbreviation": "String",
+                    "country": {
+                        "id": "Integer",
+                        "name": "String",
+                        "abbreviation": "String"
+                    }
+                }
+            }
+        }
+    }
+]
+\end{lstlisting}
+
+\newpage
+
+\subsection*{Detalhes de um estudante}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+GET /rest/students/{id}
+\end{lstlisting}
+
+\subsubsection*{Response}
+
+\begin{lstlisting}
+{
+    "id": "Integer",
+    "user": {
+        "id": "Integer",
+        "username": "String",
+        "firstname": "String",
+        "lastname": "String",
+        "email": "String",
+        "password": "String",
+        "isactive": "Boolean",
+        "lastlogin": "Date",
+        "datejoined": "Date"
+    },
+    "institution": {
+        "id": "Integer",
+        "name": "String",
+        "initial": "String",
+        "city": {
+            "id": "Integer",
+            "name": "String",
+            "state": {
+                "id": "Integer",
+                "name": "String",
+                "abbreviation": "String",
+                "country": {
+                    "id": "Integer",
+                    "name": "String",
+                    "abbreviation": "String"
+                }
+            }
+        }
+    }
+}
+\end{lstlisting}
+
+\newpage
+
+\subsection*{Criar um novo estudante}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+POST /rest/students
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+    "user": {
+        "id": "Integer"
+    },
+    "city": {
+        "id": "Integer"
+    }
+}
+\end{lstlisting}
+
+\subsubsection*{Response}
+
+\begin{lstlisting}
+{
+    "id": "Integer",
+    "user": {
+        "id": "Integer",
+        "username": "String",
+        "firstname": "String",
+        "lastname": "String",
+        "email": "String",
+        "password": "String",
+        "isactive": "Boolean",
+        "lastlogin": "Date",
+        "datejoined": "Date"
+    },
+    "institution": {
+        "id": "Integer",
+        "name": "String",
+        "initial": "String",
+        "city": {
+            "id": "Integer",
+            "name": "String",
+            "state": {
+                "id": "Integer",
+                "name": "String",
+                "abbreviation": "String",
+                "country": {
+                    "id": "Integer",
+                    "name": "String",
+                    "abbreviation": "String"
+                }
+            }
+        }
+    }
+}
+\end{lstlisting}
+
+\newpage
+
+\subsection*{Atualizar um estudante}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+PUT /rest/students
+\end{lstlisting}
+
+\begin{lstlisting}
+{
+	"user": {
+		"id": "Integer"
+	},
+	"city": {
+		"id": "Integer"
+	}
+}
+\end{lstlisting}
+
+\subsubsection*{Response}
+
+\begin{lstlisting}
+{
+    "id": "Integer",
+    "user": {
+        "id": "Integer",
+        "username": "String",
+        "firstname": "String",
+        "lastname": "String",
+        "email": "String",
+        "password": "String",
+        "isactive": "Boolean",
+        "lastlogin": "Date",
+        "datejoined": "Date"
+    },
+    "institution": {
+        "id": "Integer",
+        "name": "String",
+        "initial": "String",
+        "city": {
+            "id": "Integer",
+            "name": "String",
+            "state": {
+                "id": "Integer",
+                "name": "String",
+                "abbreviation": "String",
+                "country": {
+                    "id": "Integer",
+                    "name": "String",
+                    "abbreviation": "String"
+                }
+            }
+        }
+    }
+}
+\end{lstlisting}
+
+\newpage
+
+\subsection*{Deletar um estudante}
+
+\subsubsection*{Request}
+
+\begin{lstlisting}
+DELETE /rest/students/{id}
+\end{lstlisting}
+
 \section*{API de Permissões de Usuários}
 
 API de permissões de usuários.
@@ -889,16 +1345,6 @@ POST /rest/userpermission/{user-id}
         }
     }
 ]
-\end{lstlisting}
-
-\newpage
-
-\begin{lstlisting}
-/teachers
-\end{lstlisting}
-
-\begin{lstlisting}
-/students
 \end{lstlisting}
 
 \newpage
