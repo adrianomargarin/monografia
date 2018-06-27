@@ -1,4 +1,4 @@
-\chapter*{Apêndice C - Migração Banco de dados}\label{SQL}
+\chapter*{Apêndice C - Migração Banco de dados}\label{SQLMigration}
 
 \textit{Script} de migraçao de dados.
 
@@ -31,9 +31,7 @@ sql = "INSERT INTO portaluser (id, username, firstname, lastname, email, isactiv
 sql += "VALUES ({}, '{}', '{}', '{}', '{}', {}, '{}')".format(row[0], row[1], row[2], row[3], row[4], row[5], row[6])
 cursor.execute(sql)
 connection.commit()
-\end{lstlisting}
 
-\begin{lstlisting}
 cursor.execute("SELECT setval('portaluser_id_seq', (SELECT MAX(id) FROM portaluser)+1);")
 connection.commit()
 cursor.execute("INSERT INTO country (id, name, abbreviation) VALUES (1, 'Brasil', 'BR')")
@@ -68,12 +66,12 @@ connection.commit()
 
 file_portal_probemas = open('portal_probemas.csv', 'r')
 for row in file_portal_probemas.readlines():
-row = row.split(';')
-
-sql = "INSERT INTO problem (id, name, description, tip, level, cost, problemtype_id) "
-sql += "VALUES ({}, {}, {})".format(row[0], row[1], row[2], row[3], row[4], row[5], 1)
-cursor.execute(sql)
-connection.commit()
+	row = row.split(';')
+	
+	sql = "INSERT INTO problem (id, name, description, tip, level, cost, problemtype_id) "
+	sql += "VALUES ({}, {}, {})".format(row[0], row[1], row[2], row[3], row[4], row[5], 1)
+	cursor.execute(sql)
+	connection.commit()
 
 cursor.execute("SELECT setval('problem_id_seq', (SELECT MAX(id) FROM problem)+1);")
 connection.commit()
@@ -133,5 +131,4 @@ connection.commit()
 
 cursor.close()
 connection.close()
-
 \end{lstlisting}
