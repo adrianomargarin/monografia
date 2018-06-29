@@ -1,6 +1,6 @@
 \chapter{Evolução de Software}\label{cpReferencial}
 
-Para manter um \textit{software} útil ele deve mudar continuamente. Essa mudança pode ser a partir de uma pressão constante de mudanças que os usuários impõem, para facilitar ou automatizar algumas tarefas do dia-a-dia.
+Para manter um \textit{software} útil para seu objetivo ele deve evoluir continuamente. Essa mudança pode ser a partir de uma pressão constante de mudanças que os usuários impõem, para facilitar e/ou automatizar algumas tarefas do dia-a-dia.
 
 Todos os \textit{softwares} passarão pelo processo de envelhecimento, isso é inevitável. Algumas causas de problemas podem ser previstas, minimizando os impactos dos danos causados. A continuidade de uso do \textit{software} implica que ocorram mudanças, que podem ocorrer em regras de negócio ou nas expectativas dos usuários \cite{Sommerville2011}.
 
@@ -118,31 +118,9 @@ Somente descrever os requisitos não é suficiente, é preciso entender o que está 
 
 Os requisitos de \textit{software} frequentemente são classificados em funcionais e não-funcionais.
 
-Requisitos funcionais são declarações de serviço que o sistema deve fornecer, de como fornecer, de como o sistema deve reagir a entradas específicas e de como o sistema deve se comportar em determinadas sistuações. Em alguns casos, os requisitos funcionais também podem explicitar o que o sistema não deve fazer \cite{Sommerville2011}.
+Os Requisitos funcionais são declarações de serviço que o sistema deve fornecer, de como fornecer, de como o sistema deve reagir a entradas específicas e de como o sistema deve se comportar em determinadas sistuações. Em alguns casos, os requisitos funcionais também podem explicitar o que o sistema não deve fazer \cite{Sommerville2011}.
 
-Requisitos não-funcionais são restrições aos serviços ou funções oferecidas pelo sistema. Incluem restrições de \textit{timing}, restrições no processo de desenvolvimento e restrições impostas pelas normas. Ao contrário das características individuais ou serviços do sistema, os requisitos não funcionais muitas vezes aplicam-se ao sistema como um todo \cite{Sommerville2011}.
-
-\section{Casos de Uso}
-
-Casos de uso tem por objetivo descrever os requisitos funcionais, delimitação do contexto do sistema documentado e entendimento dos requisitos, onde cada caso de uso deve descrever somente uma funcionalidade ou objetivo do sistema \cite{Sommerville2011} e \cite{Pressman2011}.
-
-Um conjunto de casos de uso representa todas as possíveis interações que são descritas nos requisitos de sistema. Os atores podem ser pessoas ou outros sistemas e são representados como figuras ``palitos" \ e cadas classe de interação é representada por uma elipse \cite{Sommerville2011}.
-
-Casos de uso possuem atores e cenários, onde os atores podem ser pessoas ou outros sistemas que interagem entre si, e os cenários são sequências específicas de ações. Em outros termos casos de uso é uma coleção de cenários relacionados ao sucesso ou fracasso \cite{Larman2007}.
-
-A Figura \ref{imgCasoUso} apresenta um exemplo de caso de uso de um consultório médico, onde podemos observar todos os atores envolvidos e suas respectivas ações.
-
-\FloatBarrier
-\begin{figure}[!htb]
-	\centering
-	\caption{Casos de uso}
-	\includegraphics[width=15cm]{imagens/caso-de-uso.png}
-	\label{imgCasoUso}
-	Fonte: \cite{Sommerville2011}
-\end{figure}
-\FloatBarrier
-
-A modelagem de caso de uso é um apoiador para a elicitação de requisitos, geralmente descreve o que o usuário espera do sistema. Cada caso de uso representa uma tarefa que envolve a interação externa com o sistema \cite{Sommerville2011}.
+Os Requisitos não-funcionais são restrições aos serviços ou funções oferecidas pelo sistema. Incluem restrições de \textit{timing}, restrições no processo de desenvolvimento e restrições impostas pelas normas. Ao contrário das características individuais ou serviços do sistema, os requisitos não funcionais muitas vezes aplicam-se ao sistema como um todo \cite{Sommerville2011}.
 
 \section{Metodologia ICONIX}
 
@@ -198,9 +176,7 @@ A Figura \ref{imgExSequencia} pode ser lida da seguinte maneira:
 
 Este é um diagrama que não existe na \textit{UML} e é geralmente um diagrama de colaboração adaptado e que faz uso dos estereótipos \textit{entity}, \textit{boundary} e \textit{control}. Ele é utilizado em processos como o ICONIX para passar da análise (o que) para o desenho (como). Esse é um diagrama que não é necessário ser mantido atualizado, uma vez que é utilizado apenas para a transição entre os \textit{softwares}. A análise de robustez consiste então em ler o texto do caso de uso e identificar de forma preliminar, o conjunto de objetos que irão participar do caso de uso.
 
-A Figura \ref{imgExRobustez} representa a interação entre o usuário e as interface de um sistema, bem como todas as interações entre as interfaces.
-
-Como podemos observar na Figura \ref{imgExRobustez}, o ator usuário clica no ``ícone de contatos" na tela principal, após o clique é exibido a tela de contatos, na sequência o ator clica em ``adicionar novo" no qual resulta na exibição da tela de novo contato, continuando a ação o ator preenche os campos selecionados e faz a ação de salvar contato na memória retornando assim para para tela de exibição de contatos.
+A Figura \ref{imgExRobustez} representa a interação entre o usuário e as interface de um sistema, bem como todas as interações entre as interfaces. Como podemos observar, o ator usuário clica no ``ícone de contatos" na tela principal, após o clique é exibido a tela de contatos, na sequência o ator clica em ``adicionar novo" no qual resulta na exibição da tela de novo contato, continuando a ação o ator preenche os campos selecionados e faz a ação de salvar contato na memória retornando assim para para tela de exibição de contatos.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -214,6 +190,26 @@ Como podemos observar na Figura \ref{imgExRobustez}, o ator usuário clica no ``í
 \FloatBarrier
 
 \subsection{Casos de Usos}
+
+Casos de uso tem por objetivo descrever os requisitos funcionais, delimitação do contexto do sistema documentado e entendimento dos requisitos, onde cada caso de uso deve descrever somente uma funcionalidade ou objetivo do sistema \cite{Sommerville2011} e \cite{Pressman2011}.
+
+Um conjunto de casos de uso representa todas as possíveis interações que são descritas nos requisitos de sistema. Os atores podem ser pessoas ou outros sistemas e são representados como figuras ``palitos" \ e cadas classe de interação é representada por uma elipse \cite{Sommerville2011}.
+
+Casos de uso possuem atores e cenários, onde os atores podem ser pessoas ou outros sistemas que interagem entre si, e os cenários são sequências específicas de ações. Em outros termos casos de uso é uma coleção de cenários relacionados ao sucesso ou fracasso \cite{Larman2007}.
+
+A Figura \ref{imgCasoUso} apresenta um exemplo de caso de uso de um consultório médico, onde podemos observar todos os atores envolvidos e suas respectivas ações.
+
+\FloatBarrier
+\begin{figure}[!htb]
+	\centering
+	\caption{Casos de uso}
+	\includegraphics[width=15cm]{imagens/caso-de-uso.png}
+	\label{imgCasoUso}
+	Fonte: \cite{Sommerville2011}
+\end{figure}
+\FloatBarrier
+
+A modelagem de caso de uso é um apoiador para a elicitação de requisitos, geralmente descreve o que o usuário espera do sistema. Cada caso de uso representa uma tarefa que envolve a interação externa com o sistema \cite{Sommerville2011}.
 
 Diagrama de casos de usos descrevem funcionalidades propostas para o novo sistema, fornecendo uma descrição clara e consistente do que o sistema deve fazer.
 
@@ -264,17 +260,11 @@ De acordo com \citet{Benyon2011}, um sistema com usabilidade terá as seguintes c
 	\item Terá um alto grau de utilidade no sentido de que fará as coisas que as pessoas querem que sejam feitas.
 \end{itemize}
 
-O portal de algoritmos atual apresenta algumas telas confusas, que podem ser observadas no Capítulo \ref{cpProposta} na Seção \ref{scPrototipos}. Esse trabalho pretende melhorá-las.
-
 Até aqui foram apresentadas as metodologias que serão utilizadas na evolução do aplicativo. Na seção seguinte serão apresentadas as tecnologias escolhidas para a evolução do gerenciamento do portal de algoritmos.
 
 \section{Tecnologias}
 
 Nesta seção serão descritas as tecnologias que vão ser utilizadas na evolução do portal de algoritmos, tais como a linguagem de programação \textit{Java}, \ac{REST} e \textit{AngularJS}. São tecnologias bem consolidades no mercado, com \textit{upgrade} garantido por tempo indeterminado, mantidas por empresas conhecidas e de grande porte.
-
-\subsection{Python e Django}
-
-O \textit{Python} é uma linguagem interpretada de alto nível, criada por Guido Van Rossum em 1989 e lançada em 1991 e atualmente possui o modelo de desenvolvimento comunitário \cite{Python2015}. Com o auxílio do \textit{framework Django}, criado originalmente para gerenciar conteúdos de um jornal da cidade de Lawrence, no Kansas, é possível definir a modelagem de dados através de classes \textit{Python} e gerar tabelas do banco de dados para manipulação sem a necessidade direta de \ac{SQL} \cite{Django2015}.
 
 \subsection{Java EE}
 
@@ -292,7 +282,7 @@ Os \textit{frameworks} que compõem o \ac{JAVA EE} são fortemente testados em div
 
 \subsection{DAO}
 
-\ac{DAO} é um padrão de projeto para trabalhar com fontes de dados, que podem ser um banco de dados relacional, banco de dados orientado a objetos, entre outros ... \cite{Deepak2004}.
+\ac{DAO} é um padrão de projeto para trabalhar com fontes de dados, que podem ser um banco de dados relacional, banco de dados orientado a objetos, entre outros. \cite{Deepak2004}.
 
 Com \ac{DAO} é possível adaptar a diferentes esquemas de armazenamento sem afetar outros componentes de negócio, basicamente o \ac{DAO} atua como um adaptador entre o componente de apresentação de dados e a fonte de dados \cite{Deepak2004}.
 
@@ -306,7 +296,7 @@ O \ac{REST} possui um conjunto de operações bem definidas, os mais importantes s
 
 \textit{AngularJS} foi criado por Misko Hevery e Adam Abrons em 2009, sendo seu código fonte aberto (\textit{Open Source}). Ele é um \textit{framework JavaScript} que é executado no navegador de internet do usuário, através do qual é possível aumentar sua produtividade no desenvolvimento \textit{WEB} \cite{Angular2014}.
 
-\textit{AngularJs} foi construído com a crença de que a programação declarativa é a melhor escolha para a construção de intefaces de usuários. Para isso, o \textit{AngularJs} aumenta o vocabulário do \ac{HTML} padrão, tornando mais versátil o desenvolvimento de sistemas \ac{WEB} \cite{Angular2014}.
+\textit{AngularJs} foi construído com a crença de que a programação declarativa é a melhor escolha para a construção de intefaces de usuários. Para isso, o \textit{AngularJs} aumenta o vocabulário do \ac{HTML} padrão, tornando mais versátil o desenvolvimento de sistemas \textit{WEB} \cite{Angular2014}.
 
 O resultado é o desenvolvimento reutilizável e aplicação sustentável de componentes, deixando para trás códigos desnecessários e mantendo a equipe focada no que é importante \cite{Angular2014}.
 
@@ -337,7 +327,7 @@ A Figura \ref{imgAngularJS} representa a interação entre os componentes do \text
 
 \section{Ambiente Virtual de Aprendizagem}
 
-\ac{AVA} é um aplicativo \ac{WEB} que possui um conjunto de elementos tecnológicos, onde são disponibilizadas ferramentas que permitem o acesso a um ou mais cursos ou disciplinas de uma instituição de ensino. De modo geral, um AVA refere-se ao uso de recurso digitais de comunicação, principalmente, através de softwares educacionais via internet que reúnem diversas ferramentas de interação \cite{Oliveira2004, Valentini2005}.
+\ac{AVA} é um aplicativo \textit{WEB} que possui um conjunto de elementos tecnológicos, onde são disponibilizadas ferramentas que permitem o acesso a um ou mais cursos ou disciplinas de uma instituição de ensino. De modo geral, um AVA refere-se ao uso de recurso digitais de comunicação, principalmente, através de softwares educacionais via internet que reúnem diversas ferramentas de interação \cite{Oliveira2004, Valentini2005}.
 
 O objetivo de um ambiente virtual de aprendizagem é de facilitar o acesso de alunos ao ensino, práticas de exercícios e livros online para consulta. Na Universidade de Caxias do Sul o \ac{AVA} já é utilizado desde meados de 2005, onde é possível acessar os materiais disponibilizados pelos professores em suas respectivas disciplinas, podendo também acompanhar o cronograma, entre outras funcionalidades \cite{Oliveira2004, Valentini2005}.
 

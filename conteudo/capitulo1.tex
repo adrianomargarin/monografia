@@ -1,6 +1,6 @@
 \chapter{Introdução}\label{cpIntroducao}
 
-No presente trabalho foi realizada a evolução do módulo de gerenciamento do portal de algoritmos da Universidade de Caxias do Sul. No ano de 2016 foi concluido pelo aluno Gabriel Weber um trabalho que evoluiu o analisador algorítmico \cite{Weber2015}.
+No presente trabalho foi realizada a evolução do módulo de gerenciamento do portal de algoritmos da Universidade de Caxias do Sul. No ano de 2016 foi concluido pelo aluno Gabriel Weber um trabalho que evoluiu o analisador algorítmico dos problemas apresentados em sala de aula \cite{Weber2015}.
 
 O portal de algoritmos, desenvolvido no ano de 2009 pelos professores Ricardo Vargas Dorneles e Delcino Picinin Junior, da Universidade de Caxias do Sul, tem por objetivo auxiliar no ensino da lógica de programação através da linguagem do português estruturado, também conhecida como portugol e é utilizado pelos alunos da Área de Conhecimento de Ciências Exatas e Engenharias e público em geral. Esse portal oferece ao aluno a possibilidade de exercitar sua lógica através de exercícios cadastrados pelos professores, utilizando a linguagem portugol em um editor específico. O aluno submete soluções de problemas a fim de validá-las e pode acompanhar seu desempenho através de um ranking de submissões de soluções corretas. O portal possui uma seção de gerenciamento que somente administradores podem acessar. Nessa administração há a possibilidade de acompanhar a evolução dos alunos, suas submissões de soluções, visualização e edição de usuário, de problemas, de dados de testes e palavras-chave \cite{Dorneles2004}.
 
@@ -12,11 +12,9 @@ No módulo de administração é possível manter todas as informações dos usuários, 
 
 Devido à constante evolução tecnológica, o portal de algoritmos ficou defasado, com problemas de compatibilidade com os navegadores atuais e pouca ou nenhuma segurança. Funcionalidades limitadas no seu gerenciamento também foram apontadas pelos usuários como alvo de melhorias.
 
-As tecnologias utilizadas no desenvolvimento do portal atual, \textit{Python } versão 2.6, \textit{Django} versão 1.2, \textit{Plugins} \ac{NPAPI} (\textit{Java Applet}), estão desatualizadas e/ou foram descontinuadas. No caso da tecnologia \ac{NPAPI}, esta foi totalmente desativada \cite{Python2015, Django2015, NPAPI2015}.
+As tecnologias utilizadas no desenvolvimento do portal atual, \textit{Python} versão 2.6, \textit{Django} versão 1.2, \textit{Plugins} \ac{NPAPI} (\textit{Java Applet}), estão desatualizadas e/ou foram descontinuadas. No caso da tecnologia \ac{NPAPI}, esta foi totalmente desativada \cite{Python2015, Django2015, NPAPI2015}.
 
-Um dos problemas citados acima são as versões do \textit{Python} e \textit{Django}, que estão em versões desatualizadas e sem suporte técnico por seus desenvolvedores.
-
-O editor de soluções do portal atual foi programado como sendo um \textit{Applet Java}. \textit{Applets} executam nos navegadores, utilizando a tecnologia de plugins \textit{NPAPI} \cite{NPAPI2015}. \textit{Plugins} \ac{NPAPI} deixaram de ser suportados pelos navegadores atuais, pelo fato de causarem riscos de segurança para quem esteja utilizando. Desde o dia 1° de Setembro de 2015, o navegador \textit{Google Chrome} deixou de suportar todas as tecnologias que utilizam \ac{NPAPI}, como \textit{Flash}, \textit{Java}, entre outros. Mesmo eles não sendo mais suportados nativamente, é possível ativar isso no navegador, mas isso pode causar vunerabilidades para quem deseja fazer isto \cite{NPAPI2015}.
+Um dos problemas citados acima são as versões do \textit{Python} e \textit{Django}, que estão em versões desatualizadas e sem suporte técnico por seus desenvolvedores. Outro problema é o editor de soluções do portal atual foi programado como sendo um \textit{Applet Java}. \textit{Applets} executam nos navegadores, utilizando a tecnologia de plugins \textit{NPAPI} \cite{NPAPI2015}. \textit{Plugins} \ac{NPAPI} deixaram de ser suportados pelos navegadores atuais, pelo fato de causarem riscos de segurança para quem esteja utilizando. Desde o dia 1° de Setembro de 2015, o navegador \textit{Google Chrome} deixou de suportar todas as tecnologias que utilizam \ac{NPAPI}, como \textit{Flash}, \textit{Java}, entre outros. Mesmo eles não sendo mais suportados nativamente, é possível ativar isso no navegador, mas isso pode causar vunerabilidades para quem deseja fazer isto \cite{NPAPI2015}.
 
 Para resolver os problems citados acima, este trabalho visa realizar a engenharia reversa do aplicativo, da modelagem de banco de dados atual, reengenharia de \textit{software} e evolução de \textit{software} através de técnicas de engenharia de \textit{software} e desenvolvimento.
 
@@ -29,8 +27,6 @@ Com \textit{Python} e \textit{Django} foram desenvolvidas todos os modelos de cl
 Será realizada a diagramação das classes atuais utilizando-se da notação \ac{UML}. Serão utilizados diagramas de classes de domínio, que representarão essas classes, interfaces e suas associações, para que depois sejam usadas no desenvolvimento de um modelo de sistema orientado a objetos \cite{Pressman2011, Sommerville2011}.
 
 Através da engenharia de \textit{software} será produzido um novo portal de algoritmos, desde os estágios inicias da especificação do sistema até sua implementação e instalação. Com o uso de engenharia de \textit{software} espera-se obter resultados de qualidade e requeridos dentro do cronograma \cite{Sommerville2011}.
-
-Para atingir o objetivo proposto, o trabalho está organizado da seguinte forma:
 
 No Capítulo \ref{cpReferencial} são apresentados todos os conceitos metodológicos da engenharia de \textit{software}, quais tecnologias que serão utilizadas e suas funções no contexto do trabalho.
 

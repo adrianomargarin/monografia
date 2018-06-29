@@ -1,12 +1,9 @@
 \chapter{Avaliação do Software do Portal de Algoritmos da UCS}\label{cpReengenhariaSoftware}
 
-Nesse capítulo é descrita a situação atual do sistema, sua modelagem e arquitetura.
 
-Atualmente existe um aplicativo \textit{Desktop} do Portal de Algoritmos que serve de interface gráfica para os alunos da \ac{UCS}, esse aplicativo foi desenvolvido para suprir a necessidade de uma atualização rápida para os alunos, pois \textit{Java Applets} não está sendo suportado pelos navegadores atuais. Ele faz a comunicação com o \textit{software} antigo via \textit{Web Service}.
+Atualmente existe um aplicativo \textit{Desktop} do Portal de Algoritmos que serve de interface gráfica para os alunos da \ac{UCS}. Esse aplicativo foi desenvolvido para suprir a necessidade de uma atualização rápida para os alunos, pois \textit{Java Applets} não está sendo suportado pelos navegadores atuais. Ele faz a comunicação com o \textit{software} antigo via \textit{Web Service}.
 
 \section{Diagrama de Classe de Domínio}
-
-O diagrama de classe de domínio é a representação visual de classes conceituais, ou objetos do mundo real. Também é chamado de modelo conceitual, que significa uma representação de classes conceitos do mundo real, não de objetos de \textit{software} \cite{Larman2007}.
 
 Durante a tradução do código fonte dos modelos de classes do \textit{Django}, foi constatada nenhuma padronização em nomes de váriaveis e classes. Abaixo algumas considerações:
 
@@ -49,7 +46,7 @@ Nesta seção foram descritas as classes de domínios do portal de algoritmos, a se
 
 \section{Interfaces Gráficas}
 
-Nessa seção são descritas as interfaces gráficas atuais do software, bem como os problemas encontrados nelas.
+Nessa seção são descritas as interfaces gráficas do software antigo, bem como os problemas encontrados nelas.
 
 \subsection{Cadastro de Aluno}
 
@@ -210,9 +207,6 @@ Problemas encontrados:
 		\item Não é possível editar a solução do problema.
 	\end{itemize}
 \end{itemize}
-
-
-Os problemas encontrados no \textit{software} atual prejudicam a usabilidade do mesmo. Atualmente ele está limitado a apenas um navegador de internet, no caso o \textit{Internet Explorer}.
 
 Para solucionar e deixá-lo mais usável, fazendo com que mais alunos sejam beneficiados pelo portal, bem como facilitando o uso por parte dos professores,  no próximo capítulo será descrita toda a modelagem, novas interfaces e novas funcionalidades, utilizando-se de tecnologias mais atuais.
 
