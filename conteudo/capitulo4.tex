@@ -2,33 +2,39 @@
 
 O presente trabalho tem por objetivo realizar a evolução do gerenciamento do portal de algoritmos. Para tanto, foi realizada a engenharia reversa do \textit{software} atual, através da análise do código fonte, suas funcionalidades, sua arquitetura e seu banco de dados.
 
-Para descrever a evolução de \textit{software}, nas seções seguintes serão apresentados conceitos e artefatos da engenharia de \textit{software}. Utilizando-se de artefatos da metodologia ICONIX será modelado o \textit{software}.
+Para descrever a evolução de \textit{software}, nas seções seguintes serão apresentados conceitos e artefatos da engenharia de \textit{software}. O \textit{software} será modelado utilizando-se de artefatos da metodologia ICONIX será modelado o \textit{software}.
 
 A solução proposta será desenvolvida na linguagem de programação Java, a fim de unificar as tecnologias do gerenciamento do portal de algoritmos com seu analisador algorítmico.
 
 O \textit{software} será construído com uma arquitetura orientada a serviços, cujo objetivo é que ele seja disponibilizado em interfaces, ou seja, seja acessível através de \ac{REST}.
 
-Na evolução do \textit{software} serão mantidas as funcionalidades atuais e adicionadas novas funcionalidas:
+Na evolução do \textit{software} serão mantidas as funcionalidades atuais e adicionadas novas funcionalidades.
+
+Funcionalidades que serão mantidas são:
 
 \begin{itemize}
-	\item Manter Administradores.
-	\item Manter Grupos de Administradores.
-	\item Manter Usuários, Alunos e Professores.
-	\item Manter Grupos de Alunos.
-	\item Manter Instituições.
+	\item Manter Usuários.
 	\item Manter Permissões.
-	\item Manter Países, Estados e Cidades.
 	\item Manter Tipos de Problemas.
 	\item Manter Problemas.
 	\item Manter Entradas e Saídas
 	\item Manter Palavras-chave
-	\item Manter Listas de Problemas
 	\item Manter Soluções de Problemas
+\end{itemize}
+
+Novas funcionalidades:
+
+\begin{itemize}
+	\item Manter Grupos de Administradores.
+	\item Manter Alunos e Professores.
+	\item Manter Grupos de Alunos.
+	\item Manter Instituições.
+	\item Manter Países, Estados e Cidades.
 \end{itemize}
 
 \section{Diagrama de Classe de Domínio}
 
-A Figura \ref{imgDiagramaNovo} representa o diagrama de classe de domínio proposto para a evolução do portal de algoritmos novo. Nesse novo diagrama foram melhoradas as descrições dos campos, descrevendo-os em inglês.
+A Figura \ref{imgDiagramaNovo} representa o diagrama de classe de domínio proposto para a evolução do portal de algoritmos. Nesse novo diagrama foram melhoradas as descrições dos campos, descrevendo-os em inglês.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -52,9 +58,7 @@ A Tabela \ref{tbDescricaoTabelaPortalNovo} mostra as tabelas do banco de dados e
 \end{table}
 \FloatBarrier
 
-Ao realizar a modelagem do diagrama de classes de domínios do novo portal de algoritmos, foram padronizados nomes das tabelas e colunas, de uma forma a ser mais descritivos.
-
-Na seção seguinte são descritos os requisitos de projeto que são os requisitos funcionais e não-funcionais.
+Ao realizar a modelagem do diagrama de classes de domínios do novo portal de algoritmos, foram padronizados nomes das tabelas e colunas, de uma forma a ser mais descritivos. Na seção seguinte são descritos os requisitos funcionais e não-funcionais do projeto.
 
 \section{Requisitos de projeto}
 
@@ -136,7 +140,7 @@ Na Figura \ref{imgCasoUsoAluno} estão representados os casos de uso em que o ato
 \end{figure}
 \FloatBarrier
 
-A seguir são apresentados detalhadamente cada um dos caso de uso apresentados nas figuras \ref{imgCasoUsoAdministrador}, \ref{imgCasoUsoProfessor} e \ref{imgCasoUsoAluno}. Serão apresentados os fluxos de execução principais e alternativos de cada caso de uso.
+A seguir são apresentados detalhadamente cada um dos caso de uso apresentados nas Figuras \ref{imgCasoUsoAdministrador}, \ref{imgCasoUsoProfessor} e \ref{imgCasoUsoAluno}. Serão apresentados os fluxos de execução principais e alternativos de cada caso de uso.
 
 \newpage
 
@@ -146,7 +150,7 @@ Nesta seção são descritos os casos de uso levantados a partir dos requisitos fun
 
 \subsubsection{Manter Usuários}
 
-A Tabela \ref{imgManterUsuarios} descreve o caso de uso de manter o cadastro, edição e remoção das informações dos usuários. Esse caso de uso possui um único ator, o ``Administrador" e a pré-condição é ser um administrador do sistema.
+A Tabela \ref{imgManterUsuarios} descreve o caso de uso de manter o cadastro, edição e remoção das informações dos usuários. Esse caso de uso possui um único ator, o "Administrador" e a pré-condição é ser um administrador do sistema.
 
 \FloatBarrier
 \begin{table}[!htb]
@@ -537,15 +541,25 @@ Essa interface gráfica possui as seguintes ações:
 
 \begin{itemize}
 	\item Pesquisa livre.
-		\subitem O administrador pode realizar a filtragem por qualquer palavra.
+	\begin{itemize}
+		\item O administrador pode realizar a filtragem por qualquer palavra.
+	\end{itemize}
 	\item Novo Tipo de Problema.
-		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkNovoTipoProblema}.
+	\begin{itemize}
+		\item Selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkNovoTipoProblema}.
+	\end{itemize}
 	\item Novo Problema.
-		\subitem Selecionando essa ação, o adminsitrador é direcionado para a interface gráfica da Figura \ref{mkNovoProblema}.
+	\begin{itemize}
+		\item Selecionando essa ação, o adminsitrador é direcionado para a interface gráfica da Figura \ref{mkNovoProblema}.
+	\end{itemize}
 	\item Editar Problema.
-		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkNovoProblema}.
+	\begin{itemize}
+		\item Selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkNovoProblema}.
+	\end{itemize}
 	\item Remover Problema.
-		\subitem Selecionando essa ação, o administrador remove o problema.
+	\begin{itemize}
+		\item Selecionando essa ação, o administrador remove o problema.
+	\end{itemize}
 \end{itemize}
 
 \newpage
@@ -586,16 +600,20 @@ A interface está dividida em três abas, Problema, Palavras Chave e Dados de Test
 
 \begin{itemize}
 	\item Problema.
-		\subitem O cadastro ou edição do problema consiste em preencher os campos, ``Tipo de Problema", ``Nome do Problema", ``Dica" \ e ``Nível", o ``Custo" \ é correspondente ao menor custo de alguma solução daquele problema.
+	\begin{itemize}
+		\item O cadastro ou edição do problema consiste em preencher os campos, ``Tipo de Problema", ``Nome do Problema", ``Dica" \ e ``Nível", o ``Custo" \ é correspondente ao menor custo de alguma solução daquele problema.
+	\end{itemize}
 	\item Palavras Chaves.
-		\subitem O cadastro de palavras-chave é descrito na Seção \ref{scPalavraChave}
+	\begin{itemize}
+		\item O cadastro de palavras-chave é descrito na Seção \ref{scPalavraChave}
+	\end{itemize}
 	\item Dados de Testes.
-		\subitem O cadastro de dados de testes é descrito na Seção \ref{scDadosTestes}
+	\begin{itemize}
+		\item O cadastro de dados de testes é descrito na Seção \ref{scDadosTestes}
+	\end{itemize}
 \end{itemize}
 
 Toda a ação nessa interface deve ser gravada ao clicar no botão ``Salvar".
-
-\newpage
 
 \subsection{Palavras-chave}\label{scPalavraChave}
 
@@ -651,7 +669,7 @@ A Figura \ref{mkVisualizacaoSolucao1} é a interface gráfica de visualização de u
 
 \subsection{Lista de Grupos}
 
-A Figura \ref{mkListaGrupos} é a interface gráfica de listagem dos grupos ja cadastrados. Essa listagem corresponde a todos os grupos, caso seja um administrador com total acesso, ou apenas aos grupos cadastrados por um professor, sendo que o professor somente terá na listagem os grupos que ele cadastrou.
+A Figura \ref{mkListaGrupos} é a interface gráfica de listagem dos grupos já cadastrados. Essa listagem corresponde a todos os grupos, caso seja um administrador com total acesso, ou apenas aos grupos cadastrados por um professor, sendo que o professor somente terá na listagem os grupos que ele cadastrou.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -667,13 +685,21 @@ Nessa interface gráfica possuímos as seguintes ações:
 
 \begin{itemize}
 	\item Pesquisa Livre.
-		\subitem O administrador pode realizar a pesquisa por qualquer palavra.
+	\begin{itemize}
+		\item O administrador pode realizar a pesquisa por qualquer palavra.
+	\end{itemize}
 	\item Novo Grupo.
-		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroGrupo}
+	\begin{itemize}
+		\item Selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroGrupo}
+	\end{itemize}
 	\item Editar Grupo.
-		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroGrupo}
+	\begin{itemize}
+		\item Selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroGrupo}
+	\end{itemize}
 	\item Remover Grupo.
-		\subitem Selecionando essa ação, o administrador remove somente o grupo, sendo assim, não remove problemas, soluções e/ou usuários.
+	\begin{itemize}
+		\item Selecionando essa ação, o administrador remove somente o grupo, sendo assim, não remove problemas, soluções e/ou usuários.
+	\end{itemize}
 \end{itemize}
 
 \newpage
@@ -696,11 +722,9 @@ A interface gráfica está dividida em três abas, Grupo, Participantes, Lista de P
 
 \begin{itemize}
 	\item Grupo.
-		\subitem Para o cadastro de um novo grupo, basta preencher os campos, Nome e Descrição.
-	\item Participantes.
-		\subitem O cadastro de participantes é descrito na Figura \ref{mkParticipantes}
-	\item Lista de Problemas.
-		\subitem O cadastro de lista de problemas é descrito na Figura \ref{mkGrupoListaProblemas}
+	\begin{itemize}
+		\item Para o cadastro de um novo grupo, basta preencher os campos, Nome e Descrição.
+	\end{itemize}
 \end{itemize}
 
 \newpage
@@ -974,13 +998,21 @@ Nessa interface gráfica temos as seguintes ações:
 
 \begin{itemize}
 	\item Pesquisa Livre.
-		\subitem O administrador pode realizar a pesquisa por qualquer palavra.
+	\begin{itemize}
+		\item O administrador pode realizar a pesquisa por qualquer palavra.
+	\end{itemize}
 	\item Nova Permissões.
-		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroPermissao}.
+	\begin{itemize}
+		\item Selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroPermissao}.
+	\end{itemize}
 	\item Editar Permissões.
-		\subitem Selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroPermissao}.
+	\begin{itemize}
+		\item Selecionando essa ação, o administrador é direcionado para a interface gráfica da Figura \ref{mkCadastroPermissao}.
+	\end{itemize}
 	\item Remover Permissões.
-		\subitem Selecionando essa ação, o administrador remove uma Permissão.
+	\begin{itemize}
+		\item Selecionando essa ação, o administrador remove uma Permissão.
+	\end{itemize}
 \end{itemize}
 
 \newpage
