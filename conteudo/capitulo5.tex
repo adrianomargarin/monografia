@@ -1,25 +1,25 @@
-\chapter{Segurança}\label{seguranca}
+\chapter*{Apêndice A - Segurança}\label{seguranca}
 
-O Portal de Algoritmos antigo estava suscetível a algumas falhas de segurança. Embora não se tenha notícia delas terem sidos exploradas, foi preocupação desse trabalho sanar tais possibildades. Dentre as falhas possíveis, cita-se:
+O Portal de Algoritmos antigo estava suscetível a algumas falhas de segurança. Embora não se tenha notícia delas terem sidos exploradas, foi preocupação desse trabalho sanar tais possibildades. Dentre as falhas possíveis, cita-se as seções a seguir:
 
-\section{Ataque Man in the Middle}
+\section*{Ataque Man in the Middle}
 
 O ataque \textit{man-in-the middle} intercepta uma comunicação entre dois sistemas. Por exemplo, em uma transação \ac{HTTP}, o destino é a conexão \ac{TCP} entre cliente e servidor. Usando técnicas diferentes, o invasor divide a conexão \ac{TCP} original em duas novas conexões, uma entre o cliente e o invasor e a outra entre o invasor e o servidor. Quando a conexão \ac{TCP} é interceptada, o invasor age como um \textit{proxy}, sendo capaz de ler, inserir e modificar os dados na comunicação interceptada.\cite{OwaspMainInTheMiddle}
 
-\section{Ataque SQL Injection}
+\section*{Ataque SQL Injection}
 
 Um ataque de injeção SQL consiste em inserção ou "injeção" de uma consulta SQL por meio dos dados de entrada do cliente para o aplicativo. Uma exploração de injeção SQL bem-sucedida pode ler dados confidenciais do banco de dados, modificar dados do banco de dados dentre eles, inserir, atualizar e excluir. Os ataques de injeção de SQL são um tipo de ataque de injeção , no qual os comandos SQL são injetados na entrada do plano de dados para efetuar a execução de comandos SQL predefinidos.\cite{OwaspSQLInjection}
 
-\section{Uso de HTTPS sem Certificado de Segurança Válido}
+\section*{Uso de HTTPS sem Certificado de Segurança Válido}
 
 O \ac{HTTPS} tecnicamente falando é \ac{HTTP} sobre \ac{SSL}, ele codifica e decodifica solicitações de páginas de usuários. É importante saber que ele protege contra ataques no site.
 
 Para adicionar essa camada de segurança foi estudado o \textit{Let's Encrypt}, ele é uma autoridade certificadora livre, autorizada e aberta. Eles fornecem certificados válidos gratuitamente.\cite{LetsEncrypt}
 
-\section{Sugestão de instalação}
+\section*{Sugestão de instalação}
 
 No mercado existem diversas autoridades certificadoras que fornecem certificados digitais para fornecer segurança e criptografia de dados nos sistemas online.
 
-Bem como existem certificados pagos, exitem também certificados gratuitos. E para esse trabalho sugerimos utilizar a \textit{Let's Encrypt}, uma autoridade certiticadora que fornece certificados gratuitos com validade de 3 meses, mas que podem seer auto-renovados diretamente no servidor da aplicação.
+Bem como existem certificados pagos, exitem também certificados gratuitos. E para esse trabalho sugerimos utilizar a \textit{Let's Encrypt}, uma autoridade certiticadora que fornece certificados gratuitos com validade de 3 meses, mas que podem ser auto-renovados diretamente no servidor da aplicação.
 
 O ataque do tipo de \ac{SQL} \textit{Injection} foi mitigado pela reprogramação utilizando serviços \ac{REST} e padrão \ac{DAO}, o que  isolou o usuário final da camada de persistência.
